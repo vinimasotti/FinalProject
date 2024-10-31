@@ -1,0 +1,29 @@
+<% content_for :title, "New Post" %>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-body bg-light"> <!-- Added bg-light for gray background -->
+          <h1 class="card-title text-center">New Post</h1>
+          <hr>
+          <%= render "form", post: @post %>
+        </div>
+      </div>
+      
+      <div class="text-center mt-3">
+        <%= link_to "Back to posts", posts_path, class: "btn btn-secondary" %>
+     
+
+      </div>
+
+      <div class="text-center mt-3">
+ 
+      <%= link_to "New Song", new_song_path, class: "btn btn-danger" %>
+
+    </div>
+    
+      
+    </div>
+  </div>
+</div>
