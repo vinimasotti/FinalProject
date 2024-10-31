@@ -18,7 +18,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 20px">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
       
@@ -32,15 +32,28 @@
         <li class="nav-item">
           <%= link_to "New Song", new_song_path, class: "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+        </li>
+     
+        <% if user_signed_in? %>
+        <li class="nav-item">
+        <%= link_to "Sign out", destroy_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+        <%= link_to "Edit Account", edit_user_password_path, class: "nav-link" %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+        <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+        <% end %>
+      </li>
      
 
         
         
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+     
     </div>
   </nav>
 
