@@ -9,6 +9,15 @@
     <%= post.errors.full_messages_for(:title).join(" ,") %>
   </div>
   <% end %>
+  
+  <div>
+  <div>
+
+    
+    <%= form.text_field :user_id, type: "hidden", value: current_user.id %>
+   
+  </div>
+
   <div>
     <% invalid = post.errors.include?(:description) %>
     <%= form.label :description, style: "display: block" %>
@@ -16,8 +25,9 @@
      <% if invalid %>
     <p style="color:red">
     <%= post.errors.full_messages_for(:description).join(" ,") %>
-  </div>
+ 
   <% end %>
+   </div>
   <div>
       <% invalid = post.errors.include?(:keywords) %>
     <%= form.label :keywords, style: "display: block" %>

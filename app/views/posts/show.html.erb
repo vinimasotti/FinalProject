@@ -1,10 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @post %>
-
+<%= link_to "Back to posts", posts_path, class: "btn btn-secondary"  %>
+<% if user_signed_in? %>
+<% if current_user.id == @post.user.id %>
 <div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
+  <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-primary"  %>  
+  
 
-  <%= button_to "Destroy this post", @post, method: :delete %>
+   <p> <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-danger" %> </p>
 </div>
+<% end %>
+<% end %>
+<%= render "comments/form", comment: @comment %>
+  <% @post.comments.each do |comment| %>
+    <%= comment.text %>
+    <br>
+  <% end %>
