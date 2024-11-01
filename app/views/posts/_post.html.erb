@@ -3,15 +3,17 @@
     <p class="post-title"><%= post.title %></p>
     <p class="post-description"><%= post.description %></p>
     <p class="post-keywords"><%= post.keywords %></p>
-    
     <p><%#= post.user.email %></p>
+
+    <%= link_to "View Post", post, class: "post-link" %>
 
     <% post.images.each do |image| %>
       <div class="image-container">
-        <%= image_tag(image, class: "post-image", style: "object-fit: contain; width: 700px; height: 700px;") %>
+        <%= image_tag(image, class: "post-image", style: "object-fit: contain; width: 400px; height: 400px;") %>
       </div>
     <% end %>
-
-    <%= link_to "", post, class: "post-link" %>
+    
+      Posted by: <%= link_to post.user.email, post.user if post.user.present? %>
   </div>
 </div>
+

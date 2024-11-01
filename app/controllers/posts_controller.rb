@@ -3,8 +3,6 @@ class PostsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
 
-  
-
   # GET /posts or /posts.json
   def index
     @posts = Post.all
@@ -14,8 +12,6 @@ class PostsController < ApplicationController
   def show
     @comment = @post.comments.build
   end
-
-  
 
   def myposts
     @posts = Post.all
