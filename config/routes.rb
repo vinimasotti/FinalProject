@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  get "profiles/index"
+  resources :likes, only: [:create, :destroy]
   resources :comments
+
+  get "likes/create"
+  get "likes/destroy"
+  get "likes/like_params"
 
   devise_scope :user do
     get '/users', to: 'devise/registrations#new'
@@ -12,21 +18,21 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :users, only: [:show]
-  
+
+  post 'user/:id/follow', to: "users#follow", as: :follow
+  post 'user/:id/unfollow', to: "users#unfollow", as: :unfollow
+  post 'user/:id/accept', to: "users#accept", as: :accept
+  post 'user/:id/decline', to: "users#decline", as: :decline
+  post 'user/:id/cancel', to: "users#cancel", as: :cancel
+
   get "home/about"
   get "posts/myposts"
   resources :posts
   resources :songs
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
-
-  # Render dynamic PWA files from app/views/pwa/*
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  # Defines the root path route ("/")
-   root "home#about"
+  root "home#about"
 end

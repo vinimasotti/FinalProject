@@ -1,7 +1,31 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Posts" %>
 
+
+<% content_for :title, "Posts" %>
+<% if user_signed_in? %>
+
+<% if current_user.admin? %>
+  YOU ARE THE ADMIN
+<% end %>
+
+  <% current_user.follow_requests.each do |request| %>
+    <%= request.followerable.email %> Want to follow you %>
+    <%= button_to "Accept", accept_path(request.followerable) %>
+    <%= button_to "Decline", decline_path(request.followerable) %>
+      <% end %>
+  <h4>Followers</h4> 
+      <% current_user.followers.each do |follower| %>
+        <%= link_to follower.email, follower %>
+        <% end %>
+        <br>
+  <h4>   Followwing</h4> 
+        <% current_user.followers.each do |following| %>
+          <%= link_to following.email, following %>
+          <% end %>
+          <% end %>
+
+    
 <h1>Posts</h1>
 
 <div id="posts">

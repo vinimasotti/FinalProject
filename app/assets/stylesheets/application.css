@@ -1,3 +1,5 @@
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,3 +15,126 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Global Styles */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f9;
+    padding: 20px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  a:hover {
+    color: #0056b3;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: #fff;
+  }
+  
+  .navbar a {
+    color: #fff;
+    margin-right: 15px;
+  }
+  
+  .navbar a:hover {
+    color: #ccc;
+  }
+  
+  /* Button Styles */
+  button,
+  .btn-primary {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+  
+  button:hover,
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Form Styles */
+  form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-field {
+    padding: 8px;
+    font-size: 14px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  form .btn-primary {
+    margin-left: 8px;
+  }
+  
+  /* Post Container */
+  .post {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .post-description {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .post-keywords {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  /* Image Styling */
+  .image-container {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .post-image {
+    border-radius: 4px;
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    object-fit: contain;
+  }
+  
+  /* Centered Content */
+  .text-center {
+    text-align: center;
+  }

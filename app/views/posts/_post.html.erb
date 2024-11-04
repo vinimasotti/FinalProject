@@ -1,4 +1,4 @@
-<div id="<%= dom_id post %>" class="post">
+<div id="<%= dom_id(post) %>" class="post">
   <div class="post-content">
     <p class="post-title"><%= post.title %></p>
     <p class="post-description"><%= post.description %></p>
@@ -7,13 +7,17 @@
 
     <%= link_to "View Post", post, class: "post-link" %>
 
+    <%= button_to "like", likes_path, params: { like: { post_id: post.id } }, method: :post %>
+    <p><%= post.likes.count %> Likes</p>
+
     <% post.images.each do |image| %>
       <div class="image-container">
         <%= image_tag(image, class: "post-image", style: "object-fit: contain; width: 400px; height: 400px;") %>
       </div>
     <% end %>
-    
-      Posted by: <%= link_to post.user.email, post.user if post.user.present? %>
   </div>
 </div>
 
+Posted by: <%= link_to post.user.email, post.user if post.user.present? %>
+<br>
+<br>
