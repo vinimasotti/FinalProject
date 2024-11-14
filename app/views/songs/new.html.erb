@@ -1,89 +1,17 @@
 <h1><center>Upload a New Song</center></h1>
 
-<style>
-  /* Center and style the form container */
-  form {
-    max-width: 500px;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-  }
-
-  /* Style each form field container */
-  form div {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Label styling */
-  form label {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #333;
-  }
-
-  /* Text and file input styling */
-  form input[type="text"],
-  form input[type="file"] {
-    padding: 0.6rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  /* Submit button styling */
-  form input[type="submit"] {
-    padding: 0.8rem;
-    font-size: 1.1rem;
-    color: #fff;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  form input[type="submit"]:hover {
-    background-color: #45a049;
-  }
-
-  /* Responsive adjustments for smaller screens */
-  @media (max-width: 600px) {
-    form {
-      padding: 1rem;
-    }
-
-    /* Adjust input field padding and font size */
-    form input[type="text"],
-    form input[type="file"] {
-      padding: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    /* Adjust submit button styling */
-    form input[type="submit"] {
-      padding: 0.7rem;
-      font-size: 1rem;
-    }
-  }
-</style>
-
 <%= form_with model: @song, local: true do |form| %>
-  <div>
+  
     <%= form.label :title %>
     <%= form.text_field :title %>
-  </div>
-
-  <div>
+  
+<br>
+ 
     <%= form.label :audio_file %>
     <%= form.file_field :audio_file %>
-  </div>
+  
 
-  <div>
+  
     <%= form.submit "Upload Song" %>
-  </div>
+  
 <% end %>

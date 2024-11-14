@@ -1,0 +1,14 @@
+<h1>Songs </h1>
+
+
+  <% @song.each do |song| %>
+    <%= render partial: 'song' %>
+
+    <audio controls>
+  <source src="/path/to/sample.mp3" type="audio/mpeg">
+    </audio>
+  <br>
+  <% end %>
+
+
+<%= link_to "New song", new_song_path %>

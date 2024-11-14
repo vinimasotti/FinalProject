@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   get "home/about"
   get "posts/myposts"
+  
   resources :posts
   resources :songs
 

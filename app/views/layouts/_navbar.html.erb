@@ -39,6 +39,9 @@
           <%= link_to "New Song", new_song_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
+          <%= link_to "Songs", songs_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
         </li>
      
@@ -46,9 +49,11 @@
         <li class="nav-item">
         <%= link_to "My Profile", current_user, class: "nav-link" %>
         </li>
+        
         <% if current_user.avatar.attached? %>
         <%= image_tag current_user.avatar, style: "width: 50px; height: 50px;" %>
         <% end %>
+
         <li class="nav-item">
         <%= link_to "Sign out", destroy_user_session_path, class: "nav-link" %>
         </li>

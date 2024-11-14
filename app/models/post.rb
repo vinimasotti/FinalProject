@@ -4,11 +4,13 @@ class Post < ApplicationRecord
     validates :description, presence: true, length: { minimum: 5, maximum: 500 }
     validates :keywords, presence: true, length: { minimum: 3, maximum: 100 }
 
+    has_one_attached :audio_file
     has_many_attached :images
 
     belongs_to :user
     has_many :comments
     has_many :likes
+  
 
     before_create :randomize_id
          private
