@@ -9,6 +9,7 @@ class SongsController < ApplicationController
 
     def show
       @song = Song.find(params[:id])
+      
     end
 
     def destroy
@@ -20,8 +21,7 @@ class SongsController < ApplicationController
       if @song.save
         redirect_to @song, notice: "Song was successfully uploaded."
       else
-        flash.now[:alert] = "Error uploading the song. Please check the form and try again."
-        render :new
+        render :new, alert: "Error uploading the song."
       end
     end
   
