@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @post %>
+ 
 <%= link_to "Back to posts", posts_path, class: "btn btn-secondary"  %>
 <% if user_signed_in? %>
 <% if current_user.id == @post.user.id %>

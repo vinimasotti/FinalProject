@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
         followability
 
+
+        #has_many :song
          has_many :posts
          has_many :likes
          has_many :comments
@@ -16,8 +18,16 @@ class User < ApplicationRecord
          def unfollow(user)
           followerable_relationships.where(followable_id: user.id).destroy_all
          end
+
+         #Search button
+         def self.ransackable_attributes(auth_object = nil)
+          %w[id name email created_at updated_at]
+        end
+        def self.ransackable_associations(auth_object = nil)
+          %w[posts comments]
+        end
          
-         
+
          private
          def randomize_id
           begin

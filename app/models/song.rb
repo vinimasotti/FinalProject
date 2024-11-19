@@ -1,9 +1,17 @@
 class Song < ApplicationRecord
+   validates :title, presence: true
+   validate :audio_file_presence
 
-   # validates :title, presence: true, length: { minimum: 5, maximum: 100 }
-    
-    has_one_attached :audio_file
+   has_one_attached :audio_file
 
-   # belongs_to :user
-
-end
+   #belongs_to :user
+   #belongs_to :user
+   #has_many :comments
+   #has_many :likes
+ 
+   private
+ 
+   def audio_file_presence
+     errors.add(:audio_file, "must be attached") unless audio_file.attached?
+   end
+ end

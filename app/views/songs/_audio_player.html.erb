@@ -1,0 +1,28 @@
+<div class="song">
+  <h3><%= song.title %></h3>
+  <% if song.audio_file.attached? %>
+    <audio controls class="audio-player">
+      <source src="<%= url_for(song.audio_file) %>" type="<%= song.audio_file.content_type %>">
+      Your browser does not support the audio element.
+    </audio>
+  <% else %>
+    <p>No audio file attached.</p>
+  <% end %>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const audioPlayers = document.querySelectorAll('.audio-player');
+    
+    audioPlayers.forEach(player => {
+      player.addEventListener('play', () => {
+        // Pause all other players
+        audioPlayers.forEach(otherPlayer => {
+          if (otherPlayer !== player) {
+            otherPlayer.pause();
+          }
+        });
+      });
+    });
+  });
+</script>

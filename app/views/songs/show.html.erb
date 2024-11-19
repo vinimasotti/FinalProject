@@ -1,4 +1,6 @@
-<% if @song.audio_file.attached? %>
+<h1> Show.html.erb </h1>
+
+<% if @song.audio_file.attached? %> 
   <p><strong>File:</strong> <%= link_to "Download", url_for(@song.audio_file) %></p>
   <%= debug @song.audio_file %> <!-- This will show details about the attachment -->
 

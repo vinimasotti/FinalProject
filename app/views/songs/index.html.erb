@@ -1,13 +1,10 @@
 <h1>Songs </h1>
 
 
-  <% @song.each do |song| %>
-    <%= render partial: 'song' %>
-
-    <audio controls>
-  <source src="/path/to/sample.mp3" type="audio/mpeg">
-    </audio>
-  <br>
+  <% @song.reverse.each do |song| %>
+      
+      <%= render partial: "audio_player", locals: { song: song } %>
+     
   <% end %>
 
 
