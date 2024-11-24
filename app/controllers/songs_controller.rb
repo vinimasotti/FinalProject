@@ -22,7 +22,7 @@ class SongsController < ApplicationController
       if @song.save
         redirect_to @song, notice: "Song was successfully uploaded."
       else
-        render :new, alert: "Error uploading the song."
+        render :new
       end
     end
   

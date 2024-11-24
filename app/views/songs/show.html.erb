@@ -2,7 +2,7 @@
 
 <% if @song.audio_file.attached? %> 
   <p><strong>File:</strong> <%= link_to "Download", url_for(@song.audio_file) %></p>
-  <%= debug @song.audio_file %> <!-- This will show details about the attachment -->
+  <%#= debug @song.audio_file %> <!-- This will show details about the attachment -->
 
   <audio controls>
     <source src="<%= url_for(@song.audio_file) %>" type="<%= @song.audio_file.content_type %>">
