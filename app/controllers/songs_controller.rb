@@ -1,28 +1,29 @@
 class SongsController < ApplicationController
-    def new
+    def new #New instance for the Song model
       @song = Song.new
     end
 
-    def index
+    def index #Retrieve all songs and display them in a list
       @song = Song.all
 
     end
 
-    def show
+    def show #Display details about the song
       @song = Song.find(params[:id])
       
     end
 
-    def destroy
+    def destroy # Delete song from a database
+      @song = Song.find(params[:id])
       @song.destroy!
     end
   
-    def create
+    def create # Handle submission for creating a new song
       @song = Song.new(song_params)
       if @song.save
         redirect_to @song, notice: "Song was successfully uploaded."
       else
-        render :new
+        render :new, alert: "Error uploading the song."
       end
     end
   
