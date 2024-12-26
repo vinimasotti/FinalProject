@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
   end
   
   #not working
-  def Songs
+  def Songs 
     search_query = params[:query] # Or however you’re getting the search input
   
     query2 = Songs.ransack(username_cont: search_query)

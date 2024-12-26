@@ -27,7 +27,7 @@ class SongsController < ApplicationController
       end
     end
   
-    public
+    private
   
     def song_params
       params.require(:song).permit(:title, :audio_file)
