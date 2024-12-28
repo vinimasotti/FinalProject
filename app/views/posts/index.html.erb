@@ -1,12 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-
-
 <% content_for :title, "Posts" %>
 <% if user_signed_in? %>
 
 <% if current_user.admin? %>
-  YOU ARE THE ADMIN
+<h1>---- YOU ARE THE ADMIN -------  </h1>
+<h2> -- /admin on the url to access admin dashboard -- </h2>
 <% end %>
 
   <% current_user.follow_requests.each do |request| %>
@@ -14,14 +13,15 @@
     <%= button_to "Accept", accept_path(request.followerable) %>
     <%= button_to "Decline", decline_path(request.followerable) %>
       <% end %>
+      
   <h4>Followers</h4> 
       <% current_user.followers.each do |follower| %>
-        <%= link_to follower.email, follower %>
+        <%= link_to follower.username, follower %>
         <% end %>
         <br>
   <h4>   Followwing</h4> 
         <% current_user.followers.each do |following| %>
-          <%= link_to following.email, following %>
+          <%= link_to following.username, following %>
           <% end %>
           <% end %>
 

@@ -1,18 +1,26 @@
 
-<center><h4>E-mail: <%= @user.email %></h4>
-<h4>Username: <%= @user.username %></h4>
-<h4>Bio: <%= @user.bio %></h4></center>
-
-<center><% if @user.avatar.attached? %>
-<%= image_tag @user.avatar, style: "width:100px; height: 100px;" %>
-</center><% end %>
 <center>
+<h3>Username: <%= @user.username %></h3>
+<h5>Bio : <%= @user.bio %></h4>
+<h5>E-mail: <%= @user.email %></h5>
+
+
+
+<% if @user.avatar.attached? %>
+<%= image_tag @user.avatar, style: "width:100px; height: 100px;" %>
+<% end %>
+
 <% if current_user.following?(@user) %>
 <%= button_to "Unfollow", unfollow_path(@user) %>
 <% elsif current_user.sent_follow_request_to?(@user) %>
-<%= button_to "Cancel follow request", cancel_path(@user) %>
+<#%= button_to "Cancel follow request", cancel_path(@user) %>
+
 <% else %>
 <%= button_to "Follow", follow_path(@user) %>
 <% end %>
+
 </center>
+
+
+
 
