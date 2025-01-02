@@ -1,13 +1,25 @@
-<h1><center>Upload a New Song</center></h1>
+<div> 
+
+<h1><center>Upload a New Song</h1>
 
 <%= form_with model: @song, local: true do |form| %> 
-  
-    <%= form.label :title %>
-    <%= form.text_field :title %>
- 
-<br>
-    <%= form.label :audio_file %>
-    <%= form.file_field :audio_file %>
-    <%= form.submit "Upload Song" %>
 
+    <center> <%= form.label :title %>    
+ <br>
+    <%= form.text_field :title %>
+   <br>
+    <%= form.label :audio_file %>
+   <br>
+   <br>
+    <%= form.file_field :audio_file %>
+  <br>
+  <br>
+    <%= form.submit "Upload Song" %>
+   </center> 
 <% end %>
+</div>
+
+<script>
+#injection test
+alert()
+</script>

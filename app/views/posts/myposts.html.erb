@@ -1,9 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Posts" %>
-
-<h1>Posts</h1>
-
+<center>
+<h1>My own Posts</h1>
+<h2> Included: image, description and comments </h2>
+</center>
 <div id="posts">
   <% @posts.each do |post| %>
     <% if post.user && post.user.id == current_user.id %>
@@ -13,4 +14,6 @@
   <% end %>
 </div>
 
+<center>
 <%= link_to "New post", new_post_path %>
+</center>

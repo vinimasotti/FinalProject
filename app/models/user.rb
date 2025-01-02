@@ -7,7 +7,7 @@ class User < ApplicationRecord
         followability
 
 
-        #has_many :song
+        has_many :songs
          has_many :posts
          has_many :likes
          has_many :comments

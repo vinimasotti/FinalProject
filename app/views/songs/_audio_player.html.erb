@@ -1,4 +1,5 @@
-<div class="song">
+
+<div class="song"><center>
   <h3><%= song.title %></h3>
   <% if song.audio_file.attached? %>
     <audio controls class="audio-player">
@@ -8,7 +9,7 @@
   <% else %>
     <p>No audio file attached.</p>
   <% end %>
-</div>
+</center></div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
