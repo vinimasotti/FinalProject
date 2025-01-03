@@ -38,7 +38,7 @@ class User < ApplicationRecord
         enum role: [:user, :admin]
         after_initialize :set_default_role, :if => :new_record?
         def set_default_role
-          self.role ||= :user #change to admin to sign a new admin
+          self.role ||= :admin #change to admin to sign a new admin
         end
 
 end
