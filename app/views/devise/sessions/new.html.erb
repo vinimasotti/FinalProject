@@ -1,30 +1,45 @@
-<div class="row">
-<div class="col-6" style="margin: auto;">
-<h2>Log in</h2>
+<div class="container-fluid d-flex align-items-center justify-content-center">
 
+<div class="col-12 col-md-6">
+<h2 class="text-center">Log in</h2>
+
+
+<!-- Email Field -->
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
-  </div>
+  
 
+
+  <!-- Password Field -->
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password", class:"form-control"  %>
-  </div>
-
+ 
+  <!-- Remember Field -->
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me, class:"form-check-label" %>
-    </div>
+   
   <% end %>
 
+  <!-- Button Field -->
   <div class="actions">
     <%= f.submit "Log in", class: "btn btn-primary col-12" %>
-  </div>
+  <br>
 <% end %>
+<br>
+      </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
 
+<div class="actions text-center">
 <%= render "devise/shared/links" %>
-</div>
-</div>
+
+ </div>
