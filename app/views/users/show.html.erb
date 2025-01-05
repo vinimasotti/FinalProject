@@ -20,8 +20,10 @@
 <%= button_to "Follow", follow_path(@user), method: :get, class: "btn btn-primary" %>
 <% end %>
 <br>
-<%= button_to "Edit Account", edit_user_registration_path, method: :get, class: "btn btn-secondary" %>
 
+<% if user_signed_in? && current_user == @user %>
+<%= button_to "Edit Account", edit_user_registration_path, method: :get, class: "btn btn-secondary" %>
+<% end %>
 </center>
 
 </div>
