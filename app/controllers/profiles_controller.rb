@@ -1,6 +1,9 @@
 class ProfilesController < ApplicationController
   def index
-    @users = users
+    search_query = params[:query].presence
+    @q = User.ransack(username_cont: search_query) # Initialize Ransack query object
+    @users = @q.result(distinct: true) # Execute the query and ensure distinct results
+    Rails.logger.info "Found users: #{@users.map(&:id)}" # Debugging
   end
 
   def users
