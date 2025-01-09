@@ -1,17 +1,16 @@
 <div class="container-fluid d-flex align-items-center justify-content-center">
+<div class="col-6 col-md-4 ">
 
-<div class=" ">
 <br>
-<h3 class="text-center">Log in</h3>
 
+<h3 class="text-center">Log in</h3>
+<hr>
 
 <!-- Email Field -->
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="text-center">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
-  
-
 
   <!-- Password Field -->
   <div class="field">
@@ -39,7 +38,6 @@
           </div>
           </div>
   
-
 <div class="actions text-center">
 <%= render "devise/shared/links" %>
 
