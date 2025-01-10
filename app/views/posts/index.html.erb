@@ -1,11 +1,15 @@
+<div class="container-fluid d-flex align-items-center justify-content-center">
+
+<div class="col-12 col-md-6">
+
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Posts" %>
 <% if user_signed_in? %>
-
+<center>
 <% if current_user.admin? %>
-<h1>---- YOU ARE THE ADMIN -------  </h1>
-<h2> -- /admin on the url to access admin dashboard -- </h2>
+<h3>---- YOU ARE THE ADMIN -------  </h3>
+<h3> -- admin on the url to access admin dashboard -- </h3>
 <% end %>
 
   <% current_user.follow_requests.each do |request| %>
@@ -33,6 +37,14 @@
     <%= render post %>
   <br>
   <% end %>
+</div>
+
+<div id="posts">
+<% @song.reverse.each do |song| %>
+      
+  <%= render partial: "audio_player", locals: { song: song } %>
+  
+<% end %>
 </div>
 
 <%= link_to "New post", new_post_path %>
