@@ -1,44 +1,49 @@
 <div class="container-fluid d-flex align-items-center justify-content-center">
-<div class="col-6 col-md-4 ">
+<div class="col-12 col-md-4">
 
-<br>
+    <br>
 
-<h3 class="text-center">Log in</h3>
-<hr>
+    <h3 class="text-center">Log in</h3>
+    <hr>
 
-<!-- Email Field -->
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="text-center">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
-
-  <!-- Password Field -->
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password", class:"form-control"  %>
- 
-  <!-- Remember Field -->
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me, class:"form-check-label" %>
+    <!-- Form Start -->
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "needs-validation" }) do |f| %>
+      
+      <!-- Email Field -->
+      <div class="form-group text-center mb-2">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
    
-  <% end %>
 
-  <!-- Button Field -->
-  <div class="actions">
-    <%= f.submit "Log in", class: "btn btn-primary col-12" %>
-  <br>
-<% end %>
-<br>
-      </div>
-          </div>
-          </div>
-          </div>
-          </div>
-          </div>
+      <!-- Password Field -->
+      <div class="form-group mb-3">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+   
+
+      <!-- Remember Me Field -->
+      <% if devise_mapping.rememberable? %>
+        <div class="form-check mb-3">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, class: "form-check-label" %>
+     
+      <% end %>
+
+      <!-- Submit Button -->
+        <%= f.submit "Log in", class: "btn btn-primary w-100" %>
   
-<div class="actions text-center">
-<%= render "devise/shared/links" %>
+    <% end %>
 
- </div>
+    <!-- Links -->
+
+      <%= render "devise/shared/links" %>
+    
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+
