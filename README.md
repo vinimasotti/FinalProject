@@ -13,8 +13,8 @@ Current Version 0.40
 - songs controller
 - users controller 
 
-#Version 0.5 - Mid-January
-#Version 0.6 - Mid-Feb
-#Version 0.7 - Mid-Mar
-#Version beta - Mid-Abr
+#Version 0.5 - Mid-January <br>
+#Version 0.6 - Mid-Feb <br>
+#Version 0.7 - Mid-Mar <br>
+#Version beta - Mid-Abr <br>
 #Official Launch - MID-MAY

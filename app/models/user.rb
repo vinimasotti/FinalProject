@@ -1,11 +1,11 @@
 class User < ApplicationRecord
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
         followability
-
 
         has_many :songs
          has_many :posts
@@ -20,12 +20,19 @@ class User < ApplicationRecord
          end
 
          #Search button
-         def self.ransackable_attributes(auth_object = nil)
-          %w[id name email created_at updated_at]
-        end
-        def self.ransackable_associations(auth_object = nil)
-          %w[posts comments]
-        end
+     # Explicitly define searchable associations
+  def self.ransackable_associations(auth_object = nil)
+    [
+      "avatar_attachment", "avatar_blob", "blockers", "blocks", "comments",
+      "followable_relationships", "followerable_relationships", "followers",
+      "following", "likes", "posts", "songs"
+    ]
+  end
+
+  # Explicitly define searchable attributes
+  def self.ransackable_attributes(auth_object = nil)
+    %w[username email created_at] # Add only the non-sensitive fields you want searchable
+  end
          
 
          private
@@ -38,7 +45,9 @@ class User < ApplicationRecord
         enum role: [:user, :admin]
         after_initialize :set_default_role, :if => :new_record?
         def set_default_role
-          self.role ||= :user #change to admin to sign a new admin
+          self.role ||= :user #change to admin to sign a new admin 
         end
+
+        
 
 end

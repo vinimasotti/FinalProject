@@ -3,6 +3,7 @@ class Song < ApplicationRecord # Inherited class
    validates :audio_file, presence: true
    has_one_attached :audio_file
 
+
    #belongs_to :user # owner of the song
    #has_many :comments # allowing comments 
    #has_many :likes # allowing likes 

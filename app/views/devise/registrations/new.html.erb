@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-4">
@@ -49,10 +50,58 @@
           <%= f.submit "Sign up", class:"btn btn-primary btn-block" %>
         </div>
       <% end %>
+=======
+<div class="container-fluid d-flex align-items-center justify-content-center">
+<div class="col-12 col-md-4">
+
+<br>
+<h2 class="text-center">Register with us</h2>
+<hr>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <!-- Email Field -->
+      <div class="text-center">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+       
+     
+      <!-- Bio Field -->
+      <div class="field">
+        <%= f.label :bio %>
+        <%= f.text_field :bio, class:"form-control" %>
+       
+      <!-- Username Field -->
+      <div class="field">
+        <%= f.label :username %>
+        <%= f.text_field :username, class:"form-control" %>
+    
+      <!-- Password Field -->
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+       
+      <!-- Password Confirmation Field -->
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+        <br>
+        <!-- Avatar Field -->
+     
+        <%= f.label :avatar %>
+        <%= f.file_field :avatar, class: "form-control" %>
+        
+        <br>
+>>>>>>> origin
         </div>
         </div>
         </div>
         </div>
+<<<<<<< HEAD
       </div>
         </div>
         </div>
@@ -62,3 +111,18 @@
     </div>
   </div>
 </div>
+=======
+        </div>
+        </div>
+        </div>
+        </div>
+        
+      <!-- Submit Button -->
+      <div class="actions text-center">
+        <%= f.submit "Sign up", class:"btn btn-primary col-4" %>
+        <br>
+    <% end %>
+      <br>
+    <%= render "devise/shared/links" %>
+    </div>
+>>>>>>> origin

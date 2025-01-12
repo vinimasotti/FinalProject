@@ -1,20 +1,49 @@
+<div class="container-fluid d-flex align-items-center justify-content-center">
+
+<div class="col-12 col-md-8">
+
 <p style="color: green"><%= notice %></p>
 
+<center>
 <%= render @post %>
- 
+ </center>
+
+ <center>
 <%= link_to "Back to posts", posts_path, class: "btn btn-secondary"  %>
 <% if user_signed_in? %>
 <% if current_user.id == @post.user.id %>
 <div>
+<br>
   <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-primary"  %>  
-  
-
-   <p> <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-danger" %> </p>
+  <br>
+<div class="btn">
+  <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-danger" %>
 </div>
+
 <% end %>
 <% end %>
-<%= render "comments/form", comment: @comment %>
-  <% @post.comments.each do |comment| %>
-    <%= comment.text %>
-    <br>
-  <% end %>
+
+
+
+<div class="comments-section">
+  <!-- Centered Comment Form -->
+  <div class="comment-form mb-10 d-flex justify-content-center">
+    <div class="form-container card p-4">
+      <h4 class="text-center">Add a Comment</h4>
+      <%= render "comments/form", comment: @comment %>
+    </div>
+  </div>
+
+
+
+  <!-- Comments List -->
+  <div class="comments-list">
+    <h4>Comments</h4>
+    <% @post.comments.each do |comment| %>
+      <div class="comment mb-3 p-3 border rounded">
+        <p class="mb-2"><%= comment.text %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+   </center>

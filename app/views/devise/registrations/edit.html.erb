@@ -1,23 +1,26 @@
-<div class="row">
-<div class="col-6" style="margin: auto;">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container-fluid d-flex align-items-center justify-content-center">
 
+<div class="col-12 col-md-6">
+<br>
+<center>
+<h2>Edit  <%= resource_name.to_s.humanize %></h2>
+</center>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
-  </div>
 
+<br>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %>
   <% end %>
 
   <div class="field">
   <%= f.label :bio %><br />
   <%= f.text_field :bio, class:"form-control" %>
-  </div>
+  
   <br>
   <div class="field">
   Add you picture
@@ -29,7 +32,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br>
     <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
     <% if @minimum_password_length %>
       <br />
@@ -51,8 +54,10 @@
     <%= f.submit "Update", class: "btn btn-primary col-12" %>
   </div>
 <% end %>
+<br>
+ <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger col-12" %>
 
- <%#= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-
+</div>
+</div>
+</div>
 </div>
