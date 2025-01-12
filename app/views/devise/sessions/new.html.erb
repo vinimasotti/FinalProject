@@ -1,30 +1,48 @@
-<div class="row">
-<div class="col-6" style="margin: auto;">
-<h2>Log in</h2>
+<div class="container-fluid d-flex align-items-center justify-content-center">
+<div class="col-12 col-md-2">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+    <br>
+
+    <h3 class="text-center">Log in</h3>
+    <hr>
+
+    <!-- Form Start -->
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "needs-validation" }) do |f| %>
+      
+      <!-- Email Field -->
+      <div class="form-group text-center mb-2">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+   
+
+      <!-- Password Field -->
+      <div class="form-group mb-3">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+   
+
+      <!-- Remember Me Field -->
+      <% if devise_mapping.rememberable? %>
+        <div class="form-check mb-3">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, class: "form-check-label" %>
+     
+      <% end %>
+
+      <!-- Submit Button -->
+        <%= f.submit "Log in", class: "btn btn-primary w-100" %>
+  
+    <% end %>
+
+    <!-- Links -->
+
+      <%= render "devise/shared/links" %>
+    
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password", class:"form-control"  %>
   </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me, class:"form-check-label" %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in", class: "btn btn-primary col-12" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-</div>
-</div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
