@@ -26,6 +26,16 @@ class SongsController < ApplicationController
         render :new, alert: "Error uploading the song."
       end
     end
+
+    def search
+      @query = params[:query]
+      @songs = if @query.present?
+                 Song.where("title LIKE ? OR artist LIKE ?", "%#{@query}%", "%#{@query}%")
+               else
+                 Song.all
+               end
+      render :index
+    end
   
     private
   
