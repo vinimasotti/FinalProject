@@ -121,6 +121,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-security (0.18.0)
+      devise (>= 4.3.0)
     drb (2.2.1)
     erubi (1.13.0)
     globalid (1.2.1)
@@ -364,6 +366,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise (~> 4.9)
+  devise-security
   followability!
   importmap-rails
   jbuilder

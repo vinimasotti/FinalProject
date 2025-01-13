@@ -62,3 +62,4 @@ gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
 gem 'ransack'
 gem "rails_admin"
 gem "cssbundling-rails"
+gem 'devise-security'
