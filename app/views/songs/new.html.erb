@@ -1,10 +1,21 @@
 <div class="container-fluid d-flex align-items-center justify-content-center">
-  <div class="col-12 col-md-4">
+  <div class="col-12 col-md-2">
     <br>
     <h2><center>Upload a New Song</center></h2>
     <hr>
 
     <%= form_with model: @song, local: true do |form| %> 
+      <% if @song.errors.any? %>
+        <div class="alert alert-danger">
+          <h4>The following errors prevented the song from being uploaded:</h4>
+          <ul>
+            <% @song.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      
       <center>
         <%= form.label :title %>
         <br>
@@ -18,11 +29,11 @@
 
         <%= form.label :audio_file %>
         <br>
-        <%= form.file_field :audio_file, accept: 'audio/mp3' %>
+        <%= form.file_field :audio_file, accept: 'audio/mp3', class: "btn btn-secondary" %>
         <br>
         <br>
 
-        <%= form.submit "Upload Song" %>
+        <%= form.submit "Upload Song", class: "btn btn-primary" %>
       </center>
     <% end %>
   </div>
