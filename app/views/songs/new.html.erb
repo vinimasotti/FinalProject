@@ -1,29 +1,29 @@
 <div class="container-fluid d-flex align-items-center justify-content-center">
+  <div class="col-12 col-md-4">
+    <br>
+    <h2><center>Upload a New Song</center></h2>
+    <hr>
 
-<div class="col-12 col-md-4">
-<br>
-<h2><center>Upload a New Song</h2>
-<hr>
+    <%= form_with model: @song, local: true do |form| %> 
+      <center>
+        <%= form.label :title %>
+        <br>
+        <%= form.text_field :title %>
+        <br>
+        
+        <%= form.label :artist %>
+        <br>
+        <%= form.text_field :artist %>
+        <br>
 
-<%= form_with model: @song, local: true do |form| %> 
+        <%= form.label :audio_file %>
+        <br>
+        <%= form.file_field :audio_file, accept: 'audio/mp3' %>
+        <br>
+        <br>
 
-    <center> <%= form.label :title %>    
- <br>
-    <%= form.text_field :title %>
-   <br>
-    <%= form.label :audio_file %>
-   <br>
-   <br>
-    <%= form.file_field :audio_file %>
-  <br>
-  <br>
-    <%= form.submit "Upload Song" %>
-   </center> 
-<% end %>
+        <%= form.submit "Upload Song" %>
+      </center>
+    <% end %>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
