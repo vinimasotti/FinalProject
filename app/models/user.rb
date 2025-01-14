@@ -4,11 +4,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         :password_archivable
+         :password_archivable #memorize old password to user not repeat the same 
+         #password_expirable #possibility to expire password after 3 months see on devise.setup do |config| 
 
          validates :password, presence: true, length: { minimum: 8 }, password_complexity: true, if: :password_required?
          
-
         followability
 
         has_many :songs
@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
          #Search button
      # Explicitly define searchable associations
-  def self.ransackable_associations(auth_object = nil)
+     def self.ransackable_associations(auth_object = nil)
     [
       "avatar_attachment", "avatar_blob", "blockers", "blocks", "comments",
       "followable_relationships", "followerable_relationships", "followers",
@@ -33,8 +33,8 @@ class User < ApplicationRecord
     ]
   end
 
-  # Explicitly define searchable attributes
-  def self.ransackable_attributes(auth_object = nil)
+   # Explicitly define searchable attributes
+   def self.ransackable_attributes(auth_object = nil)
     %w[username email created_at] # Add only the non-sensitive fields you want searchable
   end
          
@@ -50,8 +50,6 @@ class User < ApplicationRecord
         after_initialize :set_default_role, :if => :new_record?
         def set_default_role
           self.role ||= :user #change to admin to sign a new admin 
-        end
-
-        
+        end     
 
 end
