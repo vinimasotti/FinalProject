@@ -1,7 +1,7 @@
 <div class="container-fluid d-flex align-items-center justify-content-center">
 
 <div class="col-12 col-md-8">
-
+ <% if user_signed_in? %>
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Posts" %>
@@ -22,3 +22,4 @@
 <center>
 <%= link_to "New post", new_post_path %>
 </center>
+<% end %>
