@@ -1,3 +1,5 @@
+ <% if user_signed_in? %>
+
 <!-- app/views/songs/_form.html.erb -->
 <%= form_with(model: song, local: true) do |form| %>
   <% if song.errors.any? %>
@@ -30,4 +32,6 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+<% end %>
+
 <% end %>
