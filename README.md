@@ -20,4 +20,3 @@ git clone -link- <br>
 bundle install <br>
 rails db:migrate <br>
 rails s <br>
-.
