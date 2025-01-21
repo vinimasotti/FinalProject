@@ -11,16 +11,17 @@
 <center>
 <% if current_user.admin? %>
 <h3>---- YOU ARE THE ADMIN -------  </h3>
-<h3> -- admin on the url to access admin dashboard -- </h3>
 <% end %>
 
-  <% current_user.follow_requests.each do |request| %>
-    <%= request.followerable.email %> Want to follow you %>
-    <%= button_to "Accept", accept_path(request.followerable) %>
-    <%= button_to "Decline", decline_path(request.followerable) %>
-      <% end %>
+<!-- 
+  <#%= current_user.follow_requests.each do |request| %>
+    <#%= request.followerable.email %> Want to follow you %>
+    <#%= button_to "Accept", accept_path(request.followerable) %>
+    <#%= button_to "Decline", decline_path(request.followerable) %>
+      <#% end %>
+  -->
       
-      <!-- Not working --> 
+      
   <h4>Followers</h4> 
       <% current_user.followers.each do |follower| %>
         <%= link_to follower.username, follower %>
