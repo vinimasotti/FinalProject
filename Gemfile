@@ -64,3 +64,4 @@ gem "rails_admin"
 gem "cssbundling-rails"
 gem 'devise-security'
 gem "actionpack", ">= 7.2.2.1"
+gem "pg"
