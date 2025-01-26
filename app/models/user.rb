@@ -32,7 +32,7 @@ class User < ApplicationRecord
       "following", "likes", "posts", "songs"
     ]
   end
-
+ 
    # Explicitly define searchable attributes
    def self.ransackable_attributes(auth_object = nil)
     %w[username email created_at] # Add only the non-sensitive fields you want searchable

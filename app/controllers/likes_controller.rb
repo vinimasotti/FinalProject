@@ -2,9 +2,11 @@ class LikesController < ApplicationController
   
   def create
     @like = current_user.likes.new(like_params)
-    if !@like.save
+    if @like.save
       redirect_to @like.post, notice: "Liked successfully!"
       #flash[:alert] = "You already liked this post"
+      else
+      redirect_to @like.post, alert: "Unable to like the post."
     end
   end
 
