@@ -46,7 +46,9 @@ class User < ApplicationRecord
           end while User.where(id: self.id).exists?
         end
 
-        enum role: [:user, :admin]
+        #enum role: [:user, :admin]
+        enum role: { user: 0, admin: 1 } #updated to run on ruby 8.0
+
         after_initialize :set_default_role, :if => :new_record?
         def set_default_role
           self.role ||= :user #change to admin to sign a new admin 
