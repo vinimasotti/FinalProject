@@ -13,7 +13,7 @@ by: vinny - National College of Ireland
 #Version beta - Mid-Abr <br>
 #OFFICIAL LAUNCH - MID-MAY <br>
 
-How to run assume ruby on rails already installed <br>
+How to run (assume ruby on rails already installed) <br>
 - git clone https://github.com/vinimasotti/FinalProject <br>
 - bundle install <br>
 - rails db:migrate <br>
