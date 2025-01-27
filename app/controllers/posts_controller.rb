@@ -65,6 +65,16 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @query = params[:query]
+    @posts = if @query.present?
+               Post.where("title LIKE ? OR artist LIKE ?", "%#{@query}%", "%#{@query}%")
+             else
+               Post.all
+             end
+    render :index
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

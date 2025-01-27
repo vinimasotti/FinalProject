@@ -1,4 +1,9 @@
 class SongsController < ApplicationController
+
+
+  before_action :authenticate_user!, except: [:index, :show]
+
+
     def new #New instance for the Song model
       @song = Song.new
     end
@@ -6,6 +11,9 @@ class SongsController < ApplicationController
     def index #Retrieve all songs and display them in a list
       @song = Song.all
 
+    end
+
+    def edit
     end
 
     def show #Display details about the song
@@ -38,6 +46,10 @@ class SongsController < ApplicationController
     end
   
     private
+
+    def set_song
+      @song = Song.find(params[:id])
+    end
   
     def song_params
       params.require(:song).permit(:title, :artist, :audio_file)
