@@ -1,9 +1,18 @@
 <br>
-<h1><center> Music Storage  </center> </h1>
-<h2> <center> Secure Online Music Storage Platform <br> Sign up with us </center> </h2> 
-<h3> <center>  app/controllers/view/home/about.html.erb </center> </h3>
+<h2><center> Secure Online Music Storage Platform </center> </h2>
+<br>
+<h4> <center>  MY PROFILE <br> NEW POST <br> POSTS <br> NEW SONG <br> SONGS <br> VIEW  MY POSTS <br> SIGN OUT </center> </h4>
+<h4> <center>  app/controllers/view/home/about.html.erb </center> </h4>
+<div class="text-center">
+  <%= link_to "Log In", new_user_session_path, class: "btn btn-primary btn-lg rounded-pill shadow-sm px-5 py-3 mb-3", style: "border: none; transition: transform 0.2s; font-size: 1.5rem;" %>
+  <br>
+  <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-lg rounded-pill shadow-sm px-5 py-3", style: "background: linear-gradient(135deg, #34495e, #7f8c8d); border: none; color: white; transition: transform 0.2s; font-size: 1.5rem;" %>
+</div>
 
-<br>
-<center> <%= link_to "Log In", new_user_session_path, class: "btn btn-primary" %></center>
-<br>
-<center> <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-secondary" %></center>
+
+
+<style>
+ // .btn:hover {
+  //  transform: scale(1.05); /* Slightly enlarges the button on hover */
+ // }
+</style>

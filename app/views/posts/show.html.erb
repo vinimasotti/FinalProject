@@ -13,6 +13,7 @@
  <center>
 <%= link_to "Back to posts", posts_path, class: "btn btn-secondary"  %>
 <% if user_signed_in? %>
+
 <% if current_user.id == @post.user.id %>
 <div>
 <br>
@@ -25,8 +26,6 @@
 <% end %>
 <% end %>
 
-
-
 <div class="comments-section">
   <!-- Centered Comment Form -->
   <div class="comment-form mb-10 d-flex justify-content-center">
@@ -35,8 +34,6 @@
       <%= render "comments/form", comment: @comment %>
     </div>
   </div>
-
-
 
   <!-- Comments List -->
   <div class="comments-list">
@@ -49,5 +46,4 @@
   </div>
 </div>
    </center>
-
        <% end %>
