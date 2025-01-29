@@ -1,5 +1,3 @@
-# README 
-
 by: vinny - National College of Ireland
 2024/2025
 
