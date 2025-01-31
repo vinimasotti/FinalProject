@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all
+    @song = Song.all
   end
 
   # GET /posts/1 or /posts/1.json
@@ -62,6 +63,16 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_path, status: :see_other, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    @query = params[:query]
+    @posts = if @query.present?
+               Post.where("title LIKE ? OR artist LIKE ?", "%#{@query}%", "%#{@query}%")
+             else
+               Post.all
+             end
+    render :index
   end
 
   private

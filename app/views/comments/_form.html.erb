@@ -1,3 +1,5 @@
+ <% if user_signed_in? %>
+
 <%= form_with(model: comment) do |form| %>
   <% if comment.errors.any? %>
     <div style="color: red">
@@ -29,4 +31,6 @@
   <div>
     <%= form.submit %>
   </div>
+<% end %>
+
 <% end %>

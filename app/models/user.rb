@@ -1,13 +1,17 @@
 class User < ApplicationRecord
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         :password_archivable #memorize old password to user not repeat the same 
+         #password_expirable #possibility to expire password after 3 months see on devise.setup do |config| 
 
+         validates :password, presence: true, length: { minimum: 8 }, password_complexity: true, if: :password_required?
+         
         followability
 
-
-        #has_many :song
+        has_many :songs
          has_many :posts
          has_many :likes
          has_many :comments
@@ -20,12 +24,19 @@ class User < ApplicationRecord
          end
 
          #Search button
-         def self.ransackable_attributes(auth_object = nil)
-          %w[id name email created_at updated_at]
-        end
-        def self.ransackable_associations(auth_object = nil)
-          %w[posts comments]
-        end
+     # Explicitly define searchable associations
+     def self.ransackable_associations(auth_object = nil)
+    [
+      "avatar_attachment", "avatar_blob", "blockers", "blocks", "comments",
+      "followable_relationships", "followerable_relationships", "followers",
+      "following", "likes", "posts", "songs"
+    ]
+  end
+ 
+   # Explicitly define searchable attributes
+   def self.ransackable_attributes(auth_object = nil)
+    %w[username email created_at] # Add only the non-sensitive fields you want searchable
+  end
          
 
          private
@@ -35,10 +46,12 @@ class User < ApplicationRecord
           end while User.where(id: self.id).exists?
         end
 
-        enum role: [:user, :admin]
+        #enum role: [:user, :admin]
+        enum role: { user: 0, admin: 1 } #updated to run on ruby 8.0
+
         after_initialize :set_default_role, :if => :new_record?
         def set_default_role
-          self.role ||= :user #change to admin to sign a new admin
-        end
+          self.role ||= :user #change to admin to sign a new admin 
+        end     
 
 end

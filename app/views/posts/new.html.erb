@@ -1,7 +1,14 @@
-<% content_for :title, "New Post" %>
+ <% if user_signed_in? %>
+
+<div class="container-fluid d-flex align-items-center justify-content-center">
+
+<div class="col-12 col-md-4">
+
+
 
 <div class="container">
-  <h1 class="card-title text-left">New Post</h1>
+<br>
+  <h2 class="card-title text-center">New Post</h2>
   <hr>
   <%= render "form", post: @post %>
 </div>
@@ -13,3 +20,5 @@
 <div class="text-center mt-3">
   <%= link_to "New Song", new_song_path, class: "btn btn-danger" %>
 </div>
+
+    <% end %>

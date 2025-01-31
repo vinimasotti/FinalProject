@@ -1,27 +1,35 @@
+
+
+<div class="container-fluid d-flex align-items-center justify-content-center">
+
+<div class="col-10 col-md-8">
+ <% if user_signed_in? %>
 <p style="color: green"><%= notice %></p>
-
-
 
 <% content_for :title, "Posts" %>
 <% if user_signed_in? %>
-
+<center>
 <% if current_user.admin? %>
-  YOU ARE THE ADMIN
+<h3>---- YOU ARE THE ADMIN -------  </h3>
 <% end %>
 
-  <% current_user.follow_requests.each do |request| %>
-    <%= request.followerable.email %> Want to follow you %>
-    <%= button_to "Accept", accept_path(request.followerable) %>
-    <%= button_to "Decline", decline_path(request.followerable) %>
-      <% end %>
+<!-- 
+  <#%= current_user.follow_requests.each do |request| %>
+    <#%= request.followerable.email %> Want to follow you %>
+    <#%= button_to "Accept", accept_path(request.followerable) %>
+    <#%= button_to "Decline", decline_path(request.followerable) %>
+      <#% end %>
+  -->
+      
+      
   <h4>Followers</h4> 
       <% current_user.followers.each do |follower| %>
-        <%= link_to follower.email, follower %>
+        <%= link_to follower.username, follower %>
         <% end %>
         <br>
   <h4>   Followwing</h4> 
         <% current_user.followers.each do |following| %>
-          <%= link_to following.email, following %>
+          <%= link_to following.username, following %>
           <% end %>
           <% end %>
 
@@ -35,4 +43,18 @@
   <% end %>
 </div>
 
+<div id="posts">
+<% @song.reverse.each do |song| %>
+      
+  <%= render partial: "audio_player", locals: { song: song } %>
+  
+<% end %>
+
+
 <%= link_to "New post", new_post_path %>
+
+<% end %>
+
+</div>
+</div>
+</div>

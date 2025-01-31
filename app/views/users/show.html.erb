@@ -1,18 +1,44 @@
+ <% if user_signed_in? %>
 
-<center><h4>E-mail: <%= @user.email %></h4>
-<h4>Username: <%= @user.username %></h4>
-<h4>Bio: <%= @user.bio %></h4></center>
+<div class="container-fluid d-flex align-items-center justify-content-center">
 
-<center><% if @user.avatar.attached? %>
-<%= image_tag @user.avatar, style: "width:100px; height: 100px;" %>
-</center><% end %>
+<div class="col-12 col-md-6">
+
+
 <center>
+<br>
+<h3>Username: <%= @user.username %></h3>
+<h5>Bio : <%= @user.bio %></h4>
+<h5>E-mail: <%= @user.email %></h5>
+
+
+<% if @user.avatar.attached? %>
+<%= image_tag @user.avatar, style: "width:100px; height: 100px;" %>
+<% end %>
+
+<div class="container-fluid d-flex align-items-center justify-content-center">
 <% if current_user.following?(@user) %>
 <%= button_to "Unfollow", unfollow_path(@user) %>
 <% elsif current_user.sent_follow_request_to?(@user) %>
-<%= button_to "Cancel follow request", cancel_path(@user) %>
+<#%= button_to "Cancel follow request", cancel_path(@user) %>
+</div>
+
 <% else %>
-<%= button_to "Follow", follow_path(@user) %>
+<%= button_to "Follow", follow_path(@user), method: :get, class: "btn btn-primary" %>
 <% end %>
-</center>
+
+<% if user_signed_in? && current_user == @user %>
+<%= button_to "Edit Account", edit_user_registration_path, method: :get, class: "btn btn-secondary" %>
+<% end %>
+
+
+</div>
+</div>
+</div>
+</div>
+
+<% end %>
+
+
+
 

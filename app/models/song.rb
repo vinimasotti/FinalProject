@@ -1,22 +1,16 @@
+# app/models/song.rb
 class Song < ApplicationRecord
-   validates :title, presence: true
-   validates :audio_file, presence: true
-   has_one_attached :audio_file
+  has_one_attached :audio_file
 
-   #belongs_to :user
-   #has_many :comments
-   #has_many :likes
-   
-   before_create :randomize_id
-   private
-   def randomize_id
-    begin
-      self.id = SecureRandom.random_number(1_000_000_000)
-    end while User.where(id: self.id).exists?
+  validates :title, presence: true
+  validates :artist, presence: true
+  validate :audio_file_must_be_mp3
+
+  private
+
+  def audio_file_must_be_mp3
+    if audio_file.attached? && !audio_file.blob.content_type.in?(%w(audio/mpeg audio/mp3))
+      errors.add(:audio_file, 'must be an MP3 file')
+    end
   end
-   private
- 
-   def audio_file_presence
-     errors.add(:audio_file, "must be attached") unless audio_file.attached?
-   end
- end
+end

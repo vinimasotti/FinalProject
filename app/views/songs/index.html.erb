@@ -1,5 +1,9 @@
-<h1>Songs </h1>
+ <% if user_signed_in? %>
 
+<center> <h1>Songs </h1> </center>
+<hr>
+
+<br>
 
   <% @song.reverse.each do |song| %>
       
@@ -7,5 +11,10 @@
      
   <% end %>
 
+<br>
+<br>
+<br>
+<center><h3> Click on the button below to add a new song <br>
+<%= link_to "New song", new_song_path %> </center> </h3>
 
-<%= link_to "New song", new_song_path %>
+  <% end %>
