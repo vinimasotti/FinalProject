@@ -1,89 +1,48 @@
 <% if user_signed_in? %>
-  <div class="container-fluid d-flex align-items-center justify-content-center">
-    <div class="col-12 col-md-8">
-      <p style="color: green"><%= notice %></p>
-      <center>
-        <%= render @post %>
-      </center>
-      <center>
-        <%= link_to "Back to posts", posts_path, class: "btn btn-secondary" %>
-        <% if user_signed_in? %>
-          <% if current_user.id == @post.user.id %>
-            <div>
-              <br>
-              <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-primary" %>
-              <br>
-              <div class="btn">
-                <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-danger" %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-        <div class="comments-section">
-          <!-- Centered Comment Form -->
-          <div class="comment-form mb-10 d-flex justify-content-center">
-            <div class="form-container card p-4">
-              <h4 class="text-center">Add a Comment</h4>
-              <%= render "comments/form", comment: @comment %>
-            </div>
-          </div>
-          <!-- Comments List -->
-          <div class="comments-list">
-            <h4>Comments</h4>
-            <% @post.comments.each do |comment| %>
-              <div class="comment mb-3 p-3 border rounded">
-                <p class="mb-2"><%= truncate_comment(comment.text) %></p>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </center>
 
-      <!-- Form Code Integration -->
-      <%= form_with(model: post) do |form| %>
-        <div>
-          <% invalid = post.errors.include?(:title) %>
-          <%= form.label :title, style: "display: block" %>
-          <%= form.text_field :title, class: "form-control" %>
-          <% if invalid %>
-            <p style="color:red">
-              <%= post.errors.full_messages_for(:title).join(" ,") %>
-            </p>
-          <% end %>
-        </div>
-        
-        <div>
-          <%= form.text_field :user_id, type: "hidden", value: current_user.id %>
-        </div>
-
-        <div>
-          <% invalid = post.errors.include?(:description) %>
-          <%= form.label :description, style: "display: block" %>
-          <%= form.text_field :description, class: "form-control" %>
-          <% if invalid %>
-            <p style="color:red">
-              <%= post.errors.full_messages_for(:description).join(" ,") %>
-            </p>
-          <% end %>
-        </div>
-        
-        <div>
-          <% invalid = post.errors.include?(:keywords) %>
-          <%= form.label :keywords, style: "display: block" %>
-          <%= form.text_field :keywords, class: "form-control" %>
-          <% if invalid %>
-            <p style="color:red">
-              <%= post.errors.full_messages_for(:keywords).join(" ,") %>
-            </p>
-          <% end %>
-          <%= form.file_field :images, multiple: true %>
-        </div>
-        
-        <div>
-          <br>
-          <%= form.submit class: "btn btn-primary col-12" %>
-        </div>
-      <% end %>
-    </div>
+<%= form_with(model: post) do |form| %>
+  <div>
+    <% invalid = post.errors.include?(:title) %>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title, class: "form-control" %>
+    <% if invalid %>
+      <p style="color:red">
+        <%= post.errors.full_messages_for(:title).join(" ,") %>
+      </p>
+    <% end %>
   </div>
+
+  <div>
+    <%= form.text_field :user_id, type: "hidden", value: current_user.id %>
+  </div>
+
+  <div>
+    <% invalid = post.errors.include?(:description) %>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description, class: "form-control" %>
+    <% if invalid %>
+      <p style="color:red">
+        <%= post.errors.full_messages_for(:description).join(" ,") %>
+      </p>
+    <% end %>
+  </div>
+
+  <div>
+    <% invalid = post.errors.include?(:keywords) %>
+    <%= form.label :keywords, style: "display: block" %>
+    <%= form.text_field :keywords, class: "form-control" %>
+    <% if invalid %>
+      <p style="color:red">
+        <%= post.errors.full_messages_for(:keywords).join(" ,") %>
+      </p>
+    <% end %>
+    <%= form.file_field :images, multiple: true %>
+  </div>
+
+  <div>
+    <br>
+    <%= form.submit class: "btn btn-primary col-12" %>
+  </div>
+<% end %>
+
 <% end %>
