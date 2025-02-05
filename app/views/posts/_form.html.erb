@@ -3,7 +3,7 @@
   <div>
     <% invalid = post.errors.include?(:title) %>
     <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title, class: "form-control rounded-pill shadow-sm p-2 border-primary", placeholder: "Enter title..." %>
+    <%= form.text_field :title, class: "form-control" %>
     <% if invalid %>
       <p style="color:red">
         <%= post.errors.full_messages_for(:title).join(" ,") %>
@@ -17,7 +17,7 @@
   <div>
     <% invalid = post.errors.include?(:description) %>
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description, class: "form-control rounded-pill shadow-sm p-2 border-primary", placeholder: "Enter description..." %>
+    <%= form.text_field :description, class: "form-control" %>
     <% if invalid %>
       <p style="color:red">
         <%= post.errors.full_messages_for(:description).join(" ,") %>
@@ -28,39 +28,31 @@
   <div>
     <% invalid = post.errors.include?(:keywords) %>
     <%= form.label :keywords, style: "display: block" %>
-    <%= form.text_field :keywords, class: "form-control rounded-pill shadow-sm p-2 border-primary", placeholder: "Enter keywords..." %>
+    <%= form.text_field :keywords, class: "form-control" %>
     <% if invalid %>
       <p style="color:red">
         <%= post.errors.full_messages_for(:keywords).join(" ,") %>
       </p>
     <% end %>
     <br>
-    <div class="custom-file">
-  <%= form.file_field :images, multiple: true, class: "custom-file-input", id: "imageUpload" %>
-  <label class="custom-file-label btn btn-primary rounded-pill shadow-sm px-4 py-2" for="imageUpload">
-    📸 Upload Images
-  </label>
-</div>
-    
+    <%= form.file_field :images, multiple: true %>
   </div>
-
 
   <div>
     <hr>
-     <%= form.submit "⏩ Create a Post", class: "btn btn-primary w-100 rounded-pill shadow-lg fw-bold py-2 px-3 text-uppercase btn-gradient" %>
+    <%= form.submit class: "btn btn-primary col-12" %>
   </div>
   <% end %>
   <hr>
 
   <center>
   <div class="container">
-  <%= link_to " ⏪ Back to posts", posts_path, class: "btn btn-secondary w-100 rounded-pill shadow-lg fw-bold py-2 px-3 text-uppercase btn-gradient" %>
+  <%= link_to "Back to posts", posts_path, class: "btn btn-secondary" %>
   </div>
 
   <div class="container">
   <hr>
-  <%= link_to "New Song 🎵 ", new_song_path, class: "btn btn-danger w-100 rounded-pill shadow-lg fw-bold py-2 px-3 text-uppercase btn-gradient" %>
-  </div>
+  <%= link_to "New Song", new_song_path, class: "btn btn-danger" %>
   </div>
   </center>
 
