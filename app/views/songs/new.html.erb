@@ -1,8 +1,8 @@
 <% if user_signed_in? %>
   <div class="container-fluid d-flex align-items-center justify-content-center"> 
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 text-center">
       <hr>
-      <h3 class="text-left">Upload a New Song</h3>
+      <h3 >Upload a New Song</h3>
       <hr>
 
       <%= form_with model: @song, local: true do |form| %> 
@@ -28,10 +28,10 @@
           <hr>
           <br>
           <%= form.file_field :audio_file, accept: 'audio/mp3', class: "form-control rounded-pill shadow-sm p-2 border-secondary" %>
-
           <br>
           <%= form.submit "🎵 Upload Song", class: "btn btn-primary w-100 rounded-pill shadow-lg fw-bold py-2 px-3 text-uppercase btn-gradient" %>
         </div>
+
       <% end %>
     </div>
   </div>
