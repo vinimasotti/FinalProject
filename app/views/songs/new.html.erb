@@ -2,7 +2,7 @@
   <div class="container-fluid d-flex align-items-center justify-content-center"> 
     <div class="col-12 col-md-6">
       <hr>
-      <h3 class="text-left">Upload a New Song</h3>
+      <h3 class="text-center">Upload a New Song</h3>
       <hr>
 
       <%= form_with model: @song, local: true do |form| %> 
@@ -16,23 +16,28 @@
             </ul>
           </div>
         <% end %>
-
-        <div class="text-center">
-          <%= form.label :title %>
-          <br>
-          <%= form.text_field :title, class: "form-control rounded-pill shadow-sm p-2 border-primary", placeholder: "Enter song title..." %>
-          <hr>
-          <%= form.label :artist %>
-          <br>
-          <%= form.text_field :title, class: "form-control rounded-pill shadow-sm p-2 border-primary", placeholder: "Enter artist..." %>
-          <hr>
-          <br>
-          <%= form.file_field :audio_file, accept: 'audio/mp3', class: "form-control rounded-pill shadow-sm p-2 border-secondary" %>
-
-          <br>
+        
+        <div class="col-6 col-md-6">
+        <%= form.label :title %>
+        <br>
+         <%= form.text_field :title, class: "form-control rounded-pill shadow-sm p-2 border-primary", placeholder: "Enter song title..." %>
+        <br>
+        <%= form.label :artist %>
+        <br>
+         <%= form.text_field :title, class: "form-control rounded-pill shadow-sm p-2 border-primary", placeholder: "Enter artist..." %>
+        <br>
+       
+        <%= form.label :audio_file %>
+        <br>
+        
+        <%= form.file_field :audio_file, accept: 'audio/mp3', class: "btn btn-secondary rounded-pill" %>
+        </center>
+        <br>
+        <br>
           <%= form.submit "🎵 Upload Song", class: "btn btn-primary w-100 rounded-pill shadow-lg fw-bold py-2 px-3 text-uppercase btn-gradient" %>
-        </div>
+    
       <% end %>
     </div>
   </div>
 <% end %>
+    </div>
