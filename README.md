@@ -17,5 +17,3 @@ How to run (assume ruby on rails already installed) <br>
 - rails db:create
 - rails db:migrate <br>
 - rails s <br>
-
-💻
