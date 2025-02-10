@@ -14,5 +14,6 @@ by: vinny - National College of Ireland
 How to run (assume ruby on rails already installed) <br>
 - git clone https://github.com/vinimasotti/FinalProject <br>
 - bundle install <br>
+- rails db:create
 - rails db:migrate <br>
 - rails s <br>
