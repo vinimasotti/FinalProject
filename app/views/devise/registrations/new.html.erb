@@ -10,43 +10,38 @@
         <div class="form-row justify-content-center">
           <div class="form-group col-mt-200">
             <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
          
           <div class="form-group col-md-200">
             <%= f.label :bio %>
-            <%= f.text_field :bio, class:"form-control" %>
+            <%= f.text_field :bio, class:"form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
           </div>
       
-
-
         <div class="form-row">
           <div class="form-group col-md-200">
             <%= f.label :avatar %>
-            <%= f.file_field :avatar, class:"form-control" %>
+            <%= f.file_field :avatar, class:"form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
           
           <div class="form-group col-md-200">
             <%= f.label :username %>
-            <%= f.text_field :username, class:"form-control" %>
-          </div>
+            <%= f.text_field :username, class:"form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+          
         
-
-
         <div class="form-row justify-content-center">
-          <div class="form-group col-md-200">
+          <div class="border-2 rounded-pill mt-3 px-4 py-2 w-100">
             <%= f.label :password %>
             <% if @minimum_password_length %>
               <em><%= @minimum_password_length %> characters minimum</em>
             <% end %>
-            <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+            <%= f.password_field :password, autocomplete: "new-password", class:"form-control, border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
          
-<br>
           <div class="form-group col-md-200">
             <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
-        <br>
-
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control, border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+  
         <div class="form-group col-mt-200 justify-content-center">
-          <%= f.submit "Sign up", class:"btn btn-primary btn-block" %>
+          <%= f.submit "Submit", class: "btn btn-outline-primary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+          
         </div>
       <% end %>
         </div>
