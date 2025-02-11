@@ -1,23 +1,17 @@
- <% if user_signed_in? %>
-
+<div class="container">
 <div class="container-fluid d-flex align-items-center justify-content-center">
 
-<div class="col-8 col-md-4">
+<div class="col-4 col-md-4">
 
-<div class="container">
-<br>
+  <% if user_signed_in? %>
   <h2 class="card-title text-center">New Post</h2>
-  <hr>
-  <br>
+    <hr>
+  <center>
   <%= render "form", post: @post %>
-  <br>
-
-
-
-    <% end %>
-
+  </center>
+<% end %>
     </div>
     </div>
     </div>
-    </div>
+  
     
