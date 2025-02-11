@@ -1,7 +1,8 @@
  <% if user_signed_in? %>
 
 <div class="container-fluid d-flex align-items-center justify-content-center">
-  <div class="col-12 col-md-4">
+
+<div class="col-8 col-md-4">
     <br>
     <h2><center>Upload a New Song</center></h2>
     <hr>
@@ -21,20 +22,20 @@
       <center>
         <%= form.label :title %>
         <br>
-        <%= form.text_field :title, placeholder: "Enter your title..." %>
+        <%= form.text_field :title, placeholder: "Enter your title...", class: "border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
         <br>
         
         <%= form.label :artist %>
         <br>
-        <%= form.text_field :artist, placeholder: "Enter your artist..."  %>
+        <%= form.text_field :artist, placeholder: "Enter your artist...", class: "border-2 rounded-pill mt-3 px-4 py-2 w-100"  %>
         <br>
 
         <%= form.label :audio_file %>
         <br>
-        <%= form.file_field :audio_file, accept: 'audio/mp3', class: "btn btn-secondary" %>
+        <%= form.file_field :audio_file, accept: 'audio/mp3', class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
         <br>
         <br>
-        <%= form.submit "Upload Song", class: "btn btn-primary" %>
+        <%= form.submit "Upload Song", class: "btn btn-primary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
       </center>
 
     <% end %>
