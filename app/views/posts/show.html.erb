@@ -24,8 +24,8 @@
 </div>
 
 <% end %>
-<% end %>
 
+<% end %>
 <div class="comments-section">
   <!-- Centered Comment Form -->
   <div class="comment-form mb-10 d-flex justify-content-center">
@@ -40,7 +40,7 @@
     <h4>Comments</h4>
     <% @post.comments.each do |comment| %>
       <div class="comment mb-3 p-3 border rounded">
-        <p class="mb-2"><%= comment.text %></p>
+        <p class="mb-2"><%= truncate_comment(comment.text) %></p>
       </div>
     <% end %>
   </div>

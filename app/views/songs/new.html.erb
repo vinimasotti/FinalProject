@@ -1,45 +1,43 @@
- <% if user_signed_in? %>
+<% if user_signed_in? %>
+  <div class="container-fluid d-flex align-items-center justify-content-center"> 
+    <div class="col-12 col-md-6">
+      <hr>
+      <h3 class="text-center">Upload a New Song</h3>
+      <hr>
 
-<div class="container-fluid d-flex align-items-center justify-content-center">
-  <div class="col-12 col-md-4">
-    <br>
-    <h2><center>Upload a New Song</center></h2>
-    <hr>
-
-    <%= form_with model: @song, local: true do |form| %> 
-      <% if @song.errors.any? %>
-        <div class="alert alert-danger">
-          <h4>The following errors prevented the song from being uploaded:</h4>
-          <ul>
-            <% @song.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-      
-      <center>
+      <%= form_with model: @song, local: true do |form| %> 
+        <% if @song.errors.any? %>
+          <div class="alert alert-danger">
+            <h4>The following errors prevented the song from being uploaded:</h4>
+            <ul>
+              <% @song.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        
+        <div class="col-6 col-md-6">
         <%= form.label :title %>
         <br>
-        <%= form.text_field :title %>
+         <%= form.text_field :title, class: "form-control rounded-pill shadow-sm p-2 border-primary", placeholder: "Enter song title..." %>
         <br>
-        
         <%= form.label :artist %>
         <br>
-        <%= form.text_field :artist %>
+         <%= form.text_field :title, class: "form-control rounded-pill shadow-sm p-2 border-primary", placeholder: "Enter artist..." %>
         <br>
-
+       
         <%= form.label :audio_file %>
         <br>
-        <%= form.file_field :audio_file, accept: 'audio/mp3', class: "btn btn-secondary" %>
+        
+        <%= form.file_field :audio_file, accept: 'audio/mp3', class: "btn btn-secondary rounded-pill" %>
+        </center>
         <br>
         <br>
-        <%= form.submit "Upload Song", class: "btn btn-primary" %>
-      </center>
-
-    <% end %>
+          <%= form.submit "🎵 Upload Song", class: "btn btn-primary w-100 rounded-pill shadow-lg fw-bold py-2 px-3 text-uppercase btn-gradient" %>
+    
+      <% end %>
+    </div>
   </div>
-</div>
-
-
-    <% end %>
+<% end %>
+    </div>
