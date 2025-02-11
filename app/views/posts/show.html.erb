@@ -1,49 +1,45 @@
- <% if user_signed_in? %>
+<% if user_signed_in? %>
 
 <div class="container-fluid d-flex align-items-center justify-content-center">
-
 <div class="col-12 col-md-8">
 
-<p style="color: green"><%= notice %></p>
+<center><p style="color: green"><%= notice %></p></center>
 
 <center>
 <%= render @post %>
  </center>
-
  <center>
-<%= link_to "Back to posts", posts_path, class: "btn btn-secondary"  %>
+<%= link_to "Back to posts", posts_path, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100"  %>
 <% if user_signed_in? %>
-
 <% if current_user.id == @post.user.id %>
 <div>
 <br>
-  <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-primary"  %>  
+  <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-primary border-2 rounded-pill mt-3 px-4 py-2 w-50"  %>  
   <br>
 <div class="btn">
-  <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-danger" %>
+  <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-danger border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
 </div>
-
+<% end %>
 <% end %>
 
-<% end %>
 <div class="comments-section">
   <!-- Centered Comment Form -->
   <div class="comment-form mb-10 d-flex justify-content-center">
     <div class="form-container card p-4">
-      <h4 class="text-center">Add a Comment</h4>
+      <h5 class="text-center mb-10">Add a Comment</h5>
       <%= render "comments/form", comment: @comment %>
     </div>
   </div>
 
   <!-- Comments List -->
   <div class="comments-list">
+  <br>
     <h4>Comments</h4>
     <% @post.comments.each do |comment| %>
       <div class="comment mb-3 p-3 border rounded">
-        <p class="mb-2"><%= truncate_comment(comment.text) %></p>
+        <p class="mb-10"><%= truncate_comment(comment.text) %></p>
       </div>
     <% end %>
-  </div>
-</div>
-   </center>
+
+
        <% end %>
