@@ -9,7 +9,7 @@
 <%= render @post %>
  </center>
  <center>
-<%= link_to "Back to posts", posts_path, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100"  %>
+<%= link_to "Back to posts", posts_path, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-50"  %>
 <% if user_signed_in? %>
 <% if current_user.id == @post.user.id %>
 <div>
@@ -19,6 +19,7 @@
 <div class="btn">
   <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-danger border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
 </div>
+<br>
 <% end %>
 <% end %>
 
@@ -40,6 +41,4 @@
         <p class="mb-10"><%= truncate_comment(comment.text) %></p>
       </div>
     <% end %>
-
-
-       <% end %>
+ <% end %>
