@@ -1,11 +1,10 @@
  <% if user_signed_in? %>
 <div id="<%= dom_id(post) %>" class="post" style="display: flex; flex-direction: column; align-items: center; text-align: center; margin: auto; max-width: 600px;">
    <div class="post-content" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-   
     <p class="post-title"><%= post.title %></p>
     <p class="post-description"><%= post.description %></p>
     <p class="post-keywords"><%= post.keywords %></p>
-   
+    Posted by: <%= link_to post.user.username, post.user if post.user.present? %>
 
     <%= link_to "View Post", post, class: "post-link" %>
 
@@ -20,11 +19,10 @@
        <%= image_tag(image, class: "post-image", style: "object-fit: contain; width: 400px; height: 400px;") %>
       </div>
     <% end %>
-     <p>Posted by: <%= post.user.username %></p>
   </div>
 </div>
 
- <%#= link_to post.user.username, post.user if post.user.present? %>
+Posted by: <%= link_to post.user.username, post.user if post.user.present? %>
 <br>
 <br>
 <% end %>
