@@ -11,6 +11,7 @@
     <%= render comment %>
     <p>
       <%= link_to "Show this comment", comment %>
+      <%= link_to "show user" post.user.username, post.user if post.user.present? %>
     </p>
   <% if user_signed_in? %>
 </div>
