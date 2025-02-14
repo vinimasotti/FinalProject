@@ -26,11 +26,7 @@ class User < ApplicationRecord
          #Search button
      # Explicitly define searchable associations
      def self.ransackable_associations(auth_object = nil)
-    [
-      "avatar_attachment", "avatar_blob", "blockers", "blocks", "comments",
-      "followable_relationships", "followerable_relationships", "followers",
-      "following", "likes", "posts", "songs"
-    ]
+    %w[avatar_attachment avatar_blob blockers blocks comments followable_relationships followerable_relationships followers following likes posts songs]
   end
  
    # Explicitly define searchable attributes

@@ -21,14 +21,15 @@
 <%= button_to "Unfollow", unfollow_path(@user) %>
 <% elsif current_user.sent_follow_request_to?(@user) %>
 <#%= button_to "Cancel follow request", cancel_path(@user) %>
+
 </div>
 
 <% else %>
-<%= button_to "Follow", follow_path(@user), method: :get, class: "btn btn-primary" %>
+<%= button_to "Follow", follow_path(@user), method: :get, class: "btn btn-primary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
 <% end %>
-
+ 
 <% if user_signed_in? && current_user == @user %>
-<%= button_to "Edit Account", edit_user_registration_path, method: :get, class: "btn btn-secondary" %>
+<%= button_to "Edit Account", edit_user_registration_path, method: :get, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
 <% end %>
 
 
@@ -36,6 +37,9 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+
 
 <% end %>
 

@@ -4,7 +4,7 @@
     <p class="post-title"><%= post.title %></p>
     <p class="post-description"><%= post.description %></p>
     <p class="post-keywords"><%= post.keywords %></p>
-    <p><%#= post.user.email %></p>
+    Posted by: <%= link_to post.user.username, post.user if post.user.present? %>
 
     <%= link_to "View Post", post, class: "post-link" %>
 

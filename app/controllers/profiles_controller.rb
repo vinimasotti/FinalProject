@@ -18,12 +18,12 @@ class ProfilesController < ApplicationController
   def Songs 
     search_query = params[:query] # Or however you’re getting the search input
   
-    query2 = Songs.ransack(username_cont: search_query)
+    query2 = Song.ransack(username_cont: search_query)
 
-    @song = query.result(distinct: true)
+    @songs = query2.result(distinct: true)
   end 
 
-  def search_query
-    params[:query]
-  end 
+  #def search_query
+   # params[:query]
+ # end 
 end

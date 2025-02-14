@@ -3,7 +3,7 @@
   <div>
     <% invalid = post.errors.include?(:title) %>
     <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title, class: "form-control" %>
+    <%= form.text_field :title, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
     <% if invalid %>
       <p style="color:red">
         <%= post.errors.full_messages_for(:title).join(" ,") %>
@@ -17,7 +17,7 @@
   <div>
     <% invalid = post.errors.include?(:description) %>
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description, class: "form-control" %>
+    <%= form.text_field :description, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
     <% if invalid %>
       <p style="color:red">
         <%= post.errors.full_messages_for(:description).join(" ,") %>
@@ -28,31 +28,31 @@
   <div>
     <% invalid = post.errors.include?(:keywords) %>
     <%= form.label :keywords, style: "display: block" %>
-    <%= form.text_field :keywords, class: "form-control" %>
+    <%= form.text_field :keywords, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
     <% if invalid %>
       <p style="color:red">
         <%= post.errors.full_messages_for(:keywords).join(" ,") %>
       </p>
     <% end %>
     <br>
-    <%= form.file_field :images, multiple: true %>
+    <%= form.file_field :images, multiple: true, required: true %>
   </div>
 
   <div>
     <hr>
-    <%= form.submit class: "btn btn-primary col-12" %>
+    <%= form.submit class: "btn btn-primary col-12 border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
   </div>
   <% end %>
   <hr>
 
   <center>
   <div class="container">
-  <%= link_to "Back to posts", posts_path, class: "btn btn-secondary" %>
+  <%= link_to "Back to posts", posts_path, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
   </div>
 
   <div class="container">
-  <hr>
-  <%= link_to "New Song", new_song_path, class: "btn btn-danger" %>
+  
+  <%= link_to "New Song", new_song_path, class: "btn btn-danger border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
   </div>
   </center>
 
