@@ -12,12 +12,15 @@
         <% end %>
       </ul>
     </div>
-    <% end %>
+  <% end %>
 
-    <div>
-      <%= form.label :comment, style: "display: block" %>
-      <%= form.text_field :text, required: true %>
-
+  <!-- temporary 45 caracteres limit -->
+  <div class="form-row">
+    <%= form.label :text, "Your Text:" %>
+    <%= form.text_field :text, required: true, maxlength: 45 %>
+    <br>
+  </div>
+     
     
     <%= form.text_field :user_id, value: current_user.id, type:"hidden"  %>
 
@@ -35,3 +38,4 @@
 </div>
 </div>
 </div>
+
