@@ -1,15 +1,19 @@
- <% if user_signed_in? %>
+ 
+ 
+<% if user_signed_in? %>
 
 <% content_for :title, "New comment" %>
 
-<h1>New comment</h1>
+<h3>New comment</h3>
 
 <%= render "form", comment: @comment %>
 
 <br>
+<center>
 
 <div>
-  <%= link_to "Back to comments", comments_path %>
-</div>
 
- <% end %>
+  <%= link_to "Back", "#", class: "btn btn-secondary", onclick: "history.back();" %>
+</div>
+<center>
+<% end %>

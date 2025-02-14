@@ -1,8 +1,6 @@
  <% if user_signed_in? %>
-
  <div class="container-fluid d-flex align-items-center justify-content-center">
-
-<div class="col-10 col-md-8">
+ <div class="col-10 col-md-8">
 
 <%= form_with(model: comment) do |form| %>
   <% if comment.errors.any? %>
@@ -24,7 +22,7 @@
 
   <div>
     
-    <%= form.text_field :user_id, value: current_user.id  %>
+    <%= form.text_field :user_id, value: current_user.id, type:"hidden"  %>
   </div>
 
   <div>
