@@ -2,57 +2,52 @@
   <div class="row justify-content-center">
     <div class="col-md-4">
       <h2 class="text-center">Sign up</h2>
-      <hr>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="form-row justify-content-center">
-          <div class="form-group col-mt-200">
+          <div class="form-group col-md-12">
             <%= f.label :email %>
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
-         
-          <div class="form-group col-md-200">
+          </div>
+
+          <div class="form-group col-md-12">
             <%= f.label :bio %>
             <%= f.text_field :bio, class:"form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
           </div>
-      
-        <div class="form-row">
-          <div class="form-group col-md-200">
+
+          <div class="form-group col-md-12">
             <%= f.label :avatar %>
-            <%= f.file_field :avatar, class:"form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
-          
-          <div class="form-group col-md-200">
+            <%= f.file_field :avatar, accept: "image/*", class:"form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+          </div>
+
+          <div class="form-group col-md-12">
             <%= f.label :username %>
             <%= f.text_field :username, class:"form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
-          
-        
-        <div class="form-row justify-content-center">
-          <div class="border-2 rounded-pill mt-3 px-4 py-2 w-100">
+          </div>
+
+          <div class="form-group col-md-12">
             <%= f.label :password %>
             <% if @minimum_password_length %>
               <em><%= @minimum_password_length %> characters minimum</em>
             <% end %>
-            <%= f.password_field :password, autocomplete: "new-password", class:"form-control, border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
-         
-          <div class="form-group col-md-200">
+            <%= f.password_field :password, autocomplete: "new-password", class:"form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+          </div>
+
+          <div class="form-group col-md-12">
             <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control, border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
-  
-        <div class="form-group col-mt-200 justify-content-center">
-          <%= f.submit "Submit", class: "btn btn-outline-primary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
-          
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+          </div>
+
+          <div class="form-group col-md-12 text-center">
+            <%= f.submit "Submit", class: "btn btn-outline-primary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+          </div>
         </div>
       <% end %>
-        </div>
-        </div>
-        </div>
-        </div>
-      </div>
-        </div>
-        </div>
+
       <center>
-      <%= render "devise/shared/links" %>
+        <%= render "devise/shared/links" %>
       </center>
     </div>
   </div>
