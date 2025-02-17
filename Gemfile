@@ -66,3 +66,4 @@ gem "cssbundling-rails" #not working
 gem 'devise-security'
 gem "actionpack", ">= 7.2.2.1"
 gem "pg"
+gem "rack"
