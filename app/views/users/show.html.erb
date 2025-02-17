@@ -1,45 +1,39 @@
  <% if user_signed_in? %>
 
 <div class="container-fluid d-flex align-items-center justify-content-center">
-
-<div class="col-12 col-md-6">
-
-
+<div class="container">
+<hr>
 <center>
-<br>
 <h3>Username: <%= @user.username %></h3>
-<h5>Bio : <%= @user.bio %></h4>
+<h4>Bio : <%= @user.bio %></h4>
 <h5>E-mail: <%= @user.email %></h5>
 
-
-<% if @user.avatar.attached? %>
-<%= image_tag @user.avatar, style: "width:100px; height: 100px;" %>
-<% end %>
+    <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar, style: "width:100px; height: 100px;" %>
+    <% end %>
 
 <div class="container-fluid d-flex align-items-center justify-content-center">
-<% if current_user.following?(@user) %>
+    <% if current_user.following?(@user) %>
 <%= button_to "Unfollow", unfollow_path(@user) %>
-<% elsif current_user.sent_follow_request_to?(@user) %>
+    <% elsif current_user.sent_follow_request_to?(@user) %>
 <#%= button_to "Cancel follow request", cancel_path(@user) %>
 
-</div>
+    <% else %>
+        <%= button_to "Follow", follow_path(@user), method: :get, class: "btn btn-primary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+    <% end %>
 
-<% else %>
-<%= button_to "Follow", follow_path(@user), method: :get, class: "btn btn-primary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
-<% end %>
- 
 <% if user_signed_in? && current_user == @user %>
-<%= button_to "Edit Account", edit_user_registration_path, method: :get, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+
+    <%= button_to "Edit Account", edit_user_registration_path, method: :get, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
 <% end %>
 
-
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
 
 <% end %>
 
