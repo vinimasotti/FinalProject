@@ -29,8 +29,11 @@
 
 
   <div>
-    <br>
-    <%= form.submit %>
+  <br>
+   
+    <%= form.submit "Create", class: "btn btn-success btn-lg-4 rounded-pill shadow" do %>
+      <i class="bi bi-plus-circle"></i> Create
+    <% end %>
   </div>
 <% end %>
 
