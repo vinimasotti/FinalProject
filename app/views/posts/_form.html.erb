@@ -35,14 +35,16 @@
       </p>
     <% end %>
     <br>
-    <%= form.file_field :images, multiple: true, required: true %>
+    <%= form.file_field :images, multiple: true, required: true, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
   </div>
 
   <div>
-    <hr>
+    
     <%= form.submit class: "btn btn-primary col-12 border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
   </div>
   <% end %>
+  <hr>
+  <hr>
   <hr>
 
   <center>

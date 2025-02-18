@@ -62,7 +62,8 @@ gem "devise", "~> 4.9"
 gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
 gem 'ransack'
 gem "rails_admin"
-gem "cssbundling-rails"
+gem "cssbundling-rails" #not working 
 gem 'devise-security'
 gem "actionpack", ">= 7.2.2.1"
 gem "pg"
+gem "rack"

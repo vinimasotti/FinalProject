@@ -1,14 +1,11 @@
  <% if user_signed_in? %>
-
  <div class="container-fluid d-flex align-items-center justify-content-center">
-
-<div class="col-10 col-md-8">
+ <div class="col-10 col-md-8">
 
 <%= form_with(model: comment) do |form| %>
   <% if comment.errors.any? %>
     <div style="color: red">
-      <p><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</p>
-
+      <p><%= pluralize(comment.errors.count, "error") %> found: </p>
       <ul>
         <% comment.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -17,22 +14,22 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :comment, style: "display: block" %>
-    <%= form.text_field :text %>
+  <!-- temporary 45 caracteres limit -->
+  <div class="form-row">
+    <%= form.label :text, "Your Text:" %>
+    <%= form.text_field :text, required: true, maxlength: 45 %>
+    <br>
   </div>
-
-  <div>
+     
     
-    <%= form.text_field :user_id, value: current_user.id  %>
-  </div>
+    <%= form.text_field :user_id, value: current_user.id, type:"hidden"  %>
 
-  <div>
  
     <%= form.text_field :post_id, type:"hidden" %>
-  </div>
+
 
   <div>
+    <br>
     <%= form.submit %>
   </div>
 <% end %>
@@ -41,3 +38,4 @@
 </div>
 </div>
 </div>
+

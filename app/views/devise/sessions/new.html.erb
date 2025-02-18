@@ -1,8 +1,7 @@
-<div class="container-fluid d-flex align-items-center justify-content-center">
-<div class="col-12 col-md-2">
-
-    <br>
-
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+<br>
     <h3 class="text-center">Log in</h3>
     <hr>
 
@@ -12,13 +11,13 @@
       <!-- Email Field -->
       <div class="form-group text-center mb-4">
         <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
    
         <br>
       <!-- Password Field -->
       <div class="form-group mb-4">
         <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+        <%= f.password_field :password, autocomplete: "current-password", class:"form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
    <br>
 
       <!-- Remember Me Field -->
@@ -30,7 +29,7 @@
       <% end %>
 
       <!-- Submit Button -->
-        <%= f.submit "Log in", class: "btn btn-primary w-100" %>
+        <%= f.submit "Log in", class: "btn btn-primary form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
   
     <% end %>
 
@@ -38,6 +37,7 @@
 
       <%= render "devise/shared/links" %>
     
+  </div>
   </div>
   </div>
   </div>

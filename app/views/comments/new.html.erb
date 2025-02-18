@@ -1,15 +1,17 @@
- <% if user_signed_in? %>
+  <% if user_signed_in? %>
+ <div class="container-fluid d-flex align-items-center justify-content-center">
+ <div class="col-4 col-md-4">
 
-<% content_for :title, "New comment" %>
-
-<h1>New comment</h1>
-
-<%= render "form", comment: @comment %>
-
-<br>
-
+<h3>New comment (actually edit)</h3>
+</div>
+</div>
 <div>
-  <%= link_to "Back to comments", comments_path %>
+<%= render "form", comment: @comment %>
 </div>
 
- <% end %>
+<center>
+<%= link_to "Back", "#", class: "btn btn-secondary", onclick: "history.back();" %>
+  
+
+<% end %>
+

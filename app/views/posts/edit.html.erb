@@ -1,26 +1,27 @@
 
  <% if user_signed_in? %>
-
 <br>
 <% content_for :title, "Editing post" %>
-<center>
+<center><b>
 <h2>Editing post</h2>
-</center>
+<div class="row justify-content-center">
+  <%= link_to "Show this post", @post %> 
+   <!-- <%= link_to "Back to posts", posts_path %> -->
+
+</div>
+</center></b>
 <hr>
+<b>
 <div class="container-fluid d-flex align-items-center justify-content-center">
 <%= render "form", post: @post %>
-<br>
-<div>
 
 
-  <hr>
-
+</b>
 
     <% end %>
+
     </div>
     </div>
     </div>
     </div>
-    </div>
-<hr>
-     <center> <%= link_to "Show this post", @post %> </center>
+
