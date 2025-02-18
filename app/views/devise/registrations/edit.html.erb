@@ -12,22 +12,22 @@
     <%#= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
   <br>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %>
-  <% end %>
+    resource.unconfirmed_email %>
+      <% end %>
 
-  <div class="field">
-  <%= f.label :bio %><br />
-  <%= f.text_field :bio, class:"form-control" %>
-  </div>
+      <div class="field">
+      <%= f.label :bio %><br />
+      <%= f.text_field :bio, class:"form-control", maxlength: 100 %>
+      </div>
 
   <div class="field">
   <%= f.label :username %><br />
-  <%= f.text_field :username, class:"form-control " %>
+  <%= f.text_field :username, class:"form-control ", maxlength: 30  %>
   <br>
   <center>
   <div class="field">
   Add you picture
-  <%= f.file_field :avatar, class:"btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+  <%= f.file_field :avatar, accept: 'image/*', class:"btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
   </center>
 
   <br>
