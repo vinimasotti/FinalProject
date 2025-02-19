@@ -1,17 +1,24 @@
 by: vinny - National College of Ireland
 2024/2025
 
-# v0.5
-- UI updated
-- if user_signed_in added
+# Current Version 0.6  <br> 
+- UI improved (web design refined with colourful buttons)
 - hard password implemented (8 char, symbol and upper case)
+- all user inputs sanitized
+- comments section updated
+- file uploads sanitized (accepting just mp3 or image)
+- user section improved (not possible to change the email anymore)
+- database updated from sql3lite to postgre
 
-#Version 0.6 (in development) - Mid-Feb <br> 
-#Version 0.7 - Mid-Mar <br>
+#Version 0.7 (in development) - Mid-Mar <br>
+- documentation updates
+- security tests
+- webpage improvement
+
 #Version beta - Mid-Abr <br>
 #OFFICIAL LAUNCH - MID-MAY <br>
 
-How to run (assume ruby on rails already installed) <br>
+How to run (assume @RubyOnRails and database already installed) <br>
 - git clone https://github.com/vinimasotti/FinalProject <br>
 - bundle install <br>
 - rails db:create
