@@ -9,7 +9,7 @@
 - comments section updated
 - file uploads sanitized (accepting just mp3 or image)
 - user section improved (not possible to change the email anymore)
-- database updated from sql3lite to postgre
+- database updated from sql3lite to postgre <br>
 
 #Version 0.7 (in development) - Mid-Mar <br>
 - documentation updates
