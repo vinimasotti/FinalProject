@@ -1,11 +1,5 @@
 # README
 
-<<<<<<< HEAD
-VINICIUS BIANCHI
-NCI 
-
-#Version 0.30
-=======
 # Current Version 0.6  <br> 
 - UI improved (web design refined with colourful buttons)
 - hard password implemented (8 char, symbol and upper case)
@@ -29,4 +23,3 @@ How to run (assume @RubyOnRails and database already installed) <br>
 - rails db:create
 - rails db:migrate <br>
 - rails s <br>
->>>>>>> 542062e02012a62e4b3420bb247e111267ea9a2c
