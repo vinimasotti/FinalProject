@@ -3,12 +3,12 @@
 # v0.60<br>
 =======================================================
 # Updates: <br> 
-- UI improved (web design refined with colourful buttons)
-- hard password implemented (8 char, symbol and upper case)
-- all user inputs sanitized
-- comments section updated
-- file uploads sanitized (accepting just mp3 or image)
-- user section improved (not possible to change the email anymore)
+- UI improved (web design refined with colourful buttons) <br>
+- hard password implemented (8 char, symbol and upper case) <br>
+- all user inputs sanitized <br> 
+- comments section updated <br>
+- file uploads sanitized (accepting just mp3 or image) <br>
+- user section improved (not possible to change the email anymore) <br>
 - database updated from sql3lite to postgre <br>
 
 #Version 0.7 (in development) - Mid-Mar <br>
