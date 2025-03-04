@@ -9,7 +9,7 @@
 - user section improved (not possible to change the email anymore)
 - database updated from sql3lite to postgre
 # v0.60<br>
-<hr>
+=======================================================
 # Updates: <br> 
 - UI improved (web design refined with colourful buttons) <br>
 - hard password implemented (8 char, symbol and upper case) <br>
@@ -20,9 +20,9 @@
 - database updated from sql3lite to postgre <br>
 
 #Version 0.7 (in development) - Mid-Mar <br>
-- documentation updates <br>
-- security tests <br> 
-- webpage improvement <br> 
+- documentation updates
+- security tests
+- webpage improvement
 
 #Version beta - Mid-Abr <br>
 #OFFICIAL LAUNCH - MID-MAY <br>
