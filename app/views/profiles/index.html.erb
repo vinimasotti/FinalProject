@@ -1,6 +1,7 @@
 <div class="text-center">
   <br>
   <p>No results found for the query "<%= params[:query] %>".</p>
+  <br> #bug
   <% @users.each do |user| %>
     <%= render user %>
   <% end %>
