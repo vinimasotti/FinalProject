@@ -8,17 +8,17 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
 
+<body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Brand -->
     <%= link_to "Home", root_path, class: "navbar-brand" %>
 
     <!-- Search Form -->
-    <%= form_with url: profiles_index_path, method: :get, local: true, class: "form-inline my-2 my-lg-0" do |form| %>
+    <%= form_with url: songs_path, method: :get, class: "form-inline my-2 my-lg-0" do |form| %>
       <%= form.search_field :query, value: params[:query], placeholder: "Search", class: "form-control mr-sm-2" %>
-      <%= form.submit "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+      <%= form.submit "Search", class: "btn btn-primary my-2 my-sm-0" %>
     <% end %>
 
     <!-- Navbar Toggler -->
@@ -61,9 +61,15 @@
             <%= link_to "View My Posts", posts_myposts_path, class: "nav-link" %>
           </li>
 
-          <!-- Edit Account Link -->
+          <!-- Edit Account Link 
           <li class="nav-item">
-            <%#= link_to "Edit Account", edit_user_registration_path, class: "nav-link" %>
+            <%= link_to "Edit Account", edit_user_registration_path, class: "nav-link" %>
+          </li>
+          -->
+
+          <!-- Sign Out Link -->
+          <li class="nav-item">
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
 
           <!-- Profile Avatar -->
@@ -73,10 +79,6 @@
             </li>
           <% end %>
 
-          <!-- Sign Out Link -->
-          <li class="nav-item">
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-          </li>
         <% end %>
       </ul>
     </div>
