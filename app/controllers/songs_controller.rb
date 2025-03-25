@@ -9,8 +9,11 @@ class SongsController < ApplicationController
     end
 
     def index #Retrieve all songs and display them in a list
+      if params[:query].present?
+        @song = Song.where('title LIKE ?', "%#{params[:query]}%")
+      else
       @song = Song.all
-
+    end
     end
 
     def edit
