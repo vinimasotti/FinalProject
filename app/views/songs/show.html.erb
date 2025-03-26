@@ -1,13 +1,14 @@
 <% if user_signed_in? %>
 
-<div class="container-fluid d-flex align-items-center justify-content-center">
-<div class="col-12 col-md-4">
+<hr>
 
 <center>
-<hr>
-<h2> Show.html.erb </h2> 
 
-<hr>
+<p><strong>Artist:</strong> <%= @song.artist %></p>
+<p><strong>Title:</strong> <%= @song.title %></p>
+<p><strong>File Title:</strong> <%= @song.audio_file.filename.to_s if @song.audio_file.attached? %></p>
+
+
 
 <% if @song.audio_file.attached? %> 
   <p><strong>File:</strong> <%= link_to "Download", url_for(@song.audio_file) %></p>
@@ -21,6 +22,8 @@
 <% else %>
   <p>No audio file attached.</p>
 <% end %>
+
+<hr>
 
 <p><br> Click on the button below to add a new song <br>
 <%= link_to "New song", new_song_path %>  </p>

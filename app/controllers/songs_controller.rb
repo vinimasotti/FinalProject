@@ -10,9 +10,9 @@ class SongsController < ApplicationController
 
     def index #Retrieve all songs and display them in a list
       if params[:query].present?
-        @song = Song.where('title LIKE ?', "%#{params[:query]}%")
+        @song = Song.where('artist LIKE ?', "%#{params[:query]}%")
       else
-      @song = Song.all
+      @song = Song.all.to_a
     end
     end
 
