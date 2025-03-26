@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :likes, only: [:create, :destroy]
   resources :comments
 
+
   get "likes/create"
   get "likes/destroy"
   get "likes/like_params"

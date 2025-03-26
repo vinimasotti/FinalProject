@@ -1,28 +1,16 @@
 # README
 
-# Current Version 0.6  <br> 
-- UI improved (web design refined with colourful buttons)
-- hard password implemented (8 char, symbol and upper case)
-- all user inputs sanitized
-- comments section updated
-- file uploads sanitized (accepting just mp3 or image)
-- user section improved (not possible to change the email anymore)
-- database updated from sql3lite to postgre
-# v0.60<br>
-=======================================================
+# Current Version 0.7  <br> 
+
 # Updates: <br> 
-- UI improved (web design refined with colourful buttons) <br>
-- hard password implemented (8 char, symbol and upper case) <br>
-- all user inputs sanitized <br> 
-- comments section updated <br>
+- UI improved <br>
+- Search button working <br>
+- Home button improved directed to posts if user logged in <br>
+- User inputs sanitized <br> 
+- Comments section updated <br>
 - file uploads sanitized (accepting just mp3 or image) <br>
 - user section improved (not possible to change the email anymore) <br>
 - database updated from sql3lite to postgre <br>
-
-#Version 0.7 (in development) - Mid-Mar <br>
-- documentation updates
-- security tests
-- webpage improvement
 
 #Version beta - Mid-Abr <br>
 #OFFICIAL LAUNCH - MID-MAY <br>

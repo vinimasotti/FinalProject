@@ -1,6 +1,6 @@
 <div class="song">
   <center>
-    <h3> <%= song.artist %> - <%= song.title %></h3> 
+    <h4> <%= song.artist %> - <%= song.title %></h4> 
     <% if song.audio_file.attached? %>
       <audio controls class="audio-player">
         <source src="<%= url_for(song.audio_file) %>" type="<%= song.audio_file.content_type %>">
@@ -10,6 +10,7 @@
       <p>No audio file attached.</p>
     <% end %>
   </center>
+  <hr>
 </div>
 
 <script>
