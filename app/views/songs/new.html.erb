@@ -2,40 +2,59 @@
 
 <div class="container-fluid d-flex align-items-center justify-content-center">
 <div class="col-10 col-md-8">
-    <br>
-    <center>
-    <h3>Upload a New Song</h3>
-    <hr>
+  <br>
+  <center>
+  <h3>Upload a New Song</h3>
+  <hr>
 
-      <%= form_with model: @song, local: true do |form| %> 
-        <!-- Display error messages if the song object has validation errors -->
-        <% if @song.errors.any? %>
-          <div class="alert alert-danger">
-            <h4>The following errors prevented the song from being uploaded:</h4>
-            <ul>
-              <% @song.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
+    <%= form_with model: @song, local: true do |form| %> 
+    <!-- Display error messages if the song object has validation errors -->
+    <% if @song.errors.any? %>
+      <div class="alert alert-danger">
+      <h4>The following errors prevented the song from being uploaded:</h4>
+      <ul>
+        <% @song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
         <% end %>
+      </ul>
+      </div>
+    <% end %>
 
 <div class="row">
   <div class="col-12">
-    <strong><%= form.label :title  %> </strong>
-    <%= form.text_field :title, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-50" %>
+  <strong><%= form.label :title  %> </strong>
+  <%= form.text_field :title, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-50" %>
   </div>
   <div class="col-12 mt-3">
   <strong> <%= form.label :artist %> </strong>
-    <%= form.text_field :artist, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-50" %>
+  <%= form.text_field :artist, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-50" %>
   </div>
   <div class="col-12 mt-3">
-    <button type="button" class="btn btn-secondary border-2 rounded-pill px-4 py-2 w-80" onclick="document.getElementById('audio_file_input').click();">Select Audio File</button>
-    <%= form.file_field :audio_file, id: 'audio_file_input', accept: 'audio/mp3', class: "d-none" %>
+  <button type="button" class="btn btn-secondary border-2 rounded-pill px-4 py-2 w-80" onclick="document.getElementById('audio_file_input').click();">Select Audio File</button>
+  <%= form.file_field :audio_file, id: 'audio_file_input', accept: 'audio/mp3', class: "d-none", required: true, onchange: "displayFileName()" %>
+  <p id="file-name-display" class="mt-2"></p>
   </div>
-  <div class="col-12 mt-5">
-    <%= form.submit "Upload Song", class: "btn btn-primary border-2 rounded-pill px-4 py-2 w-80" %>
+
+ <div class="col-12 mt-5">
+  <%= form.submit "Upload Song", class: "btn btn-primary border-2 rounded-pill px-4 py-2 w-80", onclick: "showConfirmationMessage()" %>
   </div>
+
+  <script>
+  function displayFileName() {
+    const fileInput = document.getElementById('audio_file_input');
+    const fileNameDisplay = document.getElementById('file-name-display');
+    if (fileInput.files.length > 0) {
+    fileNameDisplay.textContent = `Selected file: ${fileInput.files[0].name}`;
+    } else {
+    fileNameDisplay.textContent = '';
+    }
+  }
+
+  function showConfirmationMessage() {
+    const message = document.getElementById('confirmation-message');
+    message.classList.remove('d-none');
+  }
+  </script>
 
 </center>
 </div>
@@ -43,4 +62,4 @@
 </div>
 
  <% end %>
-    <% end %>
+<% end %>

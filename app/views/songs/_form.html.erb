@@ -4,7 +4,7 @@
 <%= form_with(model: song, local: true) do |form| %>
   <% if song.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>
+      <h2>The following errors prevented this song from being saved:</h2>
 
       <ul>
         <% song.errors.full_messages.each do |message| %>
@@ -17,16 +17,23 @@
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
+
+     <% if invalid %>
+      <p style="color:red">
+        <%= post.errors.full_messages_for(:description).join(" ,") %>
+      </p>
+    <% end %>
+
   </div>
 
   <div class="field">
     <%= form.label :artist %>
-    <%= form.text_field :artist %>
+    <%= form.text_field :artist, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :audio_file %>
-    <%= form.file_field :audio_file, accept: 'audio/mp3' %>
+    <%= form.file_field :audio_file, accept: 'audio/mp3', required: true %>
   </div>
 
   <div class="actions">
