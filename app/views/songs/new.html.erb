@@ -1,13 +1,14 @@
- <% if user_signed_in? %>
-
+<% if user_signed_in? %>
 
 <div class="container-fluid d-flex align-items-center justify-content-center">
-  <div class="col-8 col-md-4">
+<div class="col-10 col-md-8">
     <br>
-    <h3><center>Upload a New Song</center></h3>
+    <center>
+    <h3>Upload a New Song</h3>
     <hr>
 
       <%= form_with model: @song, local: true do |form| %> 
+        <!-- Display error messages if the song object has validation errors -->
         <% if @song.errors.any? %>
           <div class="alert alert-danger">
             <h4>The following errors prevented the song from being uploaded:</h4>
@@ -18,37 +19,28 @@
             </ul>
           </div>
         <% end %>
-        
-        <div class="col-6 col-md-6">
-        <%= form.label :title %>
-        <br>
-        <%= form.text_field :title %>
-        <br>
-        <%= form.label :artist %>
-        <br>
-        <%= form.text_field :artist %>
-        <br>
-       
-        <%= form.label :audio_file, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
-        <br>
 
-        <%= form.file_field :audio_file, accept: 'audio/mp3' %>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <%= form.submit "Upload Song", class: "btn btn-primary" %>
-      </center>
-
-    <% end %>
+<div class="row">
+  <div class="col-12">
+    <strong><%= form.label :title  %> </strong>
+    <%= form.text_field :title, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-50" %>
   </div>
+  <div class="col-12 mt-3">
+  <strong> <%= form.label :artist %> </strong>
+    <%= form.text_field :artist, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-50" %>
+  </div>
+  <div class="col-12 mt-3">
+    <button type="button" class="btn btn-secondary border-2 rounded-pill px-4 py-2 w-80" onclick="document.getElementById('audio_file_input').click();">Select Audio File</button>
+    <%= form.file_field :audio_file, id: 'audio_file_input', accept: 'audio/mp3', class: "d-none" %>
+  </div>
+  <div class="col-12 mt-5">
+    <%= form.submit "Upload Song", class: "btn btn-primary border-2 rounded-pill px-4 py-2 w-80" %>
+  </div>
+
+</center>
 </div>
 </div>
 </div>
 
-
+ <% end %>
     <% end %>
