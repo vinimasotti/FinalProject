@@ -1,7 +1,6 @@
 <% if user_signed_in? %>
 
-<div class="container-fluid d-flex align-items-center justify-content-center">
-<div class="col-12 col-md-8">
+
 
 <center><p style="color: green"><%= notice %></p></center>
 
@@ -10,6 +9,7 @@
  </center>
  <center>
 <%= link_to "Back to posts", posts_path, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-50"  %>
+<br>
 <% if user_signed_in? %>
 <% if current_user.id == @post.user.id %>
 <div>
