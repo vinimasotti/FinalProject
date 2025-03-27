@@ -25,6 +25,8 @@
     <% end %>
   </div>
 
+  
+
   <div>
     <% invalid = post.errors.include?(:keywords) %>
     <%= form.label :keywords, style: "display: block" %>
@@ -37,6 +39,8 @@
     <br>
     <%= form.file_field :images, multiple: true, required: true, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
   </div>
+
+  
 
   <div>
     
