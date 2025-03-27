@@ -1,6 +1,6 @@
  <% if user_signed_in? %>
  <div class="container-fluid d-flex align-items-center justify-content-center">
- <div class="col-10 col-md-8">
+
 
 <%= form_with(model: comment) do |form| %>
   <% if comment.errors.any? %>
@@ -31,8 +31,8 @@
   <div>
   <br>
    
-    <%= form.submit "Create", class: "btn btn-success btn-lg-4 rounded-pill shadow" do %>
-      <i class="bi bi-plus-circle"></i> Create
+   <%= form.submit "Create", class: "btn btn-success btn-lg-4 rounded-pill shadow" do %>
+   <i class="bi bi-plus-circle"></i>    Create
     <% end %>
   </div>
 <% end %>
