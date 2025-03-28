@@ -40,25 +40,7 @@
     <%= form.submit %>
   </div>
 
-  <p><strong>Artist:</strong> <%= @song.artist %></p>
-<p><strong>Title:</strong> <%= @song.title %></p>
-<p><strong>File Title:</strong> <%= @song.audio_file.filename.to_s if @song.audio_file.attached? %></p>
-
-
-
-<% if @song.audio_file.attached? %> 
-  <p><strong>File:</strong> <%= link_to "Download", url_for(@song.audio_file) %></p>
-  <%#= debug @song.audio_file %> <!-- This will show details about the attachment -->
-
-  <audio controls>
-    <source src="<%= url_for(@song.audio_file) %>" type="<%= @song.audio_file.content_type %>">
-    Your browser does not support the audio element.
-
-    </audio>
-<% else %>
-  <p>No audio file attached.</p>
   
-<% end %>
 <% end %>
 
 <% end %>

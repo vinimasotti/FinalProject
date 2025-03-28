@@ -1,13 +1,11 @@
 <% if user_signed_in? %>
 
 <hr>
-
 <center>
 
 <p><strong>Artist:</strong> <%= @song.artist %></p>
 <p><strong>Title:</strong> <%= @song.title %></p>
 <p><strong>File Title:</strong> <%= @song.audio_file.filename.to_s if @song.audio_file.attached? %></p>
-
 
 
 <% if @song.audio_file.attached? %> 

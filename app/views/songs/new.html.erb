@@ -7,7 +7,7 @@
   <h3>Upload a New Song</h3>
   <hr>
 
-    <%= form_with model: @song, local: true do |form| %> 
+    <%= form_with model: @song, local: true, id: "song-form" do |form| %> 
     <!-- Display error messages if the song object has validation errors -->
     <% if @song.errors.any? %>
       <div class="alert alert-danger">
@@ -23,11 +23,11 @@
 <div class="row">
   <div class="col-12">
   <strong><%= form.label :title  %> </strong>
-  <%= form.text_field :title, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-50" %>
+  <%= form.text_field :title, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-50", id: "song-title" %>
   </div>
   <div class="col-12 mt-3">
   <strong> <%= form.label :artist %> </strong>
-  <%= form.text_field :artist, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-50" %>
+  <%= form.text_field :artist, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-50", id: "song-artist" %>
   </div>
   <div class="col-12 mt-3">
   <button type="button" class="btn btn-secondary border-2 rounded-pill px-4 py-2 w-80" onclick="document.getElementById('audio_file_input').click();">Select Audio File</button>
@@ -36,7 +36,7 @@
   </div>
 
  <div class="col-12 mt-5">
-  <%= form.submit "Upload Song", class: "btn btn-primary border-2 rounded-pill px-4 py-2 w-80", onclick: "showConfirmationMessage()" %>
+  <%= form.submit "Upload Song", class: "btn btn-primary border-2 rounded-pill px-4 py-2 w-80", onclick: "return validateForm()" %>
   </div>
 
   <script>
@@ -44,15 +44,22 @@
     const fileInput = document.getElementById('audio_file_input');
     const fileNameDisplay = document.getElementById('file-name-display');
     if (fileInput.files.length > 0) {
-    fileNameDisplay.textContent = `Selected file: ${fileInput.files[0].name}`;
+      fileNameDisplay.textContent = `Selected file: ${fileInput.files[0].name}`;
     } else {
-    fileNameDisplay.textContent = '';
+      fileNameDisplay.textContent = '';
     }
   }
 
-  function showConfirmationMessage() {
-    const message = document.getElementById('confirmation-message');
-    message.classList.remove('d-none');
+  function validateForm() {
+    const title = document.getElementById('song-title').value.trim();
+    const artist = document.getElementById('song-artist').value.trim();
+    const audioFile = document.getElementById('audio_file_input').files.length;
+
+    if (!title || !artist || audioFile === 0) {
+      alert('Please fill in all fields and select an audio file before submitting.');
+      return false; // Prevent form submission
+    }
+    return true; // Allow form submission
   }
   </script>
 

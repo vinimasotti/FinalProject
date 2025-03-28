@@ -1,9 +1,3 @@
-
-
-<div class="container-fluid d-flex align-items-center justify-content-center">
-
-<div class="col-10 col-md-8">
-
  <% if user_signed_in? %>
 
 <!--  advises -->
@@ -23,38 +17,34 @@
     <#%= button_to "Decline", decline_path(request.followerable) %>
       <#% end %>
   -->
-      
-      
-  <h4>Followers</h4> 
+            
+  <p>Followers
       <% current_user.followers.each do |follower| %>
         <%= link_to follower.username, follower %>
         <% end %>
         <br>
-  <h4>   Followwing</h4> 
+  Followwing</p> 
         <% current_user.followers.each do |following| %>
           <%= link_to following.username, following %>
           <% end %>
           <% end %>
-
     
-<h1>Posts</h1>
+<h2>Posts</h2>
 
 <div id="posts">
   <% @posts.reverse.each do |post| %>
-    <%= render post %>
+  <%= render post %>
   <br>
   <% end %>
 </div>
 
-<div id="posts">
-<% @song.reverse.each do |song| %>
+<div id="songs">
+  <% @song.reverse.each do |song| %>
   <%= render partial: "audio_player", locals: { song: song } %>
-  
 <% end %>
 
-
-<%= link_to "New post", new_post_path %>
-
+<hr>
+  <%= link_to "New post", new_post_path %>
 <% end %>
 
 </div>

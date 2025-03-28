@@ -9,26 +9,22 @@
 
     <%= link_to "View Post", post, class: "post-link" %>
 
-
     <%#= button_to "likes", likes_path, params: { like: { post_id: post.id } }, method: :post %>
     <%#= button_to "Like", likes_path, method: :post, params: { like: { post_id: post.id } } %>
     <%#= post.likes.count %> 
-
-  
-  
 
     <% post.images.each do |image| %>
       <div class="image-container">
        <%= image_tag(image, class: "post-image", style: "object-fit: contain; width: 400px; height: 400px;") %>  
     </div>
-    
+
+
+   
     <% end %>
   </div>
 </div>
 
-
-
 Posted by:<%= link_to post.user.username, post.user if post.user.present? %>
 <br>
-<br>
+
 <% end %>
