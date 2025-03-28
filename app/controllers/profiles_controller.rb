@@ -6,6 +6,13 @@ class ProfilesController < ApplicationController
     Rails.logger.info "Found users: #{@users.map(&:id)}" # Debugging
   end
 
+#Incomplete
+  def posts
+    user = User.find(params[:id]) # Find the user by ID
+    @posts = user.posts # Fetch posts associated with the user
+  
+  end
+
   def users
     #Searching for user not working
     search_query = params[:query] # Or however you’re getting the search input

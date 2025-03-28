@@ -2,6 +2,7 @@ class SongsController < ApplicationController
 
 
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_song, only: [:show, :edit, :destroy]
 
 
     def new #New instance for the Song model
@@ -11,7 +12,7 @@ class SongsController < ApplicationController
     def index #Retrieve all songs and display them in a list
       if params[:query].present?
         query = ActiveRecord::Base.sanitize_sql_like(params[:query]) #Security measure to prevent SQL injection
-        @song = Song.where('artist LIKE ?', "%#{query}%")
+        @song = Song.where('artist LIKE :query', query: "%#{query}%") # Secure measure to prevent SQL injection
       else
         @song = Song.all.limit(20) #limiting 20 songs to not overload the page.
     end
@@ -21,13 +22,15 @@ class SongsController < ApplicationController
     end
 
     def show #Display details about the song
-      @song = Song.find(params[:id])
-      
     end
 
     def destroy # Delete song from a database
-      @song = Song.find(params[:id])
-      @song.destroy!
+      begin
+        @song.destroy!
+        redirect_to songs_path, notice: "Song was successfully deleted."
+      rescue ActiveRecord::RecordNotDestroyed => e
+        redirect_to @song, alert: "Error deleting the song: #{e.message}"
+      end
     end
   
     def create # Handle submission for creating a new song
@@ -42,7 +45,7 @@ class SongsController < ApplicationController
     def search
       @query = params[:query]
       @songs = if @query.present?
-                 Song.where("title LIKE ? OR artist LIKE ?", "%#{@query}%", "%#{@query}%")
+        Song.where("title LIKE :query OR artist LIKE :query", query: "%#{@query}%")
                else
                  Song.all
                end

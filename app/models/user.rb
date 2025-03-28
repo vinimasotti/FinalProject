@@ -12,7 +12,7 @@ class User < ApplicationRecord
         followability
 
         has_many :songs
-         has_many :posts
+         has_many :posts, dependent: :destroy
          has_many :likes
          has_many :comments
          has_one_attached :avatar
