@@ -10,9 +10,10 @@ class SongsController < ApplicationController
 
     def index #Retrieve all songs and display them in a list
       if params[:query].present?
-        @song = Song.where('artist LIKE ?', "%#{params[:query]}%")
+        query = ActiveRecord::Base.sanitize_sql_like(params[:query]) #Security measure to prevent SQL injection
+        @song = Song.where('artist LIKE ?', "%#{query}%")
       else
-      @song = Song.all.to_a
+        @song = Song.all.limit(20) #limiting 20 songs to not overload the page.
     end
     end
 

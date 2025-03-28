@@ -4,7 +4,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         :password_archivable #memorize old password to user not repeat the same 
+         :password_archivable #Ensures users cannot reuse previous password
          #password_expirable #possibility to expire password after 3 months see on devise.setup do |config| 
 
          validates :password, presence: true, length: { minimum: 8 }, password_complexity: true, if: :password_required?
