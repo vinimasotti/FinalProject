@@ -1,7 +1,4 @@
-<div class="container">
-<div class="container-fluid d-flex align-items-center justify-content-center">
 
-<div class="col-10 col-md-8">
  <% if user_signed_in? %>
  <!--  advises -->
 <p style="color: green"><%= notice %></p>
@@ -11,7 +8,7 @@
 <h2>My own Posts</h2>
 <hr>
 <h2> Included: image, description and comments </h2>
-</center>
+
 <div id="posts">
   <% @posts.each do |post| %>
     <% if post.user && post.user.id == current_user.id %>
@@ -21,7 +18,6 @@
   <% end %>
 </div>
 
-<center>
 <%= link_to "New post", new_post_path %>
 </center>
 <% end %>
