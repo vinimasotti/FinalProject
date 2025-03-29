@@ -38,7 +38,7 @@
   <div class="comments-list">
   <br>
     <h4>Comments</h4>
-    <% @post.comments.each do |comment| %>
+   <% @post.comments.reverse_each do |comment| %>
       <div class="comment mb-3 p-3 border rounded">
         <p class="mb-10"><%= truncate_comment(comment.text) %></p>
       </div>

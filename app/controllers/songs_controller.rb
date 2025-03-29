@@ -43,13 +43,12 @@ class SongsController < ApplicationController
     end
 
     def search
-      query = params[:query]
-     @songs = if @query.present?
-        Song.where("title LIKE :query OR artist LIKE :query", query: "%#{@query}%")
-               else
-                 Song.all.limit(10)
-              end
-      render :index
+      if params[:query].present?
+        query = ActiveRecord::Base.sanitize_sql_like(params[:query]) #Security measure to prevent SQL injection
+        @song = Song.where('artist LIKE :query OR title LIKE :query', query: "%#{query}%").limit(10) # Secure measure to prevent SQL injection
+      else
+        @song = Song.all #limiting 10 songs to not overload the page.
+    end
     end
   
     private
