@@ -9,7 +9,7 @@
     
     <p class="platform-description">
       A friendly home for music lovers - store your personal collection safely, 
-      discover hidden gems, and connect with others. 
+      discover hidden gems, and connect with others. <br>
       Enjoy <span class="highlight">invisible security</span> that works while 
       you focus on what matters: <span class="emphasis">the music</span>.
     </p>
@@ -29,74 +29,74 @@
   transform: scale(1.05); 
  }
 
- .music-platform-header {
-  font-family: 'Segoe UI', Roboto, sans-serif;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
-  color: #333;
-}
+  .music-platform-header {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    color: #333;
+  }
 
-.header-content {
-  text-align: center;
-}
+  .header-content {
+    text-align: center;
+  }
 
-.header-divider {
-  border: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #666, transparent);
-  margin: 1.5rem auto;
-  width: 70%;
-}
-
-.platform-title {
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
-  font-weight: 400;
-  color: #555;
-  margin: 1rem 0;
-}
-
-.welcome-title {
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 700;
-  margin: 1rem 0;
-  color: #222;
-}
-
-.brand-name {
-  color: #0066cc;
-  background: linear-gradient(135deg, #0066cc, #00aaff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.platform-description {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  line-height: 1.6;
-  margin: 2rem auto;
-  max-width: 700px;
-  color: #444;
-}
-
-.highlight {
-  font-weight: 600;
-  color: #0066cc;
-}
-
-.emphasis {
-  font-style: italic;
-  color: #00aaff;
-}
-
-@media (max-width: 768px) {
   .header-divider {
-    width: 90%;
-    margin: 1rem auto;
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #666, transparent);
+    margin: 1.5rem auto;
+    width: 70%;
   }
-  
+
+  .platform-title {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 400;
+    color: #555;
+    margin: 1rem 0;
+  }
+
+  .welcome-title {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    margin: 1rem 0;
+    color: #222;
+  }
+
+  .brand-name {
+    color: #0066cc;
+    background: linear-gradient(135deg, #0066cc, #00aaff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .platform-description {
-    padding: 0 1rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.6;
+    margin: 2rem auto;
+    max-width: 700px;
+    color: #444;
   }
-}
+
+  .highlight {
+    font-weight: 600;
+    color: #0066cc;
+  }
+
+  .emphasis {
+    font-style: italic;
+    color: #00aaff;
+  }
+
+  @media (max-width: 768px) {
+    .header-divider {
+      width: 90%;
+      margin: 1rem auto;
+    }
+    
+    .platform-description {
+      padding: 0 1rem;
+    }
+  }
  
 </style>
