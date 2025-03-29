@@ -25,14 +25,20 @@
   
 
   <div class="field">
-  Add you picture
+  <br>
+  Add or change you picture
   <%= f.file_field :avatar, accept: 'image/*', class:"btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
-  
-  <hr>
   </div>
 
+  <hr>
+<div class="text-center">
+  <h4>Want to change your password? </h4>
+  <p>Leave the password fields blank if you dont want to change it.</p>
+  
+ </div>
+
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you dont want to change it)</i><br>
+    <%= f.label :password %> <br>
     <%= f.password_field :password, autocomplete: "new-password", class:"form-control col-8 border-2 rounded-pill mt-4 px-4 py-1 w-100" %>
     <% if @minimum_password_length %>
       <br />
@@ -41,7 +47,7 @@
   </div>
 
   <div class="field">
- 
+
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control col-8 border-2 rounded-pill mt-4 px-4 py-1 w-100" %>
   </div>
@@ -59,9 +65,15 @@
 <br>
 
 <hr>
+<div class="text-center">
+  <h4>Want to delete your account?</h4>
+  <p>Once you delete your account, there is no going back. Please be certain.</p>
+  <p>PS. We will delete all your posts and comments.</p>
+ 
  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, 
  method: :delete, class: "btn btn-danger col-6 border-2 rounded-pill mt-4 px-4 py-1 w-100" %>
-
+ 
+</div>
 </div>
 </div>
 </div>
