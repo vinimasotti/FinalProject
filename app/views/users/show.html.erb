@@ -6,7 +6,10 @@
         <center>
             <h4>Username: <%= @user.username %></h4>
             <h5>Bio : <%= @user.bio %></h5>
-            <h6>E-mail: <%= @user.email %></h6>
+            <h5>E-mail: <%= @user.email %></h5>
+            <h5>Posts: <%= @user.posts %></h5>
+            <h5>Songs: <%= @user.songs %></h5>
+            <h5>Songs: <%= @user.songs.pluck %></h5>
 
             <% if @user.avatar.attached? %>
                 <%= image_tag @user.avatar, style: "width:200px; height: 200px;" %>

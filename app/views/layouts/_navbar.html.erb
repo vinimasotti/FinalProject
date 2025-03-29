@@ -14,12 +14,17 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <!-- Brand -->
       <%= link_to "Home", user_signed_in? ? posts_path : root_path, class: "navbar-brand" %>
-      
 
+      <% unless user_signed_in? %>
+      <div class="p-1 bg-dark shadow-lg rounded text-white display-8 font-weight-bold">AudioGram</div>
+      <% end %>
+      
       <!-- Search Form -->
+      <% if user_signed_in? %>
       <%= form_with url: songs_path, method: :get, class: "form-inline my-2 my-lg-0" do |form| %>
         <%= form.search_field :query, value: params[:query], placeholder: "Search", class: "form-control mr-sm-2" %>
         <%= form.submit "Search", class: "btn btn-primary my-2 my-sm-0" %>
+      <% end %>
       <% end %>
 
       <!-- Navbar Toggler -->
@@ -89,6 +94,7 @@
           <% end %>
 
         <% end %>
+        
       </ul>
     </div>
   </nav>
