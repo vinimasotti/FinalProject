@@ -5,6 +5,7 @@ class Post < ApplicationRecord
     validates :keywords, presence: true, length: { minimum: 3, maximum: 100 }
 
     has_one_attached :audio
+    has_one_attached :audio_file
     has_many_attached :images
     has_one_attached :song
 

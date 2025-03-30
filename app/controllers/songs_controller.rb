@@ -14,7 +14,7 @@ class SongsController < ApplicationController
         query = ActiveRecord::Base.sanitize_sql_like(params[:query]) #Security measure to prevent SQL injection
         @song = Song.where('artist LIKE :query OR title LIKE :query', query: "%#{query}%").limit(10) # Secure measure to prevent SQL injection
       else
-        @song = Song.all #limiting 10 songs to not overload the page.
+        @song = Song.all 
     end
     end
 
@@ -22,6 +22,8 @@ class SongsController < ApplicationController
     end
 
     def show #Display details about the song
+
+
     end
 
     def destroy # Delete song from a database

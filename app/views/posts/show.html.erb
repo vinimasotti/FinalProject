@@ -5,7 +5,23 @@
 <center>
 <%= render @post %>
 
+   <% if @song.present? %>
+     <h3><%= @song %></h3>
+     
+     <p> _song.html.erb </p>
+
+     <%= render partial: "audio_player", locals: { song: @song } %>
+     <audio controls>
+    <source src="<%= url_for(@song.audio_file) %>" type="<%= @song.audio_file.content_type %>">
+    Your browser does not support the audio element.
+
+    </audio>
+   <% else %>
+     <p>No song available</p>
+   <% end %>
  </center>
+
+ 
  <center>
 <%= link_to "Back to posts", posts_path, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-50"  %>
 <br>
@@ -18,10 +34,8 @@
 <div class="btn">
   <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-danger border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
 </div>
-
-
-
 <br>
+
 <% end %>
 <% end %>
 

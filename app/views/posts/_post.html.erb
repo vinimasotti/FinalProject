@@ -1,37 +1,30 @@
-<% if user_signed_in? %>
+ <% if user_signed_in? %>
 <div id="<%= dom_id(post) %>" class="post" style="display: flex; flex-direction: column; align-items: center; text-align: center; margin: auto; max-width: 600px;">
-  <div class="post-content" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-   <p class="post-title"><%= post.title %></p>
-   <p class="post-description"><%= post.description %></p>
-   <!-- <p class="post-keywords"><%= post.keywords %></p>
-   <p class="post-keywords"><%= post.user.id %></p> 
-   <p><%= link_to post.user.username, post.user if post.user.present? %></p> -->
+   <div class="post-content" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+    <p class="post-title"><%= post.title %></p>
+    <p class="post-description"><%= post.description %></p>
+    <!-- <p class="post-keywords"><%= post.keywords %></p>
+    <p class="post-keywords"><%= post.user.id %></p> -->
+    <p  <#%= link_to post.user.username, post.user if post.user.present? %> </p>
 
-   <%= link_to "View Post", post, class: "post-link" %>
+    <%= link_to "View Post", post, class: "post-link" %>
 
-   <%#= button_to "likes", likes_path, params: { like: { post_id: post.id } }, method: :post %>
-   <%#= button_to "Like", likes_path, method: :post, params: { like: { post_id: post.id } } %>
-   <%#= post.likes.count %> 
+    <%#= button_to "likes", likes_path, params: { like: { post_id: post.id } }, method: :post %>
+    <%#= button_to "Like", likes_path, method: :post, params: { like: { post_id: post.id } } %>
+    <%#= post.likes.count %> 
 
-   <% post.images.each do |image| %>
-    <div class="image-container">
-     <%= image_tag(image, class: "post-image", style: "object-fit: contain; width: 400px; height: 400px;") %>  
-   </div>
-   <% end %>
-
-   <% if post.song.present? %>
-    <div class="song-container">
-      <p class="post-song">Song: <%= post.song.title %></p>
-      <audio controls>
-       <source src="<%= post.song.file_url %>" type="audio/mpeg">
-       Your browser does not support the audio element.
-      </audio>
+    <% post.images.each do |image| %>
+      <div class="image-container">
+       <%= image_tag(image, class: "post-image", style: "object-fit: contain; width: 400px; height: 400px;") %>  
     </div>
-   <% end %>
+
+
+   
+    <% end %>
   </div>
 </div>
 
-Posted by: <%= link_to post.user.username, post.user if post.user.present? %>
+Posted by:<%= link_to post.user.username, post.user if post.user.present? %>
 <br>
 
 <% end %>

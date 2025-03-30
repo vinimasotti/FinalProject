@@ -12,6 +12,8 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     @comment = @post.comments.build
+    @post = Post.find(params[:id])
+    @song = @post.song  # Ensure @song is assigned, assuming Post has a song association
   end
 
   def myposts
