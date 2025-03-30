@@ -10,7 +10,7 @@ class SongsController < ApplicationController
     end
 
     def index #Retrieve all songs and display them in a list
-      if params[:query].present?
+      if params[:query].present? && params[:query].strip != "" # Check if the query parameter is present and not empty on server side
         query = ActiveRecord::Base.sanitize_sql_like(params[:query]) #Security measure to prevent SQL injection
         @song = Song.where('artist LIKE :query OR title LIKE :query', query: "%#{query}%").limit(10) # Secure measure to prevent SQL injection
       else
