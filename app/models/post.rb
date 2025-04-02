@@ -4,7 +4,7 @@ class Post < ApplicationRecord
     validates :description, presence: true, length: { minimum: 5, maximum: 500 }
     validates :keywords, presence: true, length: { minimum: 3, maximum: 100 }
 
-    has_one_attached :audio
+    has_many :songs, dependent: :destroy
     has_one_attached :audio_file
     has_many_attached :images
     has_one_attached :song

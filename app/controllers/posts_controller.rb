@@ -14,6 +14,8 @@ class PostsController < ApplicationController
     @comment = @post.comments.build
     @post = Post.find(params[:id])
     @song = @post.song  # Ensure @song is assigned, assuming Post has a song association
+
+    @alternate_post = Post.find(params[:id])
   end
 
   def myposts

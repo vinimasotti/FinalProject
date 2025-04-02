@@ -1,9 +1,12 @@
-<% if user_signed_in? %>
+  <% if user_signed_in? %>
 
 <center><p style="color: green"><%= notice %></p></center>
 
 <center>
-<%= render @post %>
+
+  <%= render partial: "alternate_post", locals: { post: @alternate_post } %>
+
+ 
 
    <% if @song.present? %>
      <h3><%= @song %></h3>

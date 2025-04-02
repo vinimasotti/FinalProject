@@ -1,0 +1,21 @@
+<%# app/views/posts/_alternate_post.html.erb %>
+<% if user_signed_in? %>
+  <div id="<%= dom_id(post) %>_alternate" class="alternate-post" style="display: flex; flex-direction: column; align-items: center; text-align: center; margin: auto; max-width: 600px; border: 2px dashed #ccc; padding: 15px;">
+    <div class="alternate-post-content" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+      <p class="alternate-post-title" style="font-weight: bold; color: #555;"><%= post.title %></p>
+      <p class="alternate-post-description"><%= post.description %></p>
+      
+      <%#= link_to "View Alternate Post", post, class: "alternate-post-link", style: "color: #4a6ea9; text-decoration: none; margin: 10px 0;" %>
+
+      <% post.images.each do |image| %>
+        <div class="alternate-image-container" style="margin: 10px 0;">
+          <%= image_tag(image, class: "alternate-post-image", style: "object-fit: contain; width: 350px; height: 350px; border: 1px solid #eee;") %>  
+        </div>
+      <% end %>
+    </div>
+    
+    <div class="alternate-post-meta" style="font-size: 0.9em; color: #666; margin-top: 10px;">
+      Posted by: <%= link_to post.user.username, post.user if post.user.present? %>
+    </div>
+  </div>
+<% end %>
