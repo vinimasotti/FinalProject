@@ -1,10 +1,10 @@
 # app/models/song.rb
 class Song < ApplicationRecord
-  belongs_to :post
+ # belongs_to :post
   has_one_attached :audio_file
  
-  #belongs_to :user
-  #validates :user, presence: true
+  belongs_to :user
+  validates :user, presence: true
 
   validates :title, presence: true
   validates :artist, presence: true
