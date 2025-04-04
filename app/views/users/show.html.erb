@@ -11,6 +11,10 @@
             <h5>Songs: <%= @user.songs %></h5>
             <h5>Songs: <%= @user.songs.pluck %></h5> -->
             <h5>Followers: <%= @user.followers.count %></h5>
+            <p>
+            <strong>Total Data Uploaded:</strong>
+            <%= number_to_human_size(@user.upload_data) %>
+            </p>
 
             <% if @user.avatar.attached? %>
                 <%= image_tag @user.avatar, style: "width:200px; height: 200px;" %>

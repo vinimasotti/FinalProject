@@ -37,6 +37,7 @@ class SongsController < ApplicationController
   
     def create # Handle submission for creating a new song
       @song = Song.new(song_params)
+
       if @song.save
         redirect_to @song, notice: "Song was successfully uploaded."
       else

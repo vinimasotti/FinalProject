@@ -33,7 +33,12 @@ class User < ApplicationRecord
    def self.ransackable_attributes(auth_object = nil)
     %w[username email created_at] # Add only the non-sensitive fields you want searchable
   end
-         
+
+  def increment_upload_data(bytes)
+    self.upload_data += bytes
+    save!
+  end
+ 
 
          private
          def randomize_id

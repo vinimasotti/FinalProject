@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_04_02_193421) do
+ActiveRecord::Schema[7.2].define(version: 2025_04_03_220049) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,6 +91,15 @@ ActiveRecord::Schema[7.2].define(version: 2025_04_02_193421) do
     t.index ["post_id"], name: "index_songs_on_post_id"
   end
 
+  create_table "uploads", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "file"
+    t.integer "file_size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_uploads_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -102,6 +111,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_04_02_193421) do
     t.string "bio"
     t.string "username"
     t.integer "role"
+    t.integer "upload_data", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -111,4 +121,5 @@ ActiveRecord::Schema[7.2].define(version: 2025_04_02_193421) do
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "songs", "posts"
+  add_foreign_key "uploads", "users"
 end
