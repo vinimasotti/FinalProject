@@ -14,8 +14,10 @@
             <p>
             <strong>Total Data Uploaded:</strong>
             <%= number_to_human_size(@user.upload_data) %>
-            </p>
-
+            </p> 
+            <strong>Account Created:</strong>
+            <%= @user.created_at.strftime("%B %d, %Y") %>
+            <br>
             <% if @user.avatar.attached? %>
                 <%= image_tag @user.avatar, style: "width:200px; height: 200px;" %>
             <% end %>
