@@ -19,7 +19,9 @@
             
             <p> _song.html.erb </p>
        
-            <%= render partial: "audio_player", locals: { song: @song } %>
+            <% cache ["audio_player", @song] do %>
+              <%= render partial: "audio_player", locals: { song: @song } %>
+            <% end %>
             <audio controls>
            <source src="<%= url_for(@song.audio_file) %>" type="<%= @song.audio_file.content_type %>">
            Your browser does not support the audio element.

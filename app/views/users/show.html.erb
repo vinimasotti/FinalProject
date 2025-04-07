@@ -10,13 +10,14 @@
             <!-- <h5>Posts: <%= @user.posts %></h5>
             <h5>Songs: <%= @user.songs %></h5>
             <h5>Songs: <%= @user.songs.pluck %></h5> -->
-            <h5>Followers: <%= @user.followers.count %></h5>
-            <p>
+            </h5>
+            <h6> 
             <strong>Total Data Uploaded:</strong>
-            <%= number_to_human_size(@user.upload_data) %>
-            </p> 
+            <%= number_to_human_size(@user.upload_data || @user.posts.sum(&:data_size) + @user.songs.sum(&:data_size)) %>
+            <br>
             <strong>Account Created:</strong>
             <%= @user.created_at.strftime("%B %d, %Y") %>
+            </h6>
             <br>
             <% if @user.avatar.attached? %>
                 <%= image_tag @user.avatar, style: "width:200px; height: 200px;" %>

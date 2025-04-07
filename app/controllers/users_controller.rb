@@ -26,12 +26,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user.upload_data ||= 0 # Ensure upload_data is initialized
   end
 
   def follow
     current_user.send_follow_request_to(@user)
     @user.accept_follow_request_of(current_user)
-    redirect_to users_path(@user)
+    redirect_to user_path(@user)
   end
 
   def unfollow
