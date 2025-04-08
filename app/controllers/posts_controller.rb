@@ -11,12 +11,12 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
-    @comment = @post.comments.build
     @post = Post.find(params[:id])
-    @song = @post.song  # Ensure @song is assigned, assuming Post has a song association
+    @comment = @post.comments.build
+    @song = @post.song || Song.new  # Assign a new Song if no association exists
 
     @alternate_post = Post.find(params[:id])
-    @song = @post.song # Assuming Post has a `song` association
+
   end
 
   def myposts
@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @song = Song.new
     #write here more.....
   end
 
@@ -37,6 +38,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
 
+    #@song = Song.new(post_params)
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: "Post was successfully created." }
@@ -46,6 +48,8 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+
+   
   end
 
   # PATCH/PUT /posts/1 or /posts/1.json
