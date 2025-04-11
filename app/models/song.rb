@@ -6,9 +6,12 @@ class Song < ApplicationRecord
   #belongs_to :user
 # validates :user, presence: true
 
-  validates :title, presence: true
-  validates :artist, presence: true
+  validates :title, presence: true, length: { minimum: 5, maximum: 50 }
+  validates :artist, presence: true, length: { minimum: 3, maximum: 50 }
   validate :audio_file_must_be_mp3
+
+ 
+
 
   private
 
