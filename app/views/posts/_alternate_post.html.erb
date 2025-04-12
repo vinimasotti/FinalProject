@@ -34,6 +34,9 @@
         
         <div class="alternate-post-meta" style="font-size: 0.9em; color: #666; margin-top: 10px;">
             Posted by: <%= link_to post.user.username, post.user if post.user.present? %>
+            <br>
+            Posted on: <%= post.created_at.strftime("%B %d, %Y") %>
+            
         </div>
     </div>
 <% end %>
