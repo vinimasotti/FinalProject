@@ -1,7 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:show, :posts, :follow, :unfollow, :accept, :decline, :cancel]
+  #before_action :set_user, only: [:show, :posts, :follow, :unfollow, :accept, :decline, :cancel]
   def index
+
     search_query = params[:query].presence
     @q = User.ransack(username_cont: search_query) # Initialize Ransack query object
     @users = @q.result(distinct: true) # Execute the query and ensure distinct results
