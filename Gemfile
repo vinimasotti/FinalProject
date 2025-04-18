@@ -59,10 +59,10 @@ group :test do
 end
 
 gem "devise", "~> 4.9"
-gem 'followability', github: 'nejdetkadir/followability', branch: 'main'
+gem 'followability', github: 'nejdetkadir/followability'
 gem 'ransack'
 gem "rails_admin"
-gem "cssbundling-rails" #not working 
+gem "cssbundling-rails" 
 gem 'devise-security'
 gem "actionpack", ">= 7.2.2.1"
 gem "pg"
