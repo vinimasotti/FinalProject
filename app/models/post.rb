@@ -11,7 +11,8 @@ class Post < ApplicationRecord
     has_many_attached :images
     has_one_attached :song
 
-    belongs_to :user
+    belongs_to :user 
+   # belongs_to :post
     has_many :comments
     has_many :likes, dependent: :destroy 
   

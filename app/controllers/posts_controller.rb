@@ -28,6 +28,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @song = Song.new
+    
     #write here more.....
   end
 
