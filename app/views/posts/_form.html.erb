@@ -28,12 +28,13 @@
 
   <div>
     <% invalid = post.errors.include?(:keywords) %>
-    <%= form.label :keywords, style: "display: block" %>
-    <%= form.text_field :keywords, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+   <!-- <%= form.label :keywords, style: "display: block" %>
+    <%= form.text_field :keywords, class: "form-control border-2 rounded-pill mt-3 px-4 py-2 w-100" %>   -->
     <% if invalid %>
       <p style="color:red">
         <%= post.errors.full_messages_for(:keywords).join(" ,") %>
       </p>
+   
     <% end %>
     <br>
     <%= form.file_field :images, multiple: true, required: true, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
