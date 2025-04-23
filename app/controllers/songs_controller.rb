@@ -1,9 +1,14 @@
 class SongsController < ApplicationController
 
 
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
   before_action :set_song, only: [:show, :edit, :destroy]
+  
 
+  def my_songs
+    # Fetch songs uploaded by the current user via their posts
+    @songs = Song.joins(:post).where(posts: { user_id: current_user.id }).includes(:post)
+  end
 
     def new #New instance for the Song model
       @song = Song.new
@@ -23,7 +28,12 @@ class SongsController < ApplicationController
 
     def show #Display details about the song
 
-
+      @song = Song.find(params[:id])
+    
+     # @comment = @post.comments.build
+     # @song = @post.song || Song.new  # Assign a new Song if no association exists
+  
+      @alternate_post = Song.find(params[:id])
     end
 
     def destroy # Delete song from a database

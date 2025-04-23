@@ -2,6 +2,8 @@ class Post < ApplicationRecord
 
     validates :title, presence: true, length: { minimum: 5, maximum: 100 }
     validates :description, presence: true, length: { minimum: 5, maximum: 500 }
+    #validates :title, presence: true, length: { minimum: 5, maximum: 50 }
+    #validates :artist, presence: true, length: { minimum: 3, maximum: 50 }
    # validates :keywords, presence: true, length: { minimum: 3, maximum: 100 }
     
     #validates :content, presence: true

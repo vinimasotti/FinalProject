@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-<%= form_with(model: post) do |form| %>
+<%= form_with(model: @post, url: posts_path, local: true, html: { multipart: true }) do |form| %>
   <div>
     <% invalid = post.errors.include?(:title) %>
     <%= form.label :title, style: "display: block" %>
@@ -38,8 +38,11 @@
     <% end %>
     <br>
     <%= form.file_field :images, multiple: true, required: true, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+     
   </div>
-
+  <%= form.label :song, "Upload Song" %>
+  <%= form.file_field :song %>
+  <%= form.submit "Post Song" %>
   
 
   <div>

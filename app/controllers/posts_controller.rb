@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     @post = Post.find(params[:id])
+    
     @comment = @post.comments.build
     @song = @post.song || Song.new  # Assign a new Song if no association exists
 
@@ -95,6 +96,12 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :description, :keywords, :user_id, images: [])
+      params.require(:post).permit(
+        :title,
+        :description,
+        :user_id,
+        :song,
+        images: []  # permit images as an array
+      )
     end
 end

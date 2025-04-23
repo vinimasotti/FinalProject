@@ -13,23 +13,15 @@
                 </div>
             <% end %>
 
-
-            <% if @song.present? %>
-            <h3><%= @song %></h3>
-            
-            <p> _song.html.erb </p>
-       
-            <% cache ["audio_player", @song] do %>
-              <%= render partial: "audio_player", locals: { song: @song } %>
+            <% if post.song.attached? %>
+              <audio controls>
+                <source src="<%= url_for(post.song) %>" type="<%= post.song.content_type %>">
+                Your browser does not support the audio element.
+              </audio>
+            <% else %>
+              <p>No sssong uploaded.</p>
             <% end %>
-            <audio controls>
-           <source src="<%= url_for(@song.audio_file) %>" type="<%= @song.audio_file.content_type %>">
-           Your browser does not support the audio element.
-       
-           </audio>
-          <% else %>
-            <p>No song available</p>
-          <% end %>
+
         </div>
         
         <div class="alternate-post-meta" style="font-size: 0.9em; color: #666; margin-top: 10px;">
