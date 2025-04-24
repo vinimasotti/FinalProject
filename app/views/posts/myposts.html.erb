@@ -5,15 +5,18 @@
 
 <% content_for :title, "Posts" %>
 <center>
-<h2>My own Posts</h2>
+<h2>My Posts</h2>
+
 <hr>
-<h2> Included: image, description and comments </h2>
+
 
 <div id="posts">
-  <% @posts.each do |post| %>
+  <% @posts.reverse.each_with_index do |post, index| %>
+     
+      
+
     <% if post.user && post.user.id == current_user.id %>
       <%= render post %>
-      <br>
     <% end %>  
   <% end %>
 </div>

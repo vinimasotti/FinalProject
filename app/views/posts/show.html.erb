@@ -13,11 +13,11 @@
  
  <center>
 <%= link_to "Back to posts", posts_path, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-50"  %>
-<br>
+<hr>
 <% if user_signed_in? %>
 <% if current_user.id == @post.user.id %>
 <div>
-<br>
+
   <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-primary border-2 rounded-pill mt-3 px-4 py-2 w-50"  %>  
   <br>
 <div class="btn">

@@ -4,17 +4,16 @@
     <div class="container">
         <hr>
         <center>
-            <h4>Username: <%= @user.username %></h4>
+            <h5>Username: <%= @user.username %></h5>
             <h5>Bio : <%= @user.bio %></h5>
             <h5>E-mail: <%= @user.email %></h5>
-            <!-- <h5>Posts: <%= @user.posts %></h5>
-            <h5>Songs: <%= @user.songs %></h5>
-            <h5>Songs: <%= @user.songs.pluck %></h5> -->
-            </h5>
-            <h6> 
+            <h5>Total Posts: <%= @user.posts.count %></h5>
+             
             <strong>Total Data Uploaded:</strong>
+
             <%= number_to_human_size(@user.upload_data || @user.posts.sum(&:data_size) + @user.songs.sum(&:data_size)) %>
             <br>
+
             <strong>Account Created:</strong>
             <%= @user.created_at.strftime("%B %d, %Y") %>
             </h6>

@@ -37,12 +37,13 @@
    
     <% end %>
     <br>
+     <%= form.label :images, "Upload Image" %>
     <%= form.file_field :images, multiple: true, required: true, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
-     
+   
   </div>
   <%= form.label :song, "Upload Song" %>
-  <%= form.file_field :song %>
-  <%= form.submit "Post Song" %>
+  <%= form.file_field :song, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+  <!-- <#%= form.submit "Post Song" %> -->
   
 
   <div>
