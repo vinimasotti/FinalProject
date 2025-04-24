@@ -7,8 +7,7 @@
             <h5>Username: <%= @user.username %></h5>
             <h5>Bio : <%= @user.bio %></h5>
             <h5>E-mail: <%= @user.email %></h5>
-            <h5>Total Posts: <%= @user.posts.count %></h5>
-             
+            <strong>Total Posts: </strong><%= @user.posts.count %> <br>
             <strong>Total Data Uploaded:</strong>
 
             <%= number_to_human_size(@user.upload_data || @user.posts.sum(&:data_size) + @user.songs.sum(&:data_size)) %>

@@ -36,33 +36,31 @@
       </p>
    
     <% end %>
+    
     <br>
-     <%= form.label :images, "Upload Image" %>
-    <%= form.file_field :images, multiple: true, required: true, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
-   
-  </div>
+    <%= form.label :images, " Upload Image " %>
+    <%= form.file_field :images, multiple: true, required: true, class: "btn btn-primary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+
+
   <%= form.label :song, "Upload Song" %>
   <%= form.file_field :song, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
-  <!-- <#%= form.submit "Post Song" %> -->
   
-
-  <div>
     
-    <%= form.submit class: "btn btn-primary col-12 border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
-  </div>
+    <%= form.submit class: "btn btn-success col-12 border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+
   <% end %>
   <hr>
-  <hr>
-  <hr>
+  
+
 
   <center>
   <div class="container">
-  <%= link_to "Back to posts", posts_path, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+  <%= link_to "Back to posts", posts_path, class: "btn btn-light border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
   </div>
 
   <div class="container">
   
-  <%= link_to "New Song", new_song_path, class: "btn btn-danger border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+  <%#= link_to "New Song", new_song_path, class: "btn btn-light border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
   </div>
   </center>
 
