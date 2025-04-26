@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   end
 
   def myposts
-    @posts = Post.all
+    @posts = current_user.posts.includes(:user) 
   end
 
   # GET /posts/new

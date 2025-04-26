@@ -15,9 +15,7 @@
     <#%= request.followerable.email %> Want to follow you %>
     <#%= button_to "Accept", accept_path(request.followerable) %>
     <#%= button_to "Decline", decline_path(request.followerable) %>
-      <#% end %>
-  -->
-            
+      <#% end %>         
   <p>Followers
       <% current_user.followers.each do |follower| %>
         <%= link_to follower.username, follower %>
@@ -28,7 +26,8 @@
           <%= link_to following.username, following %>
           <% end %>
           <% end %>
-    
+-->
+
 <h2>Posts</h2>
 
 <div id="posts">
@@ -39,10 +38,10 @@
   <% end %>
 </div>
 
-<div id="songs">
-  <% @song.reverse.each do |song| %>
-  <%= render partial: "audio_player", locals: { song: song } %>
-<% end %>
+
+  <%# @song.reverse.each do |song| %>
+  <%#= render partial: "audio_player", locals: { song: song } %>
+<%# end %> 
 
 <hr>
   <%= link_to "New post", new_post_path %>

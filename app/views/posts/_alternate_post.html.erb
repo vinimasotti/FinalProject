@@ -9,7 +9,7 @@
 
             <% post.images.each do |image| %>
                 <div class="alternate-image-container" style="margin: 10px 0;">
-                    <%= image_tag(image, class: "alternate-post-image", style: "object-fit: contain; width: 350px; height: 350px; border: 1px solid #eee;") %>  
+                    <%= image_tag(image, class: "alternate-post-image", style: "object-fit: contain; width: 450px; height: 350px; border: 1px solid #eee;") %>  
                 </div>
             <% end %>
 
@@ -30,7 +30,7 @@
               <% if @post.likes.exists?(user_id: current_user.id) %>
                 <%= button_to "Unlike", post_like_path(@post), method: :delete, remote: true, class: "btn btn-danger" %>
               <% else %>
-                <%= button_to "Like", post_like_path(@post), method: :post, remote: true, class: "btn btn-primary" %>
+                <%= button_to "Like 👍 ", post_like_path(@post), method: :post, remote: true, class: "btn btn-primary" %>
               <% end %>
             <% else %>
               <p><%= link_to "Sign in to like this post", new_user_session_path %></p>
