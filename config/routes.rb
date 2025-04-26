@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get "profiles/index"
-  resources :likes, only: [:create, :destroy]
+ 
   resources :comments
 
-
-  get "likes/create"
-  get "likes/destroy"
-  get "likes/like_params"
+  resources :posts do
+    resource :like, only: [:create, :destroy]
+  end
 
   devise_scope :user do
     get '/users', to: 'devise/registrations#new'
@@ -29,7 +28,7 @@ Rails.application.routes.draw do
   get "home/about"
   get "posts/myposts"
   
-  resources :posts
+
   resources :songs
 
   get "up" => "rails/health#show", as: :rails_health_check

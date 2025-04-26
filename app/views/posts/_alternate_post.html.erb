@@ -22,6 +22,20 @@
               <p>No song uploaded.</p>
             <% end %>
 
+            <p>
+              Likes: <%= @post.likes.count %>
+            </p>
+
+            <% if user_signed_in? %>
+              <% if @post.likes.exists?(user_id: current_user.id) %>
+                <%= button_to "Unlike", post_like_path(@post), method: :delete, remote: true, class: "btn btn-danger" %>
+              <% else %>
+                <%= button_to "Like", post_like_path(@post), method: :post, remote: true, class: "btn btn-primary" %>
+              <% end %>
+            <% else %>
+              <p><%= link_to "Sign in to like this post", new_user_session_path %></p>
+            <% end %>
+
         </div>
         
         <div class="alternate-post-meta" style="font-size: 0.9em; color: #666; margin-top: 10px;">

@@ -1,23 +1,39 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_post
   
   def create
-    @like = current_user.likes.new(like_params)
+    @like = @post.likes.new(user: current_user)
     if @like.save
-      redirect_to @like.post, notice: "Liked successfully!"
-      #flash[:alert] = "You already liked this post"
-      else
-      redirect_to @like.post, alert: "Unable to like the post."
+      respond_to do |format|
+        format.html { redirect_to @post, notice: "You liked this post." }
+        format.js   # for AJAX support
+      end
+    else
+      redirect_to @post, alert: "You cannot like this post more than once."
     end
   end
 
   def destroy
-    @like = current_user.likes.find(params[:id])
-    @like.destroy
+   # @like = current_user.likes.find(params[:id])
+    #@like.destroy
+    @like = @post.likes.find_by(user: current_user)
+    if @like
+      @like.destroy
+      respond_to do |format|
+        format.html { redirect_to @post, notice: "You unliked this post." }
+        format.js
+      end
+    else
+      redirect_to @post, alert: "Like not found."
+    end
   end
 
+
   private 
-  def like_params
-    params.require(:like).permit(:post_id)
+ # def like_params
+  #  params.require(:like).permit(:post_id)
+  def set_post
+    @post = Post.find(params[:post_id])
   end
 end
