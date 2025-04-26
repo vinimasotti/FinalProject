@@ -1,48 +1,48 @@
 <%# app/views/posts/_alternate_post.html.erb %>
 <% if user_signed_in? %>
-    <div id="<%= dom_id(post) %>_alternate" class="alternate-post" style="display: flex; flex-direction: column; align-items: center; text-align: center; margin: auto; max-width: 600px; border: 2px dashed #ccc; padding: 15px;">
-        <div class="alternate-post-content" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-            <p class="alternate-post-title" style="font-weight: bold; color: 555;"><%= post.title %></p>
-            <p class="alternate-post-description"><%= post.description %></p>
-            
-            <%#= link_to "View Alternate Post", post, class: "alternate-post-link", style: "color: #4a6ea9; text-decoration: none; margin: 10px 0;" %>
+  <div id="<%= dom_id(post) %>_alternate" class="alternate-post" style="display: flex; flex-direction: column; align-items: center; text-align: center; margin: auto; max-width: 600px; border: 2px dashed #ccc; padding: 15px; border-radius: 10px;">
+    <div class="alternate-post-content" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+      <p class="alternate-post-title" style="font-weight: bold; color: 555;"><%= post.title %></p>
+      <p class="alternate-post-description"><%= post.description %></p>
+      
+      <%#= link_to "View Alternate Post", post, class: "alternate-post-link", style: "color: #4a6ea9; text-decoration: none; margin: 10px 0;" %>
 
-            <% post.images.each do |image| %>
-                <div class="alternate-image-container" style="margin: 10px 0;">
-                    <%= image_tag(image, class: "alternate-post-image", style: "object-fit: contain; width: 450px; height: 350px; border: 1px solid #eee;") %>  
-                </div>
-            <% end %>
-
-            <% if post.song.attached? %>
-              <audio controls>
-                <source src="<%= url_for(post.song) %>" type="<%= post.song.content_type %>">
-                Your browser does not support the audio element.
-              </audio>
-            <% else %>
-              <p>No song uploaded.</p>
-            <% end %>
-
-            <p>
-              Likes: <%= @post.likes.count %>
-            </p>
-
-            <% if user_signed_in? %>
-              <% if @post.likes.exists?(user_id: current_user.id) %>
-                <%= button_to "Unlike", post_like_path(@post), method: :delete, remote: true, class: "btn btn-danger" %>
-              <% else %>
-                <%= button_to "Like 👍 ", post_like_path(@post), method: :post, remote: true, class: "btn btn-primary" %>
-              <% end %>
-            <% else %>
-              <p><%= link_to "Sign in to like this post", new_user_session_path %></p>
-            <% end %>
-
+      <% post.images.each do |image| %>
+        <div class="alternate-image-container" style="margin: 10px 0;">
+          <%= image_tag(image, class: "alternate-post-image", style: "object-fit: contain; width: 450px; height: 350px; border: 1px solid #eee;") %>  
         </div>
-        
-        <div class="alternate-post-meta" style="font-size: 0.9em; color: #666; margin-top: 10px;">
-            Posted by: <%= link_to post.user.username, post.user if post.user.present? %>
-            <br>
-            Posted on: <%= post.created_at.strftime("%B %d, %Y") %>
-            
-        </div>
+      <% end %>
+
+      <% if post.song.attached? %>
+        <audio controls>
+        <source src="<%= url_for(post.song) %>" type="<%= post.song.content_type %>">
+        Your browser does not support the audio element.
+        </audio>
+      <% else %>
+        <p>No song uploaded.</p>
+      <% end %>
+
+      <p>
+        Likes: <%= @post.likes.count %>
+      </p>
+
+      <% if user_signed_in? %>
+        <% if @post.likes.exists?(user_id: current_user.id) %>
+        <%= button_to "Unlike", post_like_path(@post), method: :delete, remote: true, class: "btn btn-danger" %>
+        <% else %>
+        <%= button_to "Like 👍 ", post_like_path(@post), method: :post, remote: true, class: "btn btn-primary" %>
+        <% end %>
+      <% else %>
+        <p><%= link_to "Sign in to like this post", new_user_session_path %></p>
+      <% end %>
+
     </div>
+    
+    <div class="alternate-post-meta" style="font-size: 0.9em; color: #666; margin-top: 10px;">
+      Posted by: <%= link_to post.user.username, post.user if post.user.present? %>
+      <br>
+      Posted on: <%= post.created_at.strftime("%B %d, %Y") %>
+      
+    </div>
+  </div>
 <% end %>
