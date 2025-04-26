@@ -34,10 +34,14 @@ class User < ApplicationRecord
     %w[username email created_at] # Add only the non-sensitive fields you want searchable
   end
 
-  def increment_upload_data(bytes)
-    self.upload_data += bytes
-    save!
+# Calculate total uploaded data size in bytes
+def total_uploaded_data_size
+  posts.includes(:images_attachments, :song_attachment).sum do |post|
+    images_size = post.images.map { |img| img.blob.byte_size }.sum
+    song_size = post.song.attached? ? post.song.blob.byte_size : 0
+    images_size + song_size
   end
+end
  
 
          private
