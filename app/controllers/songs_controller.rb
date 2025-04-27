@@ -2,7 +2,7 @@ class SongsController < ApplicationController
 
 
   before_action :authenticate_user!
-  before_action :set_song, only: [:show, :edit, :destroy]
+  before_action :set_song, only: [:show, :download, :destroy]
   
 
   def my_songs
@@ -11,7 +11,7 @@ class SongsController < ApplicationController
   end
 
     def new #New instance for the Song model
-      @song = Song.new
+      @song = current_user.songs.new
     end
 
     def index #Retrieve all songs and display them in a list
@@ -63,12 +63,24 @@ class SongsController < ApplicationController
         @song = Song.all #limiting 10 songs to not overload the page.
     end
     end
+
+    def download
+      # Generate a secure, expiring URL for the audio file
+      if @song.audio_file.attached?
+        redirect_to @song.audio_file.service_url(disposition: 'attachment', expires_in: 5.minutes, content_type: @song.audio_file.content_type)
+      else
+        redirect_to songs_path, alert: "Audio file not found."
+      end
+    end
   
     private
 
     def set_song
-      @song = Song.find(params[:id])
-    end
+      @song = current_user.songs.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to songs_path, alert: "Song not found or access denied."
+  end
+    
   
     def song_params
       params.require(:song).permit(:title, :artist, :audio_file)

@@ -11,7 +11,10 @@ class User < ApplicationRecord
          
         followability
 
-        has_many :songs
+        has_many :songs, dependent: :destroy
+        has_one :storage, dependent: :destroy
+        after_create :create_storage
+
          has_many :posts, dependent: :destroy
          has_many :likes, dependent: :destroy
          has_many :liked_posts, through: :likes, source: :post
@@ -56,8 +59,13 @@ end
         enum role: { user: 0, admin: 1 } #updated to run on ruby 8.0
 
         after_initialize :set_default_role, :if => :new_record?
+
         def set_default_role
           self.role ||= :admin #change to admin to sign a new admin 
         end     
+
+        def create_storage
+          Storage.create(user: self)
+        end
 
 end

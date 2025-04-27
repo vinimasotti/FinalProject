@@ -2,6 +2,11 @@
 class Song < ApplicationRecord
  # belongs_to :post
   has_one_attached :audio_file
+
+  validates :audio_file, content_type: /\Aaudio\/.*\z/
+
+   # Scope to get songs owned by a user
+   scope :owned_by, ->(user) { where(user: user) }
  
   belongs_to :user
 # validates :user, presence: true

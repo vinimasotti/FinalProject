@@ -67,3 +67,4 @@ gem 'devise-security'
 gem "actionpack", ">= 7.2.2.1"
 gem "pg"
 gem "rack"
+gem "active_storage_validations"
