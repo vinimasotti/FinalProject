@@ -46,12 +46,12 @@ class SongsController < ApplicationController
     end
   
     def create # Handle submission for creating a new song
-      @song = Song.new(song_params)
+      @song = current_user.songs.new(song_params)  # assign user here
 
       if @song.save
-        redirect_to @song, notice: "Song was successfully uploaded."
+        redirect_to @song, notice: "Song uploaded successfully."
       else
-        render :new, alert: "Error uploading the song."
+        render :new, status: :unprocessable_entity
       end
     end
 

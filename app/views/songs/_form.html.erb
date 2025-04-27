@@ -1,7 +1,7 @@
  <% if user_signed_in? %>
 
 <!-- app/views/songs/_form.html.erb -->
-<%= form_with(model: song, local: true) do |form| %>
+<%= form_with(model: song, local: true, html: { multipart: true }) do |form| %>
   <% if song.errors.any? %>
     <div id="error_explanation">
       <h2>The following errors prevented this song from being saved:</h2>

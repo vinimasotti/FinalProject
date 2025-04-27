@@ -3,7 +3,7 @@ class Song < ApplicationRecord
  # belongs_to :post
   has_one_attached :audio_file
  
-  #belongs_to :user
+  belongs_to :user
 # validates :user, presence: true
 
   validates :title, presence: true, length: { minimum: 5, maximum: 50 }
