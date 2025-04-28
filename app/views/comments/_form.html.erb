@@ -1,40 +1,37 @@
  <% if user_signed_in? %>
- <div class="container-fluid d-flex align-items-center justify-content-center">
 
-
+ 
 <%= form_with(model: comment) do |form| %>
   <% if comment.errors.any? %>
-    <div style="color: red">
+    style="color: red; border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: #f9f9f9;">
       <p><%= pluralize(comment.errors.count, "error") %> found: </p>
       <ul>
         <% comment.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
-    </div>
-  <% end %>
+        </div>
+      <% end %>
 
-  <!-- temporary 45 caracteres limit -->
-  <div class="form-row">
-    <%= form.label :text, "Your Text:" %>
-    <%= form.text_field :text, required: true, maxlength: 45 %>
+      <!-- temporary 100 characteres limit -->
+      <div class="form-row" style="border: 1px solid #ccc; border-radius: 5px; padding: 10px; background-color: #f9f9f9;">
+        <%= form.label :text, "Your Text:" %>
+     <%= form.text_field :text, 
+      required: true, 
+      maxlength: 100, 
+      class: "form-control rounded-pill" %>
     <br>
-  </div>
-     
-    
+
+
+
     <%= form.text_field :user_id, value: current_user.id, type:"hidden"  %>
-
- 
     <%= form.text_field :post_id, type:"hidden" %>
-
-
-  <div>
-  <br>
+ 
    
-   <%= form.submit "Create", class: "btn btn-success btn-lg-4 rounded-pill shadow" do %>
-   <i class="bi bi-plus-circle"></i>    Create
+    <%= form.submit "Create", class: "btn btn-success btn-lg-4 rounded-pill shadow d-block mx-auto" do %>
+      <i class="bi bi-plus-circle"></i> Create
     <% end %>
-  </div>
+
 <% end %>
 
 <% end %>
