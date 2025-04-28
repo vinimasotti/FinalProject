@@ -5,12 +5,9 @@
 
 <br>
 
-  <% @song.reverse.each do |song| %>
-      
-      <%= render partial: "audio_player", locals: { song: song } %>
-      
-     
-  <% end %>
+<% @songs.each do |song| %>
+  <%= render partial: "audio_player", locals: { song: song } %>
+<% end %>
 
 <br>
 <hr>

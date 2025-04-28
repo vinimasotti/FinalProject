@@ -104,4 +104,19 @@ class PostsController < ApplicationController
         images: []  # permit images as an array
       )
     end
-end
+    private
+
+    def images_are_valid
+      return unless images.attached?
+      
+      images.each do |image|
+        unless image.content_type.in?(%w[image/jpeg image/png image/gif image/webp])
+          errors.add(:images, 'must be a JPEG, PNG, GIF, or WEBP')
+        end
+        
+        if image.byte_size > 5.megabytes
+          errors.add(:images, 'should be less than 5MB each')
+        end
+      end
+    end
+  end 

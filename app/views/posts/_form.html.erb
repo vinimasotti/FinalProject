@@ -38,8 +38,14 @@
     <% end %>
     
     <br>
-    <%= form.label :images, " Upload Image " %>
-    <%= form.file_field :images, multiple: true, required: true, class: "btn btn-primary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+    <%= form.file_field :images, 
+    multiple: true, 
+    required: true, 
+    accept: "image/*", 
+    data: { max_size: 5.megabytes, preview_target: "image-preview" },
+    class: "btn btn-primary border-2 rounded-pill mt-3 px-4 py-2 w-100" %>
+
+      <div id="image-preview" class="mt-3"></div>
 
 
   <%= form.label :song, "Upload Song" %>
