@@ -46,6 +46,14 @@ def total_uploaded_data_size
     images_size + song_size
   end
 end
+
+def total_uploaded_song_data_size
+  # Sum byte sizes of all attached audio files on user's songs
+  ActiveStorage::Blob.joins(:attachments)
+    .where(active_storage_attachments: { record_type: 'Song', record_id: songs.select(:id) })
+    .sum(:byte_size)
+
+end
  
 
          private
