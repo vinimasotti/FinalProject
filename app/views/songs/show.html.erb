@@ -20,6 +20,9 @@
 <% else %>
   <p>No audio file attached.</p>
 <% end %>
+<p><strong>Posted On:</strong> <%= @song.created_at.strftime("%B %d, %Y") %></p>
+<p><strong>File Size:</strong> <%= number_to_human_size(@song.audio_file.byte_size) if @song.audio_file.attached? %></p>
+
 
 <hr>
 
