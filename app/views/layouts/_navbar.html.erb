@@ -21,7 +21,7 @@
     <!-- Search Form -->
       <% if user_signed_in? %>
       <%= form_with url: songs_path, method: :get, class: "form-inline my-2 my-lg-0" do |form| %>
-        <%= form.search_field :query, value: params[:query], placeholder: "Search", class: "form-control mr-sm-2", required: true, minlength: 1, pattern: ".*\\S+.*"%>
+        <%= form.search_field :query, value: params[:query], placeholder: "Song Search", class: "form-control mr-sm-2", required: true, minlength: 1, pattern: ".*\\S+.*"%>
         <%= form.submit "🔎",class:"btn btn-outline-secondary my-1 my-sm-0"%>
       <% end %>
       <% end %>
