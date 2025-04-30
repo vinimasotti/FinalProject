@@ -67,7 +67,7 @@ class UsersController < ApplicationController
 
   end
 
-
+  private 
   # Sets the @user instance variable by finding a User record based on the provided :id parameter.
   # This method is typically used as a before_action filter to load the user for actions that require it.
   # It is recommended to keep this method private, as it is an internal helper method and should not be
