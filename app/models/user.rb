@@ -10,6 +10,7 @@ class User < ApplicationRecord
          validates :password, presence: true, length: { minimum: 8 }, password_complexity: true, if: :password_required?
          
         followability
+  
 
         has_many :songs, dependent: :destroy
         has_one :storage, dependent: :destroy

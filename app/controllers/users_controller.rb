@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  before_action :set_user, only: [:show, :follow, :unfollow]
   before_action :authenticate_user!
 
   def users
@@ -36,29 +36,14 @@ class UsersController < ApplicationController
 
   def follow
     current_user.send_follow_request_to(@user)
-    @user.accept_follow_request_of(current_user)
-    redirect_to user_path(@user)
+  @user.accept_follow_request_of(current_user)
+  redirect_to user_path(@user), notice: "You are now following #{@user.username}."
   end
 
   def unfollow
-    current_user.unfollow(@user)
-    redirect_to users_path(@user)
+    current_user.unfollow(@user) if current_user.following?(@user)
+    redirect_to user_path(@user), notice: "You have unfollowed #{@user.username}."
   end
-
-  def accept
-    current_user.accept_follow_request_or(@user)
-    redirect_to users_path(@user)
-  end
-
-  def decline
-    current_user.decline_follow_request_of(@user)
-    redirect_to users_path(@user)
-  end
-
-  def cancel
-    current_user.remove_follow_request_for(@user)
-    redirect_to users_path(@user)
-  end 
 
    def posts
     @user = User.find(params[:user_id])

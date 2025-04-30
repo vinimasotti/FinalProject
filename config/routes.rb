@@ -22,11 +22,8 @@ Rails.application.routes.draw do
   get 'posts', to: 'users#posts', as: :posts
 end
 
-  post 'user/:id/follow', to: "users#follow", as: :follow
-  post 'user/:id/unfollow', to: "users#unfollow", as: :unfollow
-  post 'user/:id/accept', to: "users#accept", as: :accept
-  post 'user/:id/decline', to: "users#decline", as: :decline
-  post 'user/:id/cancel', to: "users#cancel", as: :cancel
+post 'users/:id/follow', to: 'users#follow', as: :follow
+post 'users/:id/unfollow', to: 'users#unfollow', as: :unfollow
 
   get "home/about"
   get "posts/myposts"

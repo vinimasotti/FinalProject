@@ -24,17 +24,14 @@
             <strong>Total Following: </strong><%= @user.following.count %> <br>
 
 
-            <div class="container-fluid d-flex align-items-center justify-content-center">
-                <ul class="list-unstyled">
-                    <% if current_user.following?(@user) %>
-                        <li><%= button_to "Unfollow", unfollow_path(@user) %></li>
-                    <% elsif current_user.sent_follow_request_to?(@user) %>
-                        <li><%= button_to "Cancel follow request", cancel_path(@user) %></li>
-                    <% else %>
-                        <li><%= button_to "Follow", follow_path(@user), method: :get, class: "btn btn-primary border-2 rounded-pill mt-3 px-4 py-2 w-100" %></li>
-                    <% end %>
-         
-
+            <% if current_user != @user %>
+            <% if current_user.following?(@user) %>
+              <%= button_to "Unfollow", unfollow_path(@user), method: :post, class: "btn btn-danger" %>
+            <% else %>
+              <%= button_to "Follow", follow_path(@user), method: :post, class: "btn btn-primary" %>
+            <% end %>
+          <% end %>
+          
                     <li><%= link_to "View Posts", user_posts_path(@user), class: "btn btn-info border-2 rounded-pill mt-3 px-4 py-2 w-100" %></li>      
                  
                         <strong>Post Data Uploaded:</strong>
