@@ -1,0 +1,20 @@
+<%# content_for :title, "#{@user.name}'s Posts" %>
+
+<center>
+  <h2> Posts</h2>
+  <hr>
+
+  <div id="posts">
+    <% if @posts.any? %>
+      <% @posts.each do |post| %>
+        <%= render post %>
+      <% end %>
+    <% else %>
+      <p><%= @user.name %> has no posts yet.</p>
+    <% end %>
+  </div>
+
+  <% if user_signed_in? && current_user == @user %>
+    <%= link_to "New post", new_post_path %>
+  <% end %>
+</center>

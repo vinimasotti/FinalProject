@@ -2,8 +2,6 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: %i[ show edit update destroy ]
 
-
-
   # GET /posts or /posts.json
   def index
     @posts = Post.all
@@ -13,12 +11,9 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     @post = Post.find(params[:id])
-    
     @comment = @post.comments.build
     @song = @post.song || Song.new  # Assign a new Song if no association exists
-
     @alternate_post = Post.find(params[:id])
-
   end
 
   def myposts
@@ -29,8 +24,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @song = Song.new
-    
-    #write here more.....
+
   end
 
   # GET /posts/1/edit
@@ -51,9 +45,7 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
-
-   
-  end
+   end
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
@@ -81,10 +73,10 @@ class PostsController < ApplicationController
   def search
     @query = params[:query]
     @posts = if @query.present?
-               Post.where("title LIKE ? OR artist LIKE ?", "%#{@query}%", "%#{@query}%")
-             else
-               Post.all
-             end
+          Post.where("title LIKE ? OR artist LIKE ?", "%#{@query}%", "%#{@query}%")
+        else
+          Post.all
+        end
     render :index
   end
 

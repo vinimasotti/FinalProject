@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  resources :users, only: [:show]
+  resources :users, only: [:show]do
+  # Nested route to show posts of a user
+  get 'posts', to: 'users#posts', as: :posts
+end
 
   post 'user/:id/follow', to: "users#follow", as: :follow
   post 'user/:id/unfollow', to: "users#unfollow", as: :unfollow

@@ -60,15 +60,24 @@ class UsersController < ApplicationController
     redirect_to users_path(@user)
   end 
 
-  private 
+   def posts
+    @user = User.find(params[:user_id])
+    @posts = @user.posts.order(created_at: :desc)
+    
+
+  end
+
+
   # Sets the @user instance variable by finding a User record based on the provided :id parameter.
   # This method is typically used as a before_action filter to load the user for actions that require it.
   # It is recommended to keep this method private, as it is an internal helper method and should not be
   # directly accessible as a controller action.
   
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:id] || params[:user_id])
   end
+
+ 
 
 
 end

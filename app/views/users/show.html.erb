@@ -20,7 +20,7 @@
             <strong>Account Created:</strong>
             <%= @user.created_at.strftime("%B %d, %Y") %>
             <br>
-                        <strong>Total Followers: </strong><%= @user.followers.count %> <br>
+            <strong>Total Followers: </strong><%= @user.followers.count %> <br>
             <strong>Total Following: </strong><%= @user.following.count %> <br>
 
 
@@ -33,11 +33,10 @@
                     <% else %>
                         <li><%= button_to "Follow", follow_path(@user), method: :get, class: "btn btn-primary border-2 rounded-pill mt-3 px-4 py-2 w-100" %></li>
                     <% end %>
+         
 
-
-                    <% if user_signed_in? && current_user == @user %>
-                        <li><%= button_to "Edit Account", edit_user_registration_path, method: :get, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %></li>
-                        <li><%= button_to "View My Posts", posts_myposts_path, method: :get, class: "btn btn-info border-2 rounded-pill mt-3 px-4 py-2 w-100" %></li>
+                    <li><%= link_to "View Posts", user_posts_path(@user), class: "btn btn-info border-2 rounded-pill mt-3 px-4 py-2 w-100" %></li>      
+                 
                         <strong>Post Data Uploaded:</strong>
                         <%= number_to_human_size(@user.total_uploaded_data_size) %>
                         <br>
@@ -57,4 +56,4 @@
     </div>
 </div>
 
-<% end %>
+
