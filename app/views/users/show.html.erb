@@ -8,22 +8,21 @@
             <h5>Bio : <%= @user.bio %></h5>
             <h5>E-mail: <%= @user.email %></h5>
             <strong>Total Posts: </strong><%= @user.posts.count %> <br>
-            <strong>Total Data Uploaded: </strong>
-           
-
-            <%= number_to_human_size(@user.total_uploaded_data_size) %>
-            <br>
-            <strong>Song Data Uploaded:</strong>
-             <%= number_to_human_size(@user.total_uploaded_song_data_size) %>
-            <br>
-
+            <strong>Total Likes: </strong><%= @user.likes.count %> <br>
+            <strong>Total Comments: </strong><%= @user.comments.count %> <br>
+            <strong>Total Songs: </strong><%= @user.songs.count %> <br>
+     
+            
+        <% if @user.avatar.attached? %>
+            <%= image_tag @user.avatar, style: "width:200px; height: 200px;" %>
+         <% end %>
+         <br>
             <strong>Account Created:</strong>
             <%= @user.created_at.strftime("%B %d, %Y") %>
-            </h6>
             <br>
-            <% if @user.avatar.attached? %>
-                <%= image_tag @user.avatar, style: "width:200px; height: 200px;" %>
-            <% end %>
+                        <strong>Total Followers: </strong><%= @user.followers.count %> <br>
+            <strong>Total Following: </strong><%= @user.following.count %> <br>
+
 
             <div class="container-fluid d-flex align-items-center justify-content-center">
                 <ul class="list-unstyled">
@@ -35,9 +34,22 @@
                         <li><%= button_to "Follow", follow_path(@user), method: :get, class: "btn btn-primary border-2 rounded-pill mt-3 px-4 py-2 w-100" %></li>
                     <% end %>
 
+
                     <% if user_signed_in? && current_user == @user %>
                         <li><%= button_to "Edit Account", edit_user_registration_path, method: :get, class: "btn btn-secondary border-2 rounded-pill mt-3 px-4 py-2 w-100" %></li>
                         <li><%= button_to "View My Posts", posts_myposts_path, method: :get, class: "btn btn-info border-2 rounded-pill mt-3 px-4 py-2 w-100" %></li>
+                        <strong>Post Data Uploaded:</strong>
+                        <%= number_to_human_size(@user.total_uploaded_data_size) %>
+                        <br>
+                        <strong>Song Data Uploaded:</strong>
+                            <%= number_to_human_size(@user.total_uploaded_song_data_size) %>
+                        <br>
+                        <strong>Total Uploaded Data (Combined):</strong>
+                        <%= number_to_human_size(@user.total_uploaded_data_size + @user.total_uploaded_song_data_size) %>
+            
+                        <% if (@user.total_uploaded_data_size + @user.total_uploaded_song_data_size) > 1.gigabyte %>
+                            <p class="text-danger"><strong>Warning:</strong> You have exceeded 1 GB of data upload.</p>
+                        <% end %>
                     <% end %>
                 </ul>
             </div>
