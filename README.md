@@ -1,19 +1,20 @@
 # README
 
-# Current Version 0.7  <br> 
+# Current Version 0.8  <br> 
 
 # Updates: <br> 
 - UI improved <br>
-- Search button working <br>
-- Home button improved directed to posts if user logged in <br>
-- User inputs sanitized <br> 
+- Search button for songs <br>
+- User settings updates <br>
+- Like buttons added <br>
+- Followability <br>
 - Comments section updated <br>
-- file uploads sanitized (accepting just mp3 or image) <br>
-- user section improved (not possible to change the email anymore) <br>
-- database updated from sql3lite to postgre <br>
+- File uploads  <br>
+- Total data uploaded added <br>
+- Song and post form updated <br>
+- Bug fixes <br>
 
-#Version beta - Mid-Abr <br>
-#OFFICIAL LAUNCH - MID-MAY <br>
+# OFFICIAL LAUNCH - MAY 28th # <br>
 
 How to run (assume @RubyOnRails and database already installed) <br>
 - git clone https://github.com/vinimasotti/FinalProject <br>
