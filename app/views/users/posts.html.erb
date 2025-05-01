@@ -1,5 +1,4 @@
 
-
 <center>
 <h2><%= @user.username %> Posts  </h2>
 <hr>
@@ -7,8 +6,10 @@
 <div id="posts">
     <% if @posts.any? %>
         <% @posts.each do |post| %>
-            <p><strong><%= post.user.username %>:</strong></p>
-            <%= render post %>
+        <%= render post %>
+        Likes:<%= post.likes.count %>
+        Comments:<%= post.comments.count %>
+        <hr>
         <% end %>
     <% else %>
         <p><%= @user.name %> has no posts yet.</p>
