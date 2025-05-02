@@ -4,8 +4,20 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+admin:
+  email: admin@eadmin
+  password: password123  # Ensure the password meets the validation criteria (minimum 8 characters)
+  password_confirmation: password123
+  role: admin
+
+#user_one:
+ # email: user1@example.com
+  #password: password123
+  #password_confirmation: password123
+  #role: user
+
+#user_two:
+ # email: user2@example.com
+  #password: password123
+  #password_confirmation: password123
+  #role: user

@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  text: MyString
-  user_id: MyString
-  post_id: MyString
+  text: Test Post
+ # user_id: 939973063
+  # post_id: 668003495
 
 two:
-  text: MyString
-  user_id: MyString
-  post_id: MyString
+  text: Test Post 2
+  # user_id: one
+  # post_id: one

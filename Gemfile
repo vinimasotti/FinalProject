@@ -52,11 +52,20 @@ group :development do
   gem "web-console"
 end
 
-group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
+
+group :test do
+  gem 'rspec-rails'
+end
+
+#group :test do
+  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+ # gem "capybara"
+  #gem "selenium-webdriver"
+#end
 
 gem "devise", "~> 4.9"
 gem 'followability', github: 'nejdetkadir/followability'
@@ -68,3 +77,5 @@ gem "actionpack", ">= 7.2.2.1"
 gem "pg"
 gem "rack"
 gem "active_storage_validations"
+
+

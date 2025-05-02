@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyString
-  keywords: MyString
+  title: Test Post
+  description: This is a test post body
+  user: admin
 
-two:
-  title: MyString
-  description: MyString
-  keywords: MyString
+#two:
+  #title: MyString
+ # description: MyString
+  #keywords: MyString
