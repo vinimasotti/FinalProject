@@ -1,18 +1,20 @@
 FactoryBot.define do
   factory :user do
-    sequence(:email) { |n| " " }
-    password { '123456!A' }
-    password_confirmation { '123456!A' }
-    username { " " }
+    sequence(:email) { |n| "user#{n}@example.com" }
+    password { "ComplexA1#!" }
+    password_confirmation { "ComplexA1#!" }
+    username { "" }
     bio { " " }
-    role { :user } # default role as per your model
+   #bio { "bio" }	 
+    role { :user } #
+   #role { :admin } 
 
-   # after(:build) do |user|
-    #  user.avatar.attach(
+    #after(:build) do |user|
+    #user.avatar.attach(
      #   io: File.open(Rails.root.join('spec', 'fixtures', 'avatar.png')),
-      #  filename: 'avatar.png',
-       # content_type: 'image/png'
-      #)
+     #   filename: 'avatar.png',
+     #   content_type: 'image/png'
+    #  )
   #end
 end
 end
