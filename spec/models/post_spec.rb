@@ -1,7 +1,7 @@
 
-=begin
-require 'rails_helper'
 
+require 'rails_helper'
+=begin
 RSpec.describe Post, type: :model do
     let(:user) { FactoryBot.create(:user) }
     let(:valid_attributes) do

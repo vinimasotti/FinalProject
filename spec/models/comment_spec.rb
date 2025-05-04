@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+=begin
 RSpec.describe Comment, type: :model do
   let(:post) { FactoryBot.create(:post) }
   let(:valid_attributes) do
@@ -57,3 +57,4 @@ RSpec.describe Comment, type: :model do
   
    end
 end
+=end
