@@ -1,6 +1,7 @@
 
 require 'rails_helper'
-
+# all tests failed
+#
 RSpec.describe CommentsController, type: :controller do
 
   let!(:user) { create(:user) }       # Assuming a FactoryBot factory exists for User
