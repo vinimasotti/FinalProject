@@ -59,6 +59,9 @@ end
 
 group :test do
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'selenium-webdriver' # or another driver like webdrivers
+  gem 'database_cleaner-active_record' # optional but recommended for 
  
 end 
 

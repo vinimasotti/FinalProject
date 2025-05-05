@@ -71,7 +71,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
 end
-
+require 'capybara/rspec' # for testing JS 
 require 'shoulda/matchers'
 
 Shoulda::Matchers.configure do |config|
@@ -79,4 +79,11 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+  # spec/rails_helper.rb or spec/spec_helper.rb
+  Dir[Rails.root.join('spec/features/**/*.rb')].each { |f| require f }
+
+RSpec.configure do |config|
+  config.include Features::SessionHelpers, type: :feature
 end
