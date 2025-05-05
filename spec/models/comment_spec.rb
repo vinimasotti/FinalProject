@@ -1,5 +1,5 @@
 require 'rails_helper'
-=begin
+#1 test failed -  6 test passed
 RSpec.describe Comment, type: :model do
   let(:post) { FactoryBot.create(:post) }
   let(:valid_attributes) do
@@ -44,7 +44,7 @@ RSpec.describe Comment, type: :model do
        comment = described_class.create(valid_attributes)
        expect(comment.post).to eq(post)
      end
-
+#test case s
      it 'deletes comment when post is deleted' do
        comment = described_class.create(valid_attributes)
        expect {
@@ -57,4 +57,3 @@ RSpec.describe Comment, type: :model do
   
    end
 end
-=end
