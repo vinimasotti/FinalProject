@@ -72,6 +72,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 end
 require 'capybara/rspec' # for testing JS 
+Capybara.javascript_driver = :selenium_chrome_headless
 require 'shoulda/matchers'
 
 Shoulda::Matchers.configure do |config|
