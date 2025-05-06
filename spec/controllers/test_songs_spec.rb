@@ -1,6 +1,6 @@
 # spec/controllers/songs_controller_spec.rb
 require 'rails_helper'
-# 9 examples - 4 failed
+# 12 examples - 4 failed
 # 
 RSpec.describe SongsController, type: :controller do
   include Devise::Test::ControllerHelpers

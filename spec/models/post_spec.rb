@@ -1,7 +1,8 @@
 
 
 require 'rails_helper'
-=begin
+#17 example, 0 failures
+#
 RSpec.describe Post, type: :model do
     let(:user) { FactoryBot.create(:user) }
     let(:valid_attributes) do
@@ -80,4 +81,3 @@ RSpec.describe Post, type: :model do
         end
     end
 end
-=end

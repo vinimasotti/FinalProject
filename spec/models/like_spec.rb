@@ -1,5 +1,5 @@
 require 'rails_helper'
-=begin
+
 RSpec.describe Like, type: :model do
   let(:user) { FactoryBot.create(:user) }
   let(:post) { FactoryBot.create(:post, user: user) }
@@ -35,4 +35,4 @@ RSpec.describe Like, type: :model do
     end
   end
 end
-=end
+

@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe LikesController, type: :controller do
   include Devise::Test::ControllerHelpers
-#6 example - 2 failed
-#
+#9 example - 2 failed
+# expected: "text/javascript"
+# got: "text/javascript; charset=utf-8"
+
   let(:user) { FactoryBot.create(:user) }
   let(:other_user) { FactoryBot.create(:user) }
   let(:post_record) { FactoryBot.create(:post, user: other_user) }
@@ -21,7 +23,7 @@ RSpec.describe LikesController, type: :controller do
         expect(response).to redirect_to(post_path(post_record))
         expect(flash[:notice]).to eq('You liked this post.')
       end
-#test 2 fail
+#test 2 fail 
       it 'creates a like and responds with JS format' do
         post :create, params: { post_id: post_record.id }, format: :js
 

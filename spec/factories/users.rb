@@ -10,6 +10,15 @@ FactoryBot.define do
     role { :user } #
    #role { :admin } 
 
+   #testing avatar
+   after(:build) do |user|
+    user.avatar.attach(
+      io: File.open(Rails.root.join('spec', 'files', 'avatar.png')),
+      filename: 'avatar.png',
+      content_type: 'image/png'
+    )
+  end
+
 end
 
 end

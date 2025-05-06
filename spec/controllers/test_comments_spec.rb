@@ -1,6 +1,6 @@
 
 require 'rails_helper'
-# all tests failed
+# 12 example, 9 failures
 #
 RSpec.describe CommentsController, type: :controller do
 

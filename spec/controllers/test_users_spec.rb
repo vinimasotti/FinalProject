@@ -1,5 +1,5 @@
 require 'rails_helper'
-#6/8 test failed - many methods not beeing called should be delted. 
+#11 examples, 6 failures
 #
 RSpec.describe UsersController, type: :controller do
   # Include Devise test helpers to simulate sign_in

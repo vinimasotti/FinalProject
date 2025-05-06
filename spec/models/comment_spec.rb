@@ -1,5 +1,6 @@
 require 'rails_helper'
-#1 test failed -  6 test passed
+#10 examples, 1 failure
+#
 RSpec.describe Comment, type: :model do
   let(:post) { FactoryBot.create(:post) }
   let(:valid_attributes) do

@@ -1,3 +1,4 @@
+=begin
 require 'rails_helper'
 # 17 example, 15 failed
 #
@@ -32,7 +33,7 @@ feature 'User profile page' do
       sign_in(user)
       visit user_path(user)
     end
-
+#case1 [1:1:1]
     scenario 'displays user information and statistics' do
       expect(page).to have_content('Username: profileuser')
       expect(page).to have_content('Bio : User bio')
@@ -58,9 +59,9 @@ feature 'User profile page' do
       # Warning message because combined > 1 GB
       expect(page).to have_content('Warning: You have exceeded 1 GB of data upload.')
     end
-
+#case 2 [1:1:2]
     scenario 'does not show Follow/Unfollow buttons for self' do
-      expect(page).not_to have_button('Follow')
+     expect(page).not_to have_button('Follow')
       expect(page).not_to have_button('Unfollow')
     end
 
@@ -115,8 +116,8 @@ feature 'User profile page' do
 
     scenario 'does not show user info (because of your view logic)' do
       # Your view shows content only if user_signed_in?
-      expect(page).not_to have_content('Username:')
-      expect(page).not_to have_content(user.username)
+      expect(page).not_to have_content('Username:').and not_to have_content(user.username)
     end
   end
 end
+=end

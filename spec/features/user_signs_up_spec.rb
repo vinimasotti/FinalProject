@@ -1,14 +1,13 @@
 
 require 'rails_helper'
-#6 examples, 2 failed 
-#6 examples passed with avatar attached
+#6 examples, 0 failures
 #
 feature 'User signs up' do
   scenario 'with valid information including avatar upload' do
     visit new_user_registration_path # rails routes | grep -i new_user_registration
 #case 1
    #fill_in 'Email', with: 'valid@example.com'
-     fill_in 'Email', with: 'invalidvalidexample.com'
+     fill_in 'Email', with: 'valid@validexample.com'
     #fill_in 'Email', with: ''
     fill_in 'Bio', with: 'bio'
     fill_in 'Username', with: 'validuser'

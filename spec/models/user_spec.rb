@@ -1,6 +1,7 @@
  
 require 'rails_helper'
-=begin
+# 3 example, 0 failures
+#
 RSpec.describe User, type: :model do
   
 
@@ -78,6 +79,4 @@ RSpec.describe User, type: :model do
       expect(user.id).to be < 1_000_000_000
     end
   end
-=end
-
 
