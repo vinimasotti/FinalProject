@@ -1,5 +1,7 @@
 require 'rails_helper'
-=begin
+# 18 examples, 3 failures
+#
+
 RSpec.describe Song, type: :model do
   # Include Shoulda Matchers for RSpec
  
@@ -119,4 +121,3 @@ RSpec.describe Song, type: :model do
   end
 end
 end
-=end

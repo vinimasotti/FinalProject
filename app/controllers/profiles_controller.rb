@@ -1,18 +1,21 @@
+=begin
+#discontinued
+
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
   #before_action :set_user, only: [:show, :posts, :follow, :unfollow, :accept, :decline, :cancel]
   def index
 
-    search_query = params[:query].presence
-    @q = User.ransack(username_cont: search_query) # Initialize Ransack query object
-    @users = @q.result(distinct: true) # Execute the query and ensure distinct results
-    Rails.logger.info "Found users: #{@users.map(&:id)}" # Debugging
-  end
+  #  search_query = params[:query].presence
+   # @q = User.ransack(username_cont: search_query) # Initialize Ransack query object
+  #  @users = @q.result(distinct: true) # Execute the query and ensure distinct results
+   # Rails.logger.info "Found users: #{@users.map(&:id)}" # Debugging
+ # end
 
 #Incomplete
-  def posts
-    user = User.find(params[:id]) # Find the user by ID
-    @posts = user.posts # Fetch posts associated with the user
+#  def posts
+ #   user = User.find(params[:id]) # Find the user by ID
+  #  @posts = user.posts # Fetch posts associated with the user
   
   end
 
@@ -35,3 +38,4 @@ class ProfilesController < ApplicationController
    # params[:query]
  # end 
 end
+=end

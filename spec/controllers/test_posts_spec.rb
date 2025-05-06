@@ -1,6 +1,6 @@
 # spec/controllers/posts_controller_spec.rb
 require 'rails_helper'
-#8/12 test cases failed - creation of
+#15 examples, 8 failures
 #
 RSpec.describe PostsController, type: :controller do
   include Devise::Test::ControllerHelpers
@@ -17,7 +17,7 @@ RSpec.describe PostsController, type: :controller do
 
 #test case 1 fail
   describe 'GET #index' do
-    it 'assigns all posts and songs' do
+    it 'assigns all posts and songs' do 
       post1 = FactoryBot.create(:post)
       song1 = FactoryBot.create(:song, user: user)
 
