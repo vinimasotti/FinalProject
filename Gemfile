@@ -81,6 +81,6 @@ gem "actionpack", ">= 7.2.2.1"
 gem "pg"
 gem "rack"
 gem "active_storage_validations"
-  gem 'shoulda-matchers', '~> 5.0'
+  gem 'shoulda-matchers', '~> 6.5'
 
 
