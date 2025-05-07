@@ -1,6 +1,7 @@
 
 require 'rails_helper'
-# 12 example, 9 failures
+# 9 examples, 9 failures
+# high vulnerability found - URL can be accessed by any registered user and can be deleted or edit 
 #
 RSpec.describe CommentsController, type: :controller do
 
@@ -12,35 +13,35 @@ RSpec.describe CommentsController, type: :controller do
   before do
     sign_in user # Assuming Devise is used for authentication
   end
-#case 1
+#case 1 - failing
   describe "GET #index" do
     it "returns a success response" do
       get :post_comments, params: { post_id: 5 }
       expect(response).to have_http_status(:success)
     end
   end
-#case 2
+#case 2 - failing
   describe "GET #show" do
     it "returns a success response" do
       get :show, params: { id: comment.id }
       expect(response).to have_http_status(:success)
     end
   end
-#case 3
+#case 3 - failing
   describe "GET #new" do
     it "returns a success response" do
       get :new, params: { post_id: 1 }
       expect(response).to have_http_status(:success)
     end
   end
-#case 4
+#case 4 - failing
   describe "GET #edit" do
     it "returns a success response" do
       get :edit, params: { id: comment.id }
       expect(response).to have_http_status(:success)
     end
   end
-#case 5
+#case 5 - failing
   describe "POST #create" do
     it "creates a new comment and redirects to the associated post" do
       expect {
@@ -49,13 +50,13 @@ RSpec.describe CommentsController, type: :controller do
 
       expect(response).to redirect_to(Comment.last.post)
     end
-    #case 6
+    #case 6 - failing
     it "renders :new when comment creation fails" do
       post :create, params: { comment: { text: "", post_id: nil, user_id: nil } }
       expect(response).to render_template(:new)
     end
   end
-#case 7
+#case 7 - failing
   describe "PATCH/PUT #update" do
     it "updates the comment and redirects to the comment" do
       patch :update, params: { id: comment.id, comment: { text: "Updated text" } }

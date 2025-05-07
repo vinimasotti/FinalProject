@@ -1,7 +1,8 @@
 # spec/controllers/songs_controller_spec.rb
 require 'rails_helper'
-# 12 examples - 4 failed
-# 
+# 9 examples - 4 failed
+# review CRUD operations
+#
 RSpec.describe SongsController, type: :controller do
   include Devise::Test::ControllerHelpers
 
@@ -39,7 +40,7 @@ RSpec.describe SongsController, type: :controller do
       expect(response).to have_http_status(:ok)
     end
   end
-# test 2 fail/passed 
+# test 2 passed 
   describe 'GET #show' do
     let(:song) { FactoryBot.create(:song, user: user) }
 

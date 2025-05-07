@@ -1,12 +1,12 @@
 # spec/controllers/posts_controller_spec.rb
 require 'rails_helper'
-#15 examples, 8 failures
+#12 examples, 8 failures
 #
 RSpec.describe PostsController, type: :controller do
   include Devise::Test::ControllerHelpers
 
   let(:user) { FactoryBot.create(:user) }
-  #let(:comment) { FactoryBot.create(:comment) }
+  let(:comment) { FactoryBot.create(:comment) }
   let(:other_user) { FactoryBot.create(:user) }
   let(:valid_attributes) { FactoryBot.attributes_for(:post).merge(user_id: user.id) }
   let(:invalid_attributes) { { title: '', description: '' } }
@@ -15,16 +15,16 @@ RSpec.describe PostsController, type: :controller do
     sign_in user
   end
 
-#test case 1 fail
+#case 1 failing
   describe 'GET #index' do
     it 'assigns all posts and songs' do 
-      post1 = FactoryBot.create(:post)
-      song1 = FactoryBot.create(:song, user: user)
+      expect(assigns(:posts)).to include(post1) 
+      expect(assigns(:songs)).to include(song1)  
 
       get :index
 
-      #expect(assigns(:posts)).to include(:post)
-      #expect(assigns(:song)).to include(song1)
+      expect(assigns(:posts)).to include(:posts)
+      expect(assigns(:songs)).to include(song1)
       expect(response).to have_http_status(:ok)
     end
   end
@@ -35,10 +35,10 @@ RSpec.describe PostsController, type: :controller do
     it 'assigns requested post, builds comment and song' do
       get :show, params: { id: post_record.id }
 
-     # expect(assigns(:post)).to eq(post_record)
-     # expect(assigns(:comment)).to be_a_new(Comment)
-     # expect(assigns(:song)).to be_a(Song).or be_a_new(Song)
-     # expect(assigns(:alternate_post)).to eq(post_record)
+      expect(assigns(:post)).to eq(post_record)
+      expect(assigns(:comment)).to be_a_new(Comment)
+      expect(assigns(:song)).to be_a(Song).or be_a_new(Song)
+      expect(assigns(:alternate_post)).to eq(post_record)
       expect(response).to have_http_status(:ok)
     end
   end
