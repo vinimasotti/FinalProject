@@ -1,5 +1,7 @@
 require 'rails_helper'
-#11 examples, 6 failures
+#8 examples, 6 failures
+#User post data structure should be reviewed 
+#User search method should be reviewed or deleted.
 #
 RSpec.describe UsersController, type: :controller do
   # Include Devise test helpers to simulate sign_in
@@ -13,7 +15,7 @@ RSpec.describe UsersController, type: :controller do
     sign_in user
   end
 
-#case 1 FAIL
+#case 1 FAILING
   describe 'GET #users' do
     it 'assigns @users based on search query' do
       matching_user = FactoryBot.create(:user, username: 'search_target')

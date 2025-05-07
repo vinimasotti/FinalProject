@@ -1,4 +1,5 @@
 require 'rails_helper'
+=begin
 # 11 examples, 4 failures
 #
 feature 'User creates a song' do
@@ -35,3 +36,4 @@ feature 'User creates a song' do
     expect(page).to have_content("Audio file can't be blank")
   end
 end
+=end

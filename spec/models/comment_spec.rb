@@ -1,5 +1,5 @@
 require 'rails_helper'
-#10 examples, 1 failure
+#8 examples, 1 failure
 #
 RSpec.describe Comment, type: :model do
   let(:post) { FactoryBot.create(:post) }
@@ -9,27 +9,27 @@ RSpec.describe Comment, type: :model do
       post: post
     }
   end
-
+# case 1
    describe 'validations' do
    it 'is valid with valid attributes' do
        comment = described_class.new(valid_attributes)
        expect(comment).to be_valid
     end
-
+# case 2
      context 'text validation' do
        it { should validate_presence_of(:text) }
-      
+# case 3   
        it 'is invalid without text' do
          comment = described_class.new(valid_attributes.merge(text: nil))
        expect(comment).not_to be_valid
          expect(comment.errors[:text]).to include("can't be blank")
        end
-
-     #  it 'is invalid with text longer than 300 characters' do
-     #    comment = described_class.new(valid_attributes.merge(text: 'a' * 301))
-     #   expect(comment).to be_valid
-      #   expect(comment.errors[:text]).to include('is too long (maximum is 300 characters)')
-     #  end
+# case 4
+       it 'is invalid with text longer than 300 characters' do
+         comment = described_class.new(valid_attributes.merge(text: 'a' * 301))
+        expect(comment).not_to be_valid
+      expect(comment.errors[:text]).to include('is too long (maximum is 300 characters)')
+       end
 
        it 'is valid with exactly 300 characters' do
          comment = described_class.new(valid_attributes.merge(text: 'a' * 300))

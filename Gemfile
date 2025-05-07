@@ -55,12 +55,13 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  
 end
 
 group :test do
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'selenium-webdriver' # or another driver like webdrivers
+  gem 'rspec-rails' # default testing framework
+  gem 'capybara' 
+  gem 'selenium-webdriver' # for system testing
   gem 'database_cleaner-active_record' # optional but recommended for 
  
 end 
