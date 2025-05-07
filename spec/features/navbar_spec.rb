@@ -1,4 +1,4 @@
-=begin
+
 require 'rails_helper'
 # 11 examples, 2 failures
 #
@@ -64,4 +64,3 @@ feature 'Navbar' do
     end
   end
 end
-=end
