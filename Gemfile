@@ -59,12 +59,17 @@ group :development, :test do
 end
 
 group :test do
+<<<<<<< HEAD
   gem 'rspec-rails' # default testing framework
   gem 'capybara' 
   gem 'selenium-webdriver' # for system testing
   gem 'database_cleaner-active_record' # optional but recommended for 
  
 end 
+=======
+ # gem 'rspec-rails'
+end
+>>>>>>> 6a41a75 (gemfile modified)
 
 #group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]

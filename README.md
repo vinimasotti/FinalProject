@@ -21,6 +21,7 @@
 How to run (assume @RubyOnRails and database already installed) <br>
 - git clone https://github.com/vinimasotti/FinalProject <br>
 - bundle install <br>
+- cd Finalproject
 - rails db:create
 - rails db:migrate <br>
 - rails s <br>
