@@ -10,6 +10,8 @@ Bundler.require(*Rails.groups)
 
 module MusicApplication
   class Application < Rails::Application
+    config.exceptions_app = self.routes # added for custom error pages
+    
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
 
@@ -22,9 +24,10 @@ module MusicApplication
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
-    #
+    
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.autoload_paths += %W(#{config.root}/app/validator)
+    
   end
 end

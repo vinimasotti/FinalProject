@@ -18,7 +18,3 @@ module Features
     end
   end
   
-  # spec/rails_helper.rb or spec/spec_helper.rb
-  RSpec.configure do |config|
-    config.include Features::SessionHelpers, type: :feature
-  end

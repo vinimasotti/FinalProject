@@ -1,5 +1,6 @@
 require "active_support/core_ext/integer/time"
 
+
 # The test environment is used exclusively to run your application's
 # test suite. You never need to work with it otherwise. Remember that
 # your test database is "scratch space" for the test suite and is wiped
@@ -7,6 +8,8 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+
+  config.consider_all_requests_local = false #false
 
   # While tests run files are not watched, reloading is not necessary.
   config.enable_reloading = false
@@ -21,7 +24,7 @@ Rails.application.configure do
   config.public_file_server.headers = { "Cache-Control" => "public, max-age=#{1.hour.to_i}" }
 
   # Show full error reports and disable caching.
-  config.consider_all_requests_local = true
+  
   config.action_controller.perform_caching = false
   config.cache_store = :null_store
 
