@@ -1,6 +1,6 @@
-=begin
+
 require 'rails_helper'
-# 17 example, 15 failed
+# 19 examples, 14 failed
 #
 feature 'User profile page' do
   let!(:user) { FactoryBot.create(:user, username: 'profileuser', bio: 'User bio') }
@@ -120,4 +120,3 @@ feature 'User profile page' do
     end
   end
 end
-=end

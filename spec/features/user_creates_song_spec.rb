@@ -1,5 +1,5 @@
-require 'rails_helper'
 =begin
+require 'rails_helper'
 # 11 examples, 4 failures
 #
 feature 'User creates a song' do
@@ -8,7 +8,7 @@ feature 'User creates a song' do
   before do
     sign_in(user)
   end
-
+#case 1 
   scenario 'successfully creates a song with audio file' do
     
     visit new_song_path
@@ -25,7 +25,7 @@ feature 'User creates a song' do
    # expect(page).to have_content('Great Artist')
   end
 
-
+#case 2
   scenario 'shows validation errors when required fields are missing' do
     visit new_song_path
 

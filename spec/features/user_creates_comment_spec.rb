@@ -1,6 +1,6 @@
 =begin
 require 'rails_helper'
-# 15 examples, 4 failures
+# 13 examples, 2 failures
 #
 feature 'User creates a comment' do
   let!(:user) { FactoryBot.create(:user) }
@@ -9,7 +9,7 @@ feature 'User creates a comment' do
   before do
     sign_in(user)
   end
-
+#case 1
   scenario 'successfully creates a comment' do
     visit post_path(post_record)
 
@@ -23,7 +23,7 @@ feature 'User creates a comment' do
     expect(page).to have_content('Comment was successfully created') # Adjust flash message as per your controller
     expect(page).to have_content('This is a valid comment.')
   end
-
+#case 2
   scenario 'shows validation error when text is blank' do
     visit post_path(post_record)
 
@@ -35,7 +35,7 @@ feature 'User creates a comment' do
   end
 #test failed because the validation for maximmum lengh in the model is 300 characteres
 #should review model and view
-
+#case 3
   scenario 'shows validation error when text is too long' do
     visit post_path(post_record)
 
