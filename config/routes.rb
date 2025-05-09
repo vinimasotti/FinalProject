@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+
+  match "/400", to: "errors#bad_request", via: :all
+  match "/404", to: "errors#not_found", via: :all
+  match "/500", to: "errors#internal_server_error", via: :all
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   get "profiles/index"
  
   resources :comments
@@ -20,10 +26,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show]do
   # Nested route to show posts of a user
   get 'posts', to: 'users#posts', as: :posts
-end
+  end
 
-post 'users/:id/follow', to: 'users#follow', as: :follow
-post 'users/:id/unfollow', to: 'users#unfollow', as: :unfollow
+  post 'users/:id/follow', to: 'users#follow', as: :follow
+  post 'users/:id/unfollow', to: 'users#unfollow', as: :unfollow
 
   get "home/about"
   get "posts/myposts"
@@ -40,4 +46,7 @@ post 'users/:id/unfollow', to: 'users#unfollow', as: :unfollow
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   root "home#about"
+
+ 
+  
 end
