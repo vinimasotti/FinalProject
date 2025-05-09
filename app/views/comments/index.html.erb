@@ -1,21 +1,20 @@
 <% if user_signed_in? %>
 
 <p style="color: green"><%= notice %></p>
-
+<center>
 <% content_for :title, "Comments" %>
 
-<h1>Comments</h1>
+<h1>Your Comments</h1>
 
 <div id="comments">
-  <% @comments.reverse.each do |comment| %>
+  <% @comments.select { |comment| comment.user_id == current_user.id }.reverse.each do |comment| %>
     <%= render comment %>
     <p>
       <%= link_to "Show this comment", comment %>
-      <%= link_to "show user", post.user.username, post.user if post.user.present? %>
     </p>
   <% end %>
 </div>
 
 <%= link_to "New comment", new_comment_path %>
-
+</center>
 <% end %>
