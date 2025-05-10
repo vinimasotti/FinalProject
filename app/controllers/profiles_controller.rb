@@ -1,5 +1,3 @@
-=begin
-#discontinued
 
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
@@ -38,4 +36,3 @@ class ProfilesController < ApplicationController
    # params[:query]
  # end 
 end
-=end
