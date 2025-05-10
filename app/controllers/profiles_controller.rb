@@ -1,6 +1,3 @@
-=begin
-#discontinued
-
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
   #before_action :set_user, only: [:show, :posts, :follow, :unfollow, :accept, :decline, :cancel]
@@ -38,4 +35,4 @@ class ProfilesController < ApplicationController
    # params[:query]
  # end 
 end
-=end
+
