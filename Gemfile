@@ -55,24 +55,19 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  
 end
 
 group :test do
-  gem 'rspec-rails' # default testing framework
+ # gem 'rspec-rails' # default testing framework
   gem 'capybara' 
   gem 'selenium-webdriver' # for system testing
-  gem 'database_cleaner-active_record' # optional but recommended for 
- 
-end 
- # gem 'rspec-rails'
-#end
+  gem 'database_cleaner-active_record' # optional but recommended for gitend 
 
 #group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
  # gem "capybara"
   #gem "selenium-webdriver"
-#end
+end
 
 gem "devise", "~> 4.9"
 gem 'followability', github: 'nejdetkadir/followability'
@@ -82,8 +77,7 @@ gem "cssbundling-rails"
 gem 'devise-security'
 gem "actionpack", ">= 7.2.2.1"
 gem "pg"
-gem "rack"
+gem "rack", ">= 3.1.14"
 gem "active_storage_validations"
-  gem 'shoulda-matchers', '~> 5.0'
 
 
