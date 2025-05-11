@@ -1,6 +1,6 @@
 # README
 
-# Current Version 0.8 (Testing)  <br> 
+# Current Version 1.0  <br> 
 
 # Updates: <br> 
 - UI improved <br>
@@ -13,6 +13,7 @@
 - Total data uploaded added <br>
 - Song and post form updated <br>
 - Bug fixes <br>
+- Tests cases added (see branch test)
 
 
 
