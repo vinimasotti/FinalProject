@@ -19,7 +19,7 @@
 
 # OFFICIAL LAUNCH - MAY 28th # <br>
 
-How to run (assume Ruby, @RubyOnRails and Postgres database already installed) <br>
+How to run (assume Ruby, @RubyOnRails and Postgres database already installed) <br> Recommended to run in WSL and Visual Studio Code <br>
 - git clone https://github.com/vinimasotti/FinalProject <br>
 - bundle install <br>
 - cd Finalproject
